@@ -16,6 +16,10 @@ fn init() {
 ```
 
 ```rust
+#[derive(Serialize, Deserialize, Debug, DefaultJson,Clone)]
+pub struct MyEntry {
+    content: String,
+}
 #[zome]
 mod my_zome {
 
@@ -76,7 +80,7 @@ Mauris in turpis odio. Ut egestas purus elit, a malesuada ante eleifend in. Nam 
 ## Even more docs
 
 Vestibulum sollicitudin sem in orci dapibus, a accumsan dolor hendrerit. Ut varius est et ex euismod tempor. Nulla dignissim risus et metus faucibus, quis pulvinar elit semper. Aenean vestibulum nisi dignissim ligula dapibus eleifend. Nullam sollicitudin enim eu mi efficitur, vel suscipit augue euismod. Morbi eget rutrum erat. Proin non nunc nec leo tempus eleifend. Pellentesque nisl felis, consequat sit amet dolor ac, bibendum lobortis augue. Etiam sit amet nisi consectetur, congue neque a, pellentesque ligula. Curabitur quis velit felis. Aenean condimentum malesuada blandit. Vestibulum varius ultricies malesuada.
-```rust
+```
 #[validate_agent]
 pub fn validate_agent(validation_data: EntryValidationData<AgentId>) {
     Ok(())
