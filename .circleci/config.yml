@@ -2,11 +2,11 @@ version: 2
 jobs:
   build:
     docker:
-      - image: debian:stretch
+      - image: holochain/holonix:latest
 
     steps:
       - checkout
       
       - run:
           name: Run all tests
-          command: cargo test --all
+          command: nix-shell https://holochain.love --run 'cd skeptic && cargo test --all'
