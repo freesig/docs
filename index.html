@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="None">
+        
+        
+        <link rel="shortcut icon" href="img/favicon.ico">
+        <title>My Docs</title>
+        <link href="css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="js/jquery-1.10.2.min.js" defer></script>
+        <script src="js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body class="homepage">
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href=".">My Docs</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="active">
+                                <a href=".">Some documentation</a>
+                            </li>
+                            <li >
+                                <a href="some/">Some</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="disabled">
+                                <a rel="next" >
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li >
+                                <a rel="prev" href="some/">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#some-documentation">Some documentation</a></li>
+            <li><a href="#some-more-docs">Some more docs</a></li>
+            <li><a href="#even-more-docs">Even more docs</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="some-documentation">Some documentation</h1>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer tellus augue, ullamcorper id hendrerit vitae, pretium eu erat. Morbi id mattis tortor. Sed ac augue nisl. Nam euismod tortor auctor porttitor consequat. Suspendisse finibus risus massa, at semper risus luctus vitae. Duis eu fringilla lacus. In faucibus varius nisl volutpat varius. Vestibulum ligula lacus, ullamcorper sed viverra vel, blandit nec lacus. Duis nec lorem eget justo porta ornare. Mauris dignissim varius faucibus. In hac habitasse platea dictumst. Duis rhoncus nisl urna, sit amet facilisis lectus dapibus sed. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque id massa vitae libero accumsan accumsan.</p>
+<pre><code class="python">import tensorflow as tf
+</code></pre>
+
+<pre><code class="rust">#[init]
+fn init() {
+    Ok(())
+}
+</code></pre>
+
+<pre><code>#[init]
+fn init() {
+    Ok(())
+}
+</code></pre>
+
+<pre><code class="rust">#[derive(Serialize, Deserialize, Debug, DefaultJson,Clone)]
+pub struct MyEntry {
+    content: String,
+}
+#[zome]
+mod my_zome {
+
+    #[init]
+    fn init() {
+        Ok(())
+    }
+
+    #[entry_def]
+     fn my_entry_def() -&gt; ValidatingEntryType {
+        entry!(
+            name: &quot;my_entry&quot;,
+            description: &quot;this is a same entry defintion&quot;,
+            sharing: Sharing::Public,
+            validation_package: || {
+                hdk::ValidationPackageDefinition::Entry
+            },
+            validation: | _validation_data: hdk::EntryValidationData&lt;MyEntry&gt;| {
+                Ok(())
+            }
+        )
+    }
+
+    #[zome_fn(&quot;hc_public&quot;)]
+    fn create_my_entry(entry: MyEntry) -&gt; ZomeApiResult&lt;Address&gt; {
+        let entry = Entry::App(&quot;my_entry&quot;.into(), entry.into());
+        let address = hdk::commit_entry(&amp;entry)?;
+        Ok(address)
+    }
+
+    #[zome_fn(&quot;hc_public&quot;)]
+    fn get_my_entry(address: Address) -&gt; ZomeApiResult&lt;Option&lt;Entry&gt;&gt; {
+        hdk::get_entry(&amp;address)
+    }
+
+    #[zome_fn(&quot;hc_public&quot;)]
+    fn hello_holo() -&gt; ZomeApiResult&lt;String&gt; {
+        Ok(&quot;Hello Holo&quot;.into())
+    }
+
+    #[validate_agent]
+    pub fn validate_agent(validation_data: EntryValidationData&lt;AgentId&gt;) {
+        Ok(())
+    }
+
+}
+
+</code></pre>
+
+<h2 id="some-more-docs">Some more docs</h2>
+<p>Etiam a velit et erat vulputate sollicitudin. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi ut turpis est. Vestibulum pharetra, augue eu lobortis dapibus, libero lectus semper lectus, non cursus erat tellus a lorem. Pellentesque in orci vel turpis tristique varius non a libero. Nullam quis pellentesque odio, ac consequat ipsum. Nam a nibh et tellus interdum sagittis ut eu magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce luctus tellus sed arcu maximus, ut aliquam turpis tristique. Duis ut sollicitudin tortor, ac rhoncus augue.</p>
+<p>Nullam hendrerit imperdiet tincidunt. Nunc tincidunt tortor diam, vel tempor ipsum sagittis sit amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec accumsan dui. Phasellus rutrum mollis dui vitae convallis. Maecenas vel rhoncus ligula, condimentum pretium quam. Vestibulum molestie porttitor congue. Pellentesque posuere purus et nisi lacinia posuere. Praesent tortor eros, iaculis vel massa id, commodo pellentesque neque.</p>
+<p>Mauris in turpis odio. Ut egestas purus elit, a malesuada ante eleifend in. Nam quis mollis leo. Nunc feugiat enim sed aliquam sagittis. Nunc eu nibh et nibh cursus tincidunt et et quam. Maecenas vitae risus vitae tellus suscipit faucibus non vitae erat. Morbi tristique eleifend augue, id condimentum nisi sagittis in.</p>
+<h2 id="even-more-docs">Even more docs</h2>
+<p>Vestibulum sollicitudin sem in orci dapibus, a accumsan dolor hendrerit. Ut varius est et ex euismod tempor. Nulla dignissim risus et metus faucibus, quis pulvinar elit semper. Aenean vestibulum nisi dignissim ligula dapibus eleifend. Nullam sollicitudin enim eu mi efficitur, vel suscipit augue euismod. Morbi eget rutrum erat. Proin non nunc nec leo tempus eleifend. Pellentesque nisl felis, consequat sit amet dolor ac, bibendum lobortis augue. Etiam sit amet nisi consectetur, congue neque a, pellentesque ligula. Curabitur quis velit felis. Aenean condimentum malesuada blandit. Vestibulum varius ultricies malesuada.</p>
+<pre><code>#[validate_agent]
+pub fn validate_agent(validation_data: EntryValidationData&lt;AgentId&gt;) {
+    Ok(())
+}
+
+</code></pre></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = ".",
+                shortcuts = {"search": 83, "next": 78, "help": 191, "previous": 80};
+        </script>
+        <script src="js/base.js" defer></script>
+        <script src="search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
+
+<!--
+MkDocs version : 1.0.4
+Build Date UTC : 2019-09-06 00:32:37
+-->
