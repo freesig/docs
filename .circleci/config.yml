@@ -42,7 +42,7 @@ jobs:
                   - api
                   - guide
                   - site
-   docs-deploy:
+  docs-deploy:
     docker:
       - image: node:8.10.0
     steps:
@@ -63,22 +63,24 @@ workflows:
   version: 2
   build_and_test:
     jobs:
-      - build-api
-        filters:
+      - build-api:
+          filters:
             branches:
               only: master 
-      - buil-mkdocs:
-        filters:
+      - build-mkdocs:
+          requires:
+            - build-api
+          filters:
             branches:
               only: master 
       - test:
-        filters:
+          filters:
             branches:
               only: master 
       - docs-deploy:
-        requires:
-          - build-api
-          - build-mkdocs
-        filters:
+          requires:
+            - build-api
+            - build-mkdocs
+          filters:
             branches:
               only: master 
