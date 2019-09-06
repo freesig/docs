@@ -17,6 +17,7 @@ rm -rf build/api/$FOLDER/debug
 mv -v build/api/$FOLDER/doc/* build/api/$FOLDER/
 rm -rf build/api/$FOLDER/doc
 
+
 # guidebook
 rm -rf build/guide/$FOLDER
 mkdir build/guide/$FOLDER

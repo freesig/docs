@@ -25,6 +25,7 @@ jobs:
                 paths:
                   - api
                   - guide
+                  - site
   build-mkdocs:
     docker:
       - image: squidfunk/mkdocs-material
