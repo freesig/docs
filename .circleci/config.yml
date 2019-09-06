@@ -16,10 +16,15 @@ jobs:
 
     steps:
       - checkout
-      
+      - restore_cache:
+        key: -V1-{{ checksum "build/0.0.29-alpha2" }}
       - run:
           name: Build api docs 
           command: nix-shell https://holochain.love --run './build_docs.sh 0.0.29-alpha2 0.0.29-alpha2'
+      - save_cache:
+        key: -V1-{{ checksum "build/0.0.29-alpha2" }}
+        paths:
+          - "build/0.0.29-alpha2"
       - persist_to_workspace:
                 root: build/
                 paths:
@@ -59,6 +64,9 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - "08:d9:fc:72:f9:a4:ab:26:5f:32:29:2e:15:f1:85:ee"
+      - run:
+        name: debug
+        command: ls build/site
       - run:
           name: Deploy docs to gh-pages branch
           command: gh-pages --message "[skip ci] Updates" -d build
