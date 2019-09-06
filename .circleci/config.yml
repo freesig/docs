@@ -17,20 +17,26 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-        key: -V1-{{ checksum "build/0.0.29-alpha2" }}
+          key: -V1-build/api/0.0.29-alpha2
+      - restore_cache:
+          key: -V1-build/guide/0.0.29-alpha2
       - run:
           name: Build api docs 
           command: nix-shell https://holochain.love --run './build_docs.sh 0.0.29-alpha2 0.0.29-alpha2'
       - save_cache:
-        key: -V1-{{ checksum "build/0.0.29-alpha2" }}
-        paths:
-          - "build/0.0.29-alpha2"
+          key: -V1-build/api/0.0.29-alpha2
+          paths:
+            - "build/api/0.0.29-alpha2"
+      - save_cache:
+          key: -V1-build/guide/0.0.29-alpha2
+          paths:
+            - "build/guide/0.0.29-alpha2"
       - persist_to_workspace:
-                root: build/
-                paths:
-                  - api
-                  - guide
-                  - site
+          root: build
+          paths:
+            - api/*
+            - guide/*
+            - site/*
   build-mkdocs:
     docker:
       - image: squidfunk/mkdocs-material
@@ -38,16 +44,28 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: build/ 
+          at: build
       - run:
           name: Build mkdocs 
-          command: mkdocs build -d build/site,
+          command: mkdocs build -d build/site
+      - run:
+          name: debug2
+          command: ls .
+      - run:
+          name: debug3
+          command: ls build/
+      - run:
+          name: debug4
+          command: pwd 
+      - run:
+          name: debug
+          command: ls build/site
       - persist_to_workspace:
-                root: build/
-                paths:
-                  - api
-                  - guide
-                  - site
+          root: build
+          paths:
+            - api/*
+            - guide/*
+            - site/*
   docs-deploy:
     docker:
       - image: node:8.10.0
@@ -65,8 +83,8 @@ jobs:
           fingerprints:
             - "08:d9:fc:72:f9:a4:ab:26:5f:32:29:2e:15:f1:85:ee"
       - run:
-        name: debug
-        command: ls build/site
+          name: debug
+          command: ls build/site
       - run:
           name: Deploy docs to gh-pages branch
           command: gh-pages --message "[skip ci] Updates" -d build
