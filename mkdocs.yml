@@ -1,1 +1,9 @@
 site_name: My Docs
+theme:
+  name: 'material'
+markdown_extensions:
+  - admonition
+  - codehilite:
+      guess_lang: false
+  - toc:
+      permalink: true
