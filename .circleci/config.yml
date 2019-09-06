@@ -55,9 +55,12 @@ jobs:
             npm install -g --silent gh-pages@2.1.1
             git config user.email "ci-build@klukas.net"
             git config user.name "ci-build"
+      - add_ssh_keys:
+          fingerprints:
+            - "08:d9:fc:72:f9:a4:ab:26:5f:32:29:2e:15:f1:85:ee"
       - run:
           name: Deploy docs to gh-pages branch
-          command: gh-pages -d build
+          command: gh-pages --message "[skip ci] Updates" -d build
 
 workflows:
   version: 2

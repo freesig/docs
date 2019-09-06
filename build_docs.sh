@@ -20,4 +20,5 @@ rm -rf build/api/$FOLDER/doc
 # guidebook
 rm -rf build/guide/$FOLDER
 mkdir build/guide/$FOLDER
+cargo install --version 0.2.2 mdbook
 mdbook build holochain-rust/doc/holochain_101 --dest-dir ../../../build/guide/$FOLDER
