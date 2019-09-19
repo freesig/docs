@@ -1,128 +1,288 @@
-# Hello Test Tutorial
+# Hello GUI
 
-Welcome to the Hello Test tutorial. Today you will be learning how to test your Holochain apps. This tutorial will add to the previous [Hello Holo]() tutorial, so make sure you do that one first.
+Welcome to the first GUI tutorial. So far we have interacted with our zome using `curl` or `hc test`, but that's not as nice as having a GUI. Today you will learn how to interact with a Holochain app using a super simple web page.
 
-Testing is a really important part of building higher quality apps but it's also a an excellent way to think through how your app will be used.
+## HTML page
 
-## Understand the tests
+You will need somewhere for all your GUI code to live. This will be a different piece of software to your Holochain zome code. So choose somewhere outside your Holochain application.
 
-When you ran `hc init` in the previous tutorial Holochain already generated some tests for you.
-
-The tests are written in JavaScript and use the Holochain testing framework [Diorama](https://github.com/holochain/diorama), along with a popular test harness called [Tape](https://github.com/substack/tape). You can run them with [Node.JS](https://nodejs.org/en/), a runtime that lets you execute JavaScript in the terminal.
-
-Open up the `hello_holo/test/index.js` in your favourite text editor. Have a look through the code.
-
-Imports required to do testing:
-
-```javascript
-const path = require('path')
-const tape = require('tape')
-
-const { Diorama, tapeExecutor, backwardCompatibilityMiddleware } = require('@holochain/diorama')
-```
-
-This is a catch-all error logger that will let you know if a `Promise` fails and there's no error handler to hear it. [`Promise`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)s are a way of simplifying complex asynchronous code, and Diorama uses a lot of them.
-
-```javascript
-process.on('unhandledRejection', error => {
-  console.error('got unhandledRejection:', error);
-});
-
-```
-
-The path to your compiled DNA.
-
-```javascript
-const dnaPath = path.join(__dirname, "../dist/hello_holo.dna.json")
-const dna = Diorama.dna(dnaPath, 'hello_holo')
-```
-
-Setup a testing scenario.
-This creates two agents: Alice and Bob.
-
-```javascript
-const diorama = new Diorama({
-  instances: {
-    alice: dna,
-    bob: dna,
-  },
-  bridges: [],
-  debugLog: false,
-  executor: tapeExecutor(require('tape')),
-  middleware: backwardCompatibilityMiddleware,
-})
-```
-
-This is the test that Holochain generated based on the `my_entry` struct and the zome functions that work with it. We removed them in our Hello Holo tutorial, so let's remove the test.
-
-Remove the following section:
-
-```javascript
-diorama.registerScenario("description of example test", async (s, t, { alice }) => {
-  // Make a call to a Zome function
-  // indicating the function, and passing it an input
-  const addr = await alice.call("my_zome", "create_my_entry", {"entry" : {"content":"sample content"}})
-  const result = await alice.call("my_zome", "get_my_entry", {"address": addr.Ok})
-
-  // check for equality of the actual and expected results
-  t.deepEqual(result, { Ok: { App: [ 'my_entry', '{"content":"sample content"}' ] } })
-})
-```
-
-This line will run the tests that you have set up.
-
-```javascript
-diorama.run()
-```
-
-## Create a test scenario
-
-Tests are organized by creating scenarios. Think of them as a series of actions that the user or group of users take when interacting with your app.
-
-For this test you simply want to get the Alice user to call the `hello_holo` zome function. Then check that you get the result `Hello Holo`.
-
-Place the following just above `diorama.run()`.
-
-Register a test scenario that checks `hello_holo()` returns the correct value:
-
-```javascript
-diorama.registerScenario("Test hello holo", async (s, t, { alice }) => {
-```
-
-Make a call to the `hello_holo` Zome function, passing no arguments:
-
-```javascript
-  const result = await alice.call("hello", "hello_holo", {});
-```
-
-Make sure the result is okay:
-
-```javascript
-  t.ok(result.Ok);
-```
-
-Check that the result matches what you expected:
-
-```javascript
-  t.deepEqual(result, { Ok: 'Hello Holo' })
-})
-```
-
-## Run the test
-
-Now in the `hello_helo` directory, run the test like this:
+Create a folder for our GUI to live in:
 
 ```bash
-$ hc test
+cd holochain/coreconcepts
+mkdir gui
+cd gui
 ```
 
-This will compile and run the test scenario you just wrote. You will see a lot of output. But if everything went okay, then right at the end you will see:
+Create a new file called `index.html` in your favourite editor. It should live at `gui/index.html`. Start by adding a simple HTML template to `index.html`.
+
+Add this modern template:
+
+```html
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Hello GUI</title>
+  <meta name="description" content="GUI for a Holochain app">
+</head>
+
+<body>
+</body>
+</html>
+```
+
+Inside the `<body>` tag add a button:
+
+```html 
+<button type="button">Say Hello</button>
+```
+
+To make things a bit nicer on the eyes you can add the `water.css` stylesheet.
+
+Add this water.css link inside the `<head>` tag:
+
+```html 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/dark.min.css">
+```
+
+## Run a simple server
+
+Your `index.html` should now look like:
+
+```html 
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Hello Gui</title>
+  <meta name="description" content="Gui for a Holochain app">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/dark.min.css">
+</head>
+
+<body>
+   <button type="button">Say Hello</button>
+</body>
+</html>
+```
+
+Enter the `nix-shell` to make sure you have all the dependencies available:
+
+```bash
+nix-shell https://holochain.love
+```
+
+Once that is all up and running, you can fire up a simple server:
+
+```bash
+python -m SimpleHTTPServer
+```
+
+And go have a look in your browser at `http://0.0.0.0:8000/`. You will see something like this:
+
+![](https://i.imgur.com/Tfjd2ZX.png)
+
+## hc-web-client
+
+Time to communicate with the app that you built in the previous tutorials. To make this easy you can use the [hc-web-client](https://github.com/holochain/hc-web-client). It's Holochain's JavaScript library that helps you easily setup a [WebSocket](https://en.wikipedia.org/wiki/WebSocket) connection to your app.
+
+> #### Why WebSocket instead of HTTP?
+> Having a WebSocket connection open allows your app to send messages to your GUI. While we are not doing that today, it's good to get familiar with this process.
+
+To make this process easy we have precompiled a version of the hc-web-client for you.
+
+Download it [here](), then unzip it and stick it in your GUI directory so that the files lives here:
 
 ```
-# tests 2
-# pass  2
-
-# ok
+gui/hc-web-client/hc-web-client-0.5.1.browser.min.js
+gui/hc-web-client/hc-web-client-0.5.1.browser.min.js.map
 ```
 
-Congratulations; you have tested your first Holochain app. Look at you go! :sparkles: 
+Once that's done you can easily link to the compiled js file by adding this `script` tag inside your `body` tag:
+
+```html 
+<script type="text/javascript" src="hc-web-client/hc-web-client-0.5.1.browser.min.js"></script>
+```
+
+## Call the zome function
+
+Now that you have linked the hc-web-client.js library you can make a simple zome call with some vanilla JavaScript.
+
+Add this function inside your `<body>` tag:
+
+```javascript
+<script type="text/javascript">
+```
+
+Make a WebSocket connection to Holochain on port 3401:
+
+```javascript
+var holochain_connection = holochainclient.connect({ url: "ws://localhost:3401"});
+```
+
+Add a `hello()` JavaScript function so you can call it from your HTML:
+
+```javascript
+function hello() {
+```
+
+Wait for Holochain to connect and then make a zome call:
+
+```javascript
+  holochain_connection.then(({callZome, close}) => {
+```
+
+Call the `hello_holo` zome function in the `hello` zome running on the `test-instance` instance:
+
+```javascript
+    callZome('test-instance', 'hello', 'hello_holo')({"args": {} })
+```
+
+Log the result in the browser's console:
+
+```javascript
+    .then((result) => console.log(result))
+  })
+}
+```
+
+Close the script tag:
+
+```javascript
+</script>
+```
+
+This hello function will connect to your app through WebSocket on port `3401`, call the hello zome function, and print the result to your browser's console.
+
+Let's make your button call this function by adding an `onclick` event handler.
+
+Add this button inside the `<body>` tag:
+
+```html
+   <button onclick="hello()" type="button">Say Hello</button>
+```
+
+## Run your app
+
+To make a call from the GUI, your Holochain app must be running. So open up a new terminal window, navigate to the app you built in the previous tutorials, and enter the nix-shell:
+
+```bash
+cd holochain/core_concepts/hello
+nix-shell https://holochain.love
+```
+
+Now run your app:
+
+```bash
+hc package
+hc run -p 3401
+```
+
+## Make a zome call
+
+Your `index.html` should look like this:
+
+```javascript
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Hello Gui</title>
+  <meta name="description" content="Gui for a Holochain app">
+  <meta name="author" content="Holochain">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/dark.min.css">
+
+</head>
+
+<body>
+    <button onclick="hello()" type="button">Say Hello</button>
+    <div><span>Response:</span><span id="output"></span></div>
+    <script type="text/javascript" src="hc-web-client/hc-web-client-0.5.1.browser.min.js"></script>
+    <script type="text/javascript">
+    // Connection state
+    var holochain_connection = holochainclient.connect({ url: "ws://localhost:3401"});
+
+    function hello() {
+      holochain_connection.then(({callZome, close}) => {
+        callZome('test-instance', 'hello', 'hello_holo')({"args": {} }).then((result) => update_span(result))
+      })
+    }
+    </script>
+</body>
+</html>
+```
+
+In your other terminal window (the one with the GUI code) run the `SimpleHTTPServer` again:
+
+```bash
+python -m SimpleHTTPServer
+```
+
+Open up your browser and head to `0.0.0.0:8000`. The page will look the same but open you your developer console and click the "Say Hello" button. You should see something like this:
+
+![](https://i.imgur.com/vhTaH0W.png)
+> I'm using Firefox so this might look a little different depending on your browser
+ 
+Woohoo! You have made a call to your Holochain app using a GUI.
+
+## Render the output
+
+It would be nicer if we didn't need to use the developer console to see the result of the `hello_holo` call. So let's add a place on the page to show it.
+
+Add the following HTML inside your `<body>` tag:
+
+```html 
+<div>Response: <span id="output"></span></div>
+```
+
+The `id="output"` is what we will use to update this element from a JavaScript function.
+
+Add the following lines below you `hello` function.
+
+Add an `update_span` function that takes the result:
+
+```javascript
+function update_span(result) {
+```
+
+Get the element that you'll be inserting the output into:
+
+```javascript
+  var span = document.getElementById('output');
+```
+
+Parse the zome function result as JSON:
+
+```javascript
+  var output = JSON.parse(result);
+```
+
+Set the contents of the element to the zome function result:
+
+```javascript
+  span.textContent = " " + output.Ok;
+}
+```
+
+Finally, update the `hello` function to call your new `update_span` function instead of `console.log()`.
+
+[![asciicast](https://asciinema.org/a/AaEsgKDvORW1xHrjIRxBWWIIg.svg)](https://asciinema.org/a/AaEsgKDvORW1xHrjIRxBWWIIg)
+
+## Test the output works 
+
+Head over to `0.0.0.0:8000` in your web browser (you might need to refresh) and you should see this:
+
+![](https://i.imgur.com/FMxeMx0.png)
+
+Now press the __Say Hello__ button and you get your response:
+
+![](https://i.imgur.com/mDBaVlD.png)
+
+Well done! You have a working GUI that can talk to your Holochain app.
