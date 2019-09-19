@@ -12,8 +12,23 @@
 
 </head>
 
-<body>
+<body onload="yeh()">
   <h1>Api</h1>
   <div><a href="0.0.29-alpha2/hdk">latest</a></div>
+  <script>
+    function yeh() {
+    const userAction = async () => {
+      const response = await fetch('https://api.github.com/repos/holochain/holochain-rust/releases');
+      response.json().then(result => show_api(result));
+    }
+      userAction();
+    }
+    function show_api(api) {
+      api = api.filter(x => x.tag_name.match(/^[v\d]/g));
+      for (x of api) {
+        console.log(x.tag_name);
+      }
+    }
+  </script>
 </body>
 </html>

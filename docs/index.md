@@ -89,3 +89,11 @@ pub fn validate_agent(validation_data: EntryValidationData<AgentId>) {
 }
 
 ```
+<p>Testing this html tags</p>
+<button type="button">Button</button>
+<button onclick="hello_now()" type="button">Button</button>
+<script>
+function hello_now() { alert("yoooo") }
+</script>
+<script id="asciicast-oiFGzlKexjVVMrNxf7Gc00Oiw" src="https://asciinema.org/a/oiFGzlKexjVVMrNxf7Gc00Oiw.js" async></script>
+
