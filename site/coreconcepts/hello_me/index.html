@@ -215,8 +215,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../hello_gui/" title="Hello Test Tutorial" class="md-nav__link">
-      Hello Test Tutorial
+    <a href="../hello_gui/" title="Hello GUI" class="md-nav__link">
+      Hello GUI
     </a>
   </li>
 
@@ -769,8 +769,8 @@
 
 
 <p>Add the following lines.</p>
-<p>Allow this struct to be easily converted to and from JSON:
-#S:INCLUDE</p>
+<p>Allow this struct to be easily converted to and from JSON:</p>
+<p>#S:INCLUDE</p>
 <div class="codehilite"><pre><span></span><span class="cp">#[derive(Serialize, Deserialize, Debug, DefaultJson, Clone)]</span><span class="w"></span>
 </pre></div>
 
@@ -866,8 +866,8 @@ Validation is very important. It is the "rules of the game" for your Holochain a
 <p><a href="https://asciinema.org/a/Smv3xxADtSj8AExf3X9d3UApI"><img alt="asciicast" src="https://asciinema.org/a/Smv3xxADtSj8AExf3X9d3UApI.svg" /></a></p>
 <h3 id="compile">Compile<a class="headerlink" href="#compile" title="Permanent link">&para;</a></h3>
 <p><em>TODO: The following code block should be collapsable</em>
-Check your code matches this:
-#S:SKIP</p>
+Check your code matches this:</p>
+<p>#S:SKIP</p>
 <div class="codehilite"><pre><span></span><span class="cp">#![feature(proc_macro_hygiene)]</span><span class="w"></span>
 <span class="cp">#[macro_use]</span><span class="w"></span>
 <span class="k">extern</span><span class="w"> </span><span class="k">crate</span><span class="w"> </span><span class="n">hdk</span><span class="p">;</span><span class="w"></span>
@@ -950,8 +950,8 @@ Check your code matches this:
 <h2 id="create-a-person">Create a person<a class="headerlink" href="#create-a-person" title="Permanent link">&para;</a></h2>
 <p>Now you need a way for you UI to actually create a person entry. Holochain has a concept called <code>hc_public</code> which is a way of telling the runtime make this function available to call from outside this zome.</p>
 <p>Add the following lines below the previous <code>person_entry_def</code> function.</p>
-<p>Add a public function that takes a <code>Person</code> and returns a result with an <code>Address</code>:
-#S:INCLUDE</p>
+<p>Add a public function that takes a <code>Person</code> and returns a result with an <code>Address</code>:</p>
+<p>#S:INCLUDE</p>
 <div class="codehilite"><pre><span></span><span class="cp">#[zome_fn(</span><span class="s">&quot;hc_public&quot;</span><span class="cp">)]</span><span class="w"></span>
 <span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">create_person</span><span class="p">(</span><span class="n">person</span>: <span class="nc">Person</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nc">ZomeApiResult</span><span class="o">&lt;</span><span class="n">Address</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 </pre></div>
@@ -1124,11 +1124,12 @@ nix-shell<span class="o">]</span> hc run -p <span class="m">8080</span>
 <p>The address you see will probably be different, because you probably typed in your own name.</p>
 </blockquote>
 <h3 id="show-the-new-entrys-address">Show the new entry's address<a class="headerlink" href="#show-the-new-entrys-address" title="Permanent link">&para;</a></h3>
-<p>First, a bit of refactoring. If you make the <code>update_span</code> function more generic, then you can reuse it for each element.</p>
+<p>Now we're going to show the address on the page rather than the developer console.</p>
+<p>But first, a bit of refactoring. If you make the <code>update_span</code> function more generic, then you can reuse it for each element that shows the output for a zome function.</p>
 <p>Pass in the element's ID so that the function can be reused:</p>
 <p><a href="https://asciinema.org/a/ZIP7v6Qy4Y5f4aVR34CPWolW7"><img alt="asciicast" src="https://asciinema.org/a/ZIP7v6Qy4Y5f4aVR34CPWolW7.svg" /></a></p>
 <h3 id="enter-the-browser">Enter the browser<a class="headerlink" href="#enter-the-browser" title="Permanent link">&para;</a></h3>
-<p>Go back to your browser and refresh the page. This time when you enter your name and press <strong>Submit Name</strong> you will see the address show up:</p>
+<p>Go back to your browser and refresh the page. This time when you enter your name and press <strong>Submit Name</strong>, you will see the address show up:</p>
 <p><img alt="" src="https://i.imgur.com/rMfAa7t.png" /></p>
 <h2 id="retrieve-a-person-entry-and-show-it-in-the-ui">Retrieve a person entry and show it in the UI<a class="headerlink" href="#retrieve-a-person-entry-and-show-it-in-the-ui" title="Permanent link">&para;</a></h2>
 <p>Back in the <code>index.html</code> file now. Add a text box so the user can enter the address that is returned from the <code>create_person</code> function:</p>
@@ -1147,7 +1148,7 @@ nix-shell<span class="o">]</span> hc run -p <span class="m">8080</span>
 
 
 <h3 id="go-to-your-hellojs-file">Go to your <code>hello.js</code> file<a class="headerlink" href="#go-to-your-hellojs-file" title="Permanent link">&para;</a></h3>
-<p>Add the <code>retrieve_person</code> function to call the zome function:</p>
+<p>Add the <code>retrieve_person</code> function to call the zome function of the same name and show its response:</p>
 <div class="codehilite"><pre><span></span><span class="kd">function</span> <span class="nx">retrieve_person</span><span class="p">()</span> <span class="p">{</span>
 </pre></div>
 
@@ -1162,7 +1163,7 @@ nix-shell<span class="o">]</span> hc run -p <span class="m">8080</span>
 </pre></div>
 
 
-<p>Call the <code>retrieve_person</code> public zome function and pass in the address then pass the result to <code>update_person</code>:</p>
+<p>Call the <code>retrieve_person</code> public zome function, passing in the address. Then pass the result to <code>update_person</code>:</p>
 <div class="codehilite"><pre><span></span>    <span class="nx">callZome</span><span class="p">(</span><span class="s1">&#39;test-instance&#39;</span><span class="p">,</span> <span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="s1">&#39;retrieve_person&#39;</span><span class="p">)({</span><span class="nx">address</span><span class="o">:</span> <span class="nx">address</span><span class="p">}).</span><span class="nx">then</span><span class="p">((</span><span class="nx">result</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">update_person</span><span class="p">(</span><span class="nx">result</span><span class="p">))</span>
   <span class="p">})</span>
 <span class="p">}</span>

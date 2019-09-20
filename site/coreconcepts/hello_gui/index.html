@@ -36,7 +36,7 @@
     
     
       
-        <title>Hello Test Tutorial - My Docs</title>
+        <title>Hello GUI - My Docs</title>
       
     
     
@@ -75,7 +75,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#hello-test-tutorial" tabindex="1" class="md-skip">
+      <a href="#hello-gui" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -101,7 +101,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Hello Test Tutorial
+                Hello GUI
               
             </span>
           
@@ -224,11 +224,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Hello Test Tutorial
+        Hello GUI
       </label>
     
-    <a href="./" title="Hello Test Tutorial" class="md-nav__link md-nav__link--active">
-      Hello Test Tutorial
+    <a href="./" title="Hello GUI" class="md-nav__link md-nav__link--active">
+      Hello GUI
     </a>
     
       
@@ -242,22 +242,70 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#understand-the-tests" class="md-nav__link">
-    Understand the tests
+  <a href="#html-page" class="md-nav__link">
+    HTML page
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#create-a-test-scenario" class="md-nav__link">
-    Create a test scenario
+  <a href="#run-a-simple-server" class="md-nav__link">
+    Run a simple server
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#run-the-test" class="md-nav__link">
-    Run the test
+  <a href="#hc-web-client" class="md-nav__link">
+    hc-web-client
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-websocket-instead-of-http" class="md-nav__link">
+    Why WebSocket instead of HTTP?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#call-the-zome-function" class="md-nav__link">
+    Call the zome function
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-your-app" class="md-nav__link">
+    Run your app
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#make-a-zome-call" class="md-nav__link">
+    Make a zome call
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#render-the-output" class="md-nav__link">
+    Render the output
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-the-output-works" class="md-nav__link">
+    Test the output works
   </a>
   
 </li>
@@ -359,22 +407,70 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#understand-the-tests" class="md-nav__link">
-    Understand the tests
+  <a href="#html-page" class="md-nav__link">
+    HTML page
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#create-a-test-scenario" class="md-nav__link">
-    Create a test scenario
+  <a href="#run-a-simple-server" class="md-nav__link">
+    Run a simple server
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#run-the-test" class="md-nav__link">
-    Run the test
+  <a href="#hc-web-client" class="md-nav__link">
+    hc-web-client
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-websocket-instead-of-http" class="md-nav__link">
+    Why WebSocket instead of HTTP?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#call-the-zome-function" class="md-nav__link">
+    Call the zome function
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-your-app" class="md-nav__link">
+    Run your app
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#make-a-zome-call" class="md-nav__link">
+    Make a zome call
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#render-the-output" class="md-nav__link">
+    Render the output
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-the-output-works" class="md-nav__link">
+    Test the output works
   </a>
   
 </li>
@@ -396,108 +492,239 @@
               
                 
                 
-                <h1 id="hello-test-tutorial">Hello Test Tutorial<a class="headerlink" href="#hello-test-tutorial" title="Permanent link">&para;</a></h1>
-<p>Welcome to the Hello Test tutorial. Today you will be learning how to test your Holochain apps. This tutorial will add to the previous <a href="">Hello Holo</a> tutorial, so make sure you do that one first.</p>
-<p>Testing is a really important part of building higher quality apps but it's also a an excellent way to think through how your app will be used.</p>
-<h2 id="understand-the-tests">Understand the tests<a class="headerlink" href="#understand-the-tests" title="Permanent link">&para;</a></h2>
-<p>When you ran <code>hc init</code> in the previous tutorial Holochain already generated some tests for you.</p>
-<p>The tests are written in JavaScript and use the Holochain testing framework <a href="https://github.com/holochain/diorama">Diorama</a>, along with a popular test harness called <a href="https://github.com/substack/tape">Tape</a>. You can run them with <a href="https://nodejs.org/en/">Node.JS</a>, a runtime that lets you execute JavaScript in the terminal.</p>
-<p>Open up the <code>hello_holo/test/index.js</code> in your favourite text editor. Have a look through the code.</p>
-<p>Imports required to do testing:</p>
-<div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;path&#39;</span><span class="p">)</span>
-<span class="kr">const</span> <span class="nx">tape</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;tape&#39;</span><span class="p">)</span>
-
-<span class="kr">const</span> <span class="p">{</span> <span class="nx">Diorama</span><span class="p">,</span> <span class="nx">tapeExecutor</span><span class="p">,</span> <span class="nx">backwardCompatibilityMiddleware</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@holochain/diorama&#39;</span><span class="p">)</span>
+                <h1 id="hello-gui">Hello GUI<a class="headerlink" href="#hello-gui" title="Permanent link">&para;</a></h1>
+<p>Welcome to the first GUI tutorial. So far we have interacted with our zome using <code>curl</code> or <code>hc test</code>, but that's not as nice as having a GUI. Today you will learn how to interact with a Holochain app using a super simple web page.</p>
+<h2 id="html-page">HTML page<a class="headerlink" href="#html-page" title="Permanent link">&para;</a></h2>
+<p>You will need somewhere for all your GUI code to live. This will be a different piece of software to your Holochain zome code. So choose somewhere outside your Holochain application.</p>
+<p>Create a folder for our GUI to live in:</p>
+<div class="codehilite"><pre><span></span><span class="nb">cd</span> holochain/coreconcepts
+mkdir gui
+<span class="nb">cd</span> gui
 </pre></div>
 
 
-<p>This is a catch-all error logger that will let you know if a <code>Promise</code> fails and there's no error handler to hear it. <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise"><code>Promise</code></a>s are a way of simplifying complex asynchronous code, and Diorama uses a lot of them.</p>
-<div class="codehilite"><pre><span></span><span class="nx">process</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;unhandledRejection&#39;</span><span class="p">,</span> <span class="nx">error</span> <span class="p">=&gt;</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;got unhandledRejection:&#39;</span><span class="p">,</span> <span class="nx">error</span><span class="p">);</span>
-<span class="p">});</span>
+<p>Create a new file called <code>index.html</code> in your favourite editor. It should live at <code>gui/index.html</code>. Start by adding a simple HTML template to <code>index.html</code>.</p>
+<p>Add this modern template:</p>
+<div class="codehilite"><pre><span></span><span class="cp">&lt;!doctype html&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span><span class="p">&gt;</span>
+
+  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Hello GUI<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;description&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;GUI for a Holochain app&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </pre></div>
 
 
-<p>The path to your compiled DNA.</p>
-<div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">dnaPath</span> <span class="o">=</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s2">&quot;../dist/hello_holo.dna.json&quot;</span><span class="p">)</span>
-<span class="kr">const</span> <span class="nx">dna</span> <span class="o">=</span> <span class="nx">Diorama</span><span class="p">.</span><span class="nx">dna</span><span class="p">(</span><span class="nx">dnaPath</span><span class="p">,</span> <span class="s1">&#39;hello_holo&#39;</span><span class="p">)</span>
+<p>Inside the <code>&lt;body&gt;</code> tag add a button:</p>
+<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span><span class="p">&gt;</span>Say Hello<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 </pre></div>
 
 
-<p>Setup a testing scenario.
-This creates two agents: Alice and Bob.</p>
-<div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">diorama</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Diorama</span><span class="p">({</span>
-  <span class="nx">instances</span><span class="o">:</span> <span class="p">{</span>
-    <span class="nx">alice</span><span class="o">:</span> <span class="nx">dna</span><span class="p">,</span>
-    <span class="nx">bob</span><span class="o">:</span> <span class="nx">dna</span><span class="p">,</span>
-  <span class="p">},</span>
-  <span class="nx">bridges</span><span class="o">:</span> <span class="p">[],</span>
-  <span class="nx">debugLog</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-  <span class="nx">executor</span><span class="o">:</span> <span class="nx">tapeExecutor</span><span class="p">(</span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;tape&#39;</span><span class="p">)),</span>
-  <span class="nx">middleware</span><span class="o">:</span> <span class="nx">backwardCompatibilityMiddleware</span><span class="p">,</span>
-<span class="p">})</span>
+<p>To make things a bit nicer on the eyes you can add the <code>water.css</code> stylesheet.</p>
+<p>Add this water.css link inside the <code>&lt;head&gt;</code> tag:</p>
+<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/dark.min.css&quot;</span><span class="p">&gt;</span>
 </pre></div>
 
 
-<p>This is the test that Holochain generated based on the <code>my_entry</code> struct and the zome functions that work with it. We removed them in our Hello Holo tutorial, so let's remove the test.</p>
-<p>Remove the following section:</p>
-<div class="codehilite"><pre><span></span><span class="nx">diorama</span><span class="p">.</span><span class="nx">registerScenario</span><span class="p">(</span><span class="s2">&quot;description of example test&quot;</span><span class="p">,</span> <span class="nx">async</span> <span class="p">(</span><span class="nx">s</span><span class="p">,</span> <span class="nx">t</span><span class="p">,</span> <span class="p">{</span> <span class="nx">alice</span> <span class="p">})</span> <span class="p">=&gt;</span> <span class="p">{</span>
-  <span class="c1">// Make a call to a Zome function</span>
-  <span class="c1">// indicating the function, and passing it an input</span>
-  <span class="kr">const</span> <span class="nx">addr</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">alice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="s2">&quot;my_zome&quot;</span><span class="p">,</span> <span class="s2">&quot;create_my_entry&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;entry&quot;</span> <span class="o">:</span> <span class="p">{</span><span class="s2">&quot;content&quot;</span><span class="o">:</span><span class="s2">&quot;sample content&quot;</span><span class="p">}})</span>
-  <span class="kr">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">alice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="s2">&quot;my_zome&quot;</span><span class="p">,</span> <span class="s2">&quot;get_my_entry&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;address&quot;</span><span class="o">:</span> <span class="nx">addr</span><span class="p">.</span><span class="nx">Ok</span><span class="p">})</span>
+<h2 id="run-a-simple-server">Run a simple server<a class="headerlink" href="#run-a-simple-server" title="Permanent link">&para;</a></h2>
+<p>Your <code>index.html</code> should now look like:</p>
+<div class="codehilite"><pre><span></span><span class="cp">&lt;!doctype html&gt;</span>
 
-  <span class="c1">// check for equality of the actual and expected results</span>
-  <span class="nx">t</span><span class="p">.</span><span class="nx">deepEqual</span><span class="p">(</span><span class="nx">result</span><span class="p">,</span> <span class="p">{</span> <span class="nx">Ok</span><span class="o">:</span> <span class="p">{</span> <span class="nx">App</span><span class="o">:</span> <span class="p">[</span> <span class="s1">&#39;my_entry&#39;</span><span class="p">,</span> <span class="s1">&#39;{&quot;content&quot;:&quot;sample content&quot;}&#39;</span> <span class="p">]</span> <span class="p">}</span> <span class="p">})</span>
-<span class="p">})</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span><span class="p">&gt;</span>
+
+  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Hello Gui<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;description&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;Gui for a Holochain app&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/dark.min.css&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span><span class="p">&gt;</span>Say Hello<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </pre></div>
 
 
-<p>This line will run the tests that you have set up.</p>
-<div class="codehilite"><pre><span></span><span class="nx">diorama</span><span class="p">.</span><span class="nx">run</span><span class="p">()</span>
+<p>Enter the <code>nix-shell</code> to make sure you have all the dependencies available:</p>
+<div class="codehilite"><pre><span></span>nix-shell https://holochain.love
 </pre></div>
 
 
-<h2 id="create-a-test-scenario">Create a test scenario<a class="headerlink" href="#create-a-test-scenario" title="Permanent link">&para;</a></h2>
-<p>Tests are organized by creating scenarios. Think of them as a series of actions that the user or group of users take when interacting with your app.</p>
-<p>For this test you simply want to get the Alice user to call the <code>hello_holo</code> zome function. Then check that you get the result <code>Hello Holo</code>.</p>
-<p>Place the following just above <code>diorama.run()</code>.</p>
-<p>Register a test scenario that checks <code>hello_holo()</code> returns the correct value:</p>
-<div class="codehilite"><pre><span></span><span class="nx">diorama</span><span class="p">.</span><span class="nx">registerScenario</span><span class="p">(</span><span class="s2">&quot;Test hello holo&quot;</span><span class="p">,</span> <span class="nx">async</span> <span class="p">(</span><span class="nx">s</span><span class="p">,</span> <span class="nx">t</span><span class="p">,</span> <span class="p">{</span> <span class="nx">alice</span> <span class="p">})</span> <span class="p">=&gt;</span> <span class="p">{</span>
+<p>Once that is all up and running, you can fire up a simple server:</p>
+<div class="codehilite"><pre><span></span>python -m SimpleHTTPServer
 </pre></div>
 
 
-<p>Make a call to the <code>hello_holo</code> Zome function, passing no arguments:</p>
-<div class="codehilite"><pre><span></span>  <span class="kr">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">alice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">,</span> <span class="s2">&quot;hello_holo&quot;</span><span class="p">,</span> <span class="p">{});</span>
+<p>And go have a look in your browser at <code>http://0.0.0.0:8000/</code>. You will see something like this:</p>
+<p><img alt="" src="https://i.imgur.com/Tfjd2ZX.png" /></p>
+<h2 id="hc-web-client">hc-web-client<a class="headerlink" href="#hc-web-client" title="Permanent link">&para;</a></h2>
+<p>Time to communicate with the app that you built in the previous tutorials. To make this easy you can use the <a href="https://github.com/holochain/hc-web-client">hc-web-client</a>. It's Holochain's JavaScript library that helps you easily setup a <a href="https://en.wikipedia.org/wiki/WebSocket">WebSocket</a> connection to your app.</p>
+<blockquote>
+<h4 id="why-websocket-instead-of-http">Why WebSocket instead of HTTP?<a class="headerlink" href="#why-websocket-instead-of-http" title="Permanent link">&para;</a></h4>
+<p>Having a WebSocket connection open allows your app to send messages to your GUI. While we are not doing that today, it's good to get familiar with this process.</p>
+</blockquote>
+<p>To make this process easy we have precompiled a version of the hc-web-client for you.</p>
+<p>Download it <a href="">here</a>, then unzip it and stick it in your GUI directory so that the files lives here:</p>
+<div class="codehilite"><pre><span></span>gui/hc-web-client/hc-web-client-0.5.1.browser.min.js
+gui/hc-web-client/hc-web-client-0.5.1.browser.min.js.map
 </pre></div>
 
 
-<p>Make sure the result is okay:</p>
-<div class="codehilite"><pre><span></span>  <span class="nx">t</span><span class="p">.</span><span class="nx">ok</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">Ok</span><span class="p">);</span>
+<p>Once that's done you can easily link to the compiled js file by adding this <code>script</code> tag inside your <code>body</code> tag:</p>
+<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;hc-web-client/hc-web-client-0.5.1.browser.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </pre></div>
 
 
-<p>Check that the result matches what you expected:</p>
-<div class="codehilite"><pre><span></span>  <span class="nx">t</span><span class="p">.</span><span class="nx">deepEqual</span><span class="p">(</span><span class="nx">result</span><span class="p">,</span> <span class="p">{</span> <span class="nx">Ok</span><span class="o">:</span> <span class="s1">&#39;Hello Holo&#39;</span> <span class="p">})</span>
-<span class="p">})</span>
+<h2 id="call-the-zome-function">Call the zome function<a class="headerlink" href="#call-the-zome-function" title="Permanent link">&para;</a></h2>
+<p>Now that you have linked the hc-web-client.js library you can make a simple zome call with some vanilla JavaScript.</p>
+<p>Add this function inside your <code>&lt;body&gt;</code> tag:</p>
+<div class="codehilite"><pre><span></span><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text/javascript&quot;</span><span class="o">&gt;</span>
 </pre></div>
 
 
-<h2 id="run-the-test">Run the test<a class="headerlink" href="#run-the-test" title="Permanent link">&para;</a></h2>
-<p>Now in the <code>hello_helo</code> directory, run the test like this:</p>
-<div class="codehilite"><pre><span></span>$ hc <span class="nb">test</span>
+<p>Make a WebSocket connection to Holochain on port 3401:</p>
+<div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nx">holochain_connection</span> <span class="o">=</span> <span class="nx">holochainclient</span><span class="p">.</span><span class="nx">connect</span><span class="p">({</span> <span class="nx">url</span><span class="o">:</span> <span class="s2">&quot;ws://localhost:3401&quot;</span><span class="p">});</span>
 </pre></div>
 
 
-<p>This will compile and run the test scenario you just wrote. You will see a lot of output. But if everything went okay, then right at the end you will see:</p>
-<div class="codehilite"><pre><span></span># tests 2
-# pass  2
-
-# ok
+<p>Add a <code>hello()</code> JavaScript function so you can call it from your HTML:</p>
+<div class="codehilite"><pre><span></span><span class="kd">function</span> <span class="nx">hello</span><span class="p">()</span> <span class="p">{</span>
 </pre></div>
 
 
-<p>Congratulations; you have tested your first Holochain app. Look at you go! :sparkles: </p>
+<p>Wait for Holochain to connect and then make a zome call:</p>
+<div class="codehilite"><pre><span></span>  <span class="nx">holochain_connection</span><span class="p">.</span><span class="nx">then</span><span class="p">(({</span><span class="nx">callZome</span><span class="p">,</span> <span class="nx">close</span><span class="p">})</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</pre></div>
+
+
+<p>Call the <code>hello_holo</code> zome function in the <code>hello</code> zome running on the <code>test-instance</code> instance:</p>
+<div class="codehilite"><pre><span></span>    <span class="nx">callZome</span><span class="p">(</span><span class="s1">&#39;test-instance&#39;</span><span class="p">,</span> <span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="s1">&#39;hello_holo&#39;</span><span class="p">)({</span><span class="s2">&quot;args&quot;</span><span class="o">:</span> <span class="p">{}</span> <span class="p">})</span>
+</pre></div>
+
+
+<p>Log the result in the browser's console:</p>
+<div class="codehilite"><pre><span></span>    <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">result</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">))</span>
+  <span class="p">})</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Close the script tag:</p>
+<div class="codehilite"><pre><span></span><span class="o">&lt;</span><span class="err">/script&gt;</span>
+</pre></div>
+
+
+<p>This hello function will connect to your app through WebSocket on port <code>3401</code>, call the hello zome function, and print the result to your browser's console.</p>
+<p>Let's make your button call this function by adding an <code>onclick</code> event handler.</p>
+<p>Add this button inside the <code>&lt;body&gt;</code> tag:</p>
+<div class="codehilite"><pre><span></span>   <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;hello()&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span><span class="p">&gt;</span>Say Hello<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</pre></div>
+
+
+<h2 id="run-your-app">Run your app<a class="headerlink" href="#run-your-app" title="Permanent link">&para;</a></h2>
+<p>To make a call from the GUI, your Holochain app must be running. So open up a new terminal window, navigate to the app you built in the previous tutorials, and enter the nix-shell:</p>
+<div class="codehilite"><pre><span></span><span class="nb">cd</span> holochain/core_concepts/hello
+nix-shell https://holochain.love
+</pre></div>
+
+
+<p>Now run your app:</p>
+<div class="codehilite"><pre><span></span>hc package
+hc run -p <span class="m">3401</span>
+</pre></div>
+
+
+<h2 id="make-a-zome-call">Make a zome call<a class="headerlink" href="#make-a-zome-call" title="Permanent link">&para;</a></h2>
+<p>Your <code>index.html</code> should look like this:</p>
+<div class="codehilite"><pre><span></span><span class="o">&lt;!</span><span class="nx">doctype</span> <span class="nx">html</span><span class="o">&gt;</span>
+
+<span class="o">&lt;</span><span class="nx">html</span> <span class="nx">lang</span><span class="o">=</span><span class="s2">&quot;en&quot;</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nx">head</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="nx">meta</span> <span class="nx">charset</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="o">&gt;</span>
+
+  <span class="o">&lt;</span><span class="nx">title</span><span class="o">&gt;</span><span class="nx">Hello</span> <span class="nx">Gui</span><span class="o">&lt;</span><span class="err">/title&gt;</span>
+  <span class="o">&lt;</span><span class="nx">meta</span> <span class="nx">name</span><span class="o">=</span><span class="s2">&quot;description&quot;</span> <span class="nx">content</span><span class="o">=</span><span class="s2">&quot;Gui for a Holochain app&quot;</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="nx">meta</span> <span class="nx">name</span><span class="o">=</span><span class="s2">&quot;author&quot;</span> <span class="nx">content</span><span class="o">=</span><span class="s2">&quot;Holochain&quot;</span><span class="o">&gt;</span>
+
+  <span class="o">&lt;</span><span class="nx">link</span> <span class="nx">rel</span><span class="o">=</span><span class="s2">&quot;stylesheet&quot;</span> <span class="nx">href</span><span class="o">=</span><span class="s2">&quot;https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/dark.min.css&quot;</span><span class="o">&gt;</span>
+
+<span class="o">&lt;</span><span class="err">/head&gt;</span>
+
+<span class="o">&lt;</span><span class="nx">body</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">onclick</span><span class="o">=</span><span class="s2">&quot;hello()&quot;</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;button&quot;</span><span class="o">&gt;</span><span class="nx">Say</span> <span class="nx">Hello</span><span class="o">&lt;</span><span class="err">/button&gt;</span>
+    <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;&lt;</span><span class="nx">span</span><span class="o">&gt;</span><span class="nx">Response</span><span class="o">:&lt;</span><span class="err">/span&gt;&lt;span id=&quot;output&quot;&gt;&lt;/span&gt;&lt;/div&gt;</span>
+    <span class="o">&lt;</span><span class="nx">script</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text/javascript&quot;</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&quot;hc-web-client/hc-web-client-0.5.1.browser.min.js&quot;</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
+    <span class="o">&lt;</span><span class="nx">script</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text/javascript&quot;</span><span class="o">&gt;</span>
+    <span class="c1">// Connection state</span>
+    <span class="kd">var</span> <span class="nx">holochain_connection</span> <span class="o">=</span> <span class="nx">holochainclient</span><span class="p">.</span><span class="nx">connect</span><span class="p">({</span> <span class="nx">url</span><span class="o">:</span> <span class="s2">&quot;ws://localhost:3401&quot;</span><span class="p">});</span>
+
+    <span class="kd">function</span> <span class="nx">hello</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">holochain_connection</span><span class="p">.</span><span class="nx">then</span><span class="p">(({</span><span class="nx">callZome</span><span class="p">,</span> <span class="nx">close</span><span class="p">})</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">callZome</span><span class="p">(</span><span class="s1">&#39;test-instance&#39;</span><span class="p">,</span> <span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="s1">&#39;hello_holo&#39;</span><span class="p">)({</span><span class="s2">&quot;args&quot;</span><span class="o">:</span> <span class="p">{}</span> <span class="p">}).</span><span class="nx">then</span><span class="p">((</span><span class="nx">result</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">update_span</span><span class="p">(</span><span class="nx">result</span><span class="p">))</span>
+      <span class="p">})</span>
+    <span class="p">}</span>
+    <span class="o">&lt;</span><span class="err">/script&gt;</span>
+<span class="o">&lt;</span><span class="err">/body&gt;</span>
+<span class="o">&lt;</span><span class="err">/html&gt;</span>
+</pre></div>
+
+
+<p>In your other terminal window (the one with the GUI code) run the <code>SimpleHTTPServer</code> again:</p>
+<div class="codehilite"><pre><span></span>python -m SimpleHTTPServer
+</pre></div>
+
+
+<p>Open up your browser and head to <code>0.0.0.0:8000</code>. The page will look the same but open you your developer console and click the "Say Hello" button. You should see something like this:</p>
+<p><img alt="" src="https://i.imgur.com/vhTaH0W.png" /></p>
+<blockquote>
+<p>I'm using Firefox so this might look a little different depending on your browser</p>
+</blockquote>
+<p>Woohoo! You have made a call to your Holochain app using a GUI.</p>
+<h2 id="render-the-output">Render the output<a class="headerlink" href="#render-the-output" title="Permanent link">&para;</a></h2>
+<p>It would be nicer if we didn't need to use the developer console to see the result of the <code>hello_holo</code> call. So let's add a place on the page to show it.</p>
+<p>Add the following HTML inside your <code>&lt;body&gt;</code> tag:</p>
+<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>Response: <span class="p">&lt;</span><span class="nt">span</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;output&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+
+
+<p>The <code>id="output"</code> is what we will use to update this element from a JavaScript function.</p>
+<p>Add the following lines below you <code>hello</code> function.</p>
+<p>Add an <code>update_span</code> function that takes the result:</p>
+<div class="codehilite"><pre><span></span><span class="kd">function</span> <span class="nx">update_span</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+</pre></div>
+
+
+<p>Get the element that you'll be inserting the output into:</p>
+<div class="codehilite"><pre><span></span>  <span class="kd">var</span> <span class="nx">span</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;output&#39;</span><span class="p">);</span>
+</pre></div>
+
+
+<p>Parse the zome function result as JSON:</p>
+<div class="codehilite"><pre><span></span>  <span class="kd">var</span> <span class="nx">output</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span>
+</pre></div>
+
+
+<p>Set the contents of the element to the zome function result:</p>
+<div class="codehilite"><pre><span></span>  <span class="nx">span</span><span class="p">.</span><span class="nx">textContent</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="nx">output</span><span class="p">.</span><span class="nx">Ok</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Finally, update the <code>hello</code> function to call your new <code>update_span</code> function instead of <code>console.log()</code>.</p>
+<p><a href="https://asciinema.org/a/AaEsgKDvORW1xHrjIRxBWWIIg"><img alt="asciicast" src="https://asciinema.org/a/AaEsgKDvORW1xHrjIRxBWWIIg.svg" /></a></p>
+<h2 id="test-the-output-works">Test the output works<a class="headerlink" href="#test-the-output-works" title="Permanent link">&para;</a></h2>
+<p>Head over to <code>0.0.0.0:8000</code> in your web browser (you might need to refresh) and you should see this:</p>
+<p><img alt="" src="https://i.imgur.com/FMxeMx0.png" /></p>
+<p>Now press the <strong>Say Hello</strong> button and you get your response:</p>
+<p><img alt="" src="https://i.imgur.com/mDBaVlD.png" /></p>
+<p>Well done! You have a working GUI that can talk to your Holochain app.</p>
                 
                   
                 

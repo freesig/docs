@@ -215,8 +215,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../hello_gui/" title="Hello Test Tutorial" class="md-nav__link">
-      Hello Test Tutorial
+    <a href="../hello_gui/" title="Hello GUI" class="md-nav__link">
+      Hello GUI
     </a>
   </li>
 
@@ -397,14 +397,13 @@
                 
                 
                 <h1 id="hello-test-tutorial">Hello Test Tutorial<a class="headerlink" href="#hello-test-tutorial" title="Permanent link">&para;</a></h1>
-<p>Welcome to the hello test tutorial. Today you will be learning how to test your Holochain apps. This tutorial will add to the previous <a href="">hello holo</a> tutorial. So make sure you do that one first.</p>
+<p>Welcome to the Hello Test tutorial. Today you will be learning how to test your Holochain apps. This tutorial will add to the previous <a href="">Hello Holo</a> tutorial, so make sure you do that one first.</p>
 <p>Testing is a really important part of building higher quality apps but it's also a an excellent way to think through how your app will be used.</p>
 <h2 id="understand-the-tests">Understand the tests<a class="headerlink" href="#understand-the-tests" title="Permanent link">&para;</a></h2>
 <p>When you ran <code>hc init</code> in the previous tutorial Holochain already generated some tests for you.</p>
-<p>The tests are written in javascript and use the Holochain testing framework <a href="">Diorama</a>.</p>
-<p>Open up the <code>hello_holo/test/index.js</code> in your favourite text editor.</p>
-<p>Have a look through the code and remove the unneeded section.</p>
-<p>Imports required to do testing.</p>
+<p>The tests are written in JavaScript and use the Holochain testing framework <a href="https://github.com/holochain/diorama">Diorama</a>, along with a popular test harness called <a href="https://github.com/substack/tape">Tape</a>. You can run them with <a href="https://nodejs.org/en/">Node.JS</a>, a runtime that lets you execute JavaScript in the terminal.</p>
+<p>Open up the <code>hello_holo/test/index.js</code> in your favourite text editor. Have a look through the code.</p>
+<p>Imports required to do testing:</p>
 <div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;path&#39;</span><span class="p">)</span>
 <span class="kr">const</span> <span class="nx">tape</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;tape&#39;</span><span class="p">)</span>
 
@@ -412,21 +411,21 @@
 </pre></div>
 
 
-<p>this will print <code>unhandledRejection err</code> if something is not defined.</p>
+<p>This is a catch-all error logger that will let you know if a <code>Promise</code> fails and there's no error handler to hear it. <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise"><code>Promise</code></a>s are a way of simplifying complex asynchronous code, and Diorama uses a lot of them.</p>
 <div class="codehilite"><pre><span></span><span class="nx">process</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;unhandledRejection&#39;</span><span class="p">,</span> <span class="nx">error</span> <span class="p">=&gt;</span> <span class="p">{</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;got unhandledRejection:&#39;</span><span class="p">,</span> <span class="nx">error</span><span class="p">);</span>
 <span class="p">});</span>
 </pre></div>
 
 
-<p>The path to your compiled dna.</p>
+<p>The path to your compiled DNA.</p>
 <div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">dnaPath</span> <span class="o">=</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s2">&quot;../dist/hello_holo.dna.json&quot;</span><span class="p">)</span>
 <span class="kr">const</span> <span class="nx">dna</span> <span class="o">=</span> <span class="nx">Diorama</span><span class="p">.</span><span class="nx">dna</span><span class="p">(</span><span class="nx">dnaPath</span><span class="p">,</span> <span class="s1">&#39;hello_holo&#39;</span><span class="p">)</span>
 </pre></div>
 
 
-<p>Setup the testing environment.
-This creates two nodes: Alice and Bob.</p>
+<p>Setup a testing scenario.
+This creates two agents: Alice and Bob.</p>
 <div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">diorama</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Diorama</span><span class="p">({</span>
   <span class="nx">instances</span><span class="o">:</span> <span class="p">{</span>
     <span class="nx">alice</span><span class="o">:</span> <span class="nx">dna</span><span class="p">,</span>
@@ -440,8 +439,8 @@ This creates two nodes: Alice and Bob.</p>
 </pre></div>
 
 
-<p>This is the test that holochain generated based on the <code>my_entry</code> struct. It won't work for our hello holo tutorial so let's remove it.
-Remove the following section:</p>
+<p>This is the test that Holochain generated based on the <code>my_entry</code> struct and the zome functions that work with it. We removed them in our Hello Holo tutorial, so let's remove the test.</p>
+<p>Remove the following section:</p>
 <div class="codehilite"><pre><span></span><span class="nx">diorama</span><span class="p">.</span><span class="nx">registerScenario</span><span class="p">(</span><span class="s2">&quot;description of example test&quot;</span><span class="p">,</span> <span class="nx">async</span> <span class="p">(</span><span class="nx">s</span><span class="p">,</span> <span class="nx">t</span><span class="p">,</span> <span class="p">{</span> <span class="nx">alice</span> <span class="p">})</span> <span class="p">=&gt;</span> <span class="p">{</span>
   <span class="c1">// Make a call to a Zome function</span>
   <span class="c1">// indicating the function, and passing it an input</span>
@@ -460,21 +459,20 @@ Remove the following section:</p>
 
 
 <h2 id="create-a-test-scenario">Create a test scenario<a class="headerlink" href="#create-a-test-scenario" title="Permanent link">&para;</a></h2>
-<p>Tests are organized by creating scenarios. Think of them as a series of actions the user takes when interacting with your app.</p>
-<p>For this test you simply want to create the Alice user and get her to call the <code>hello_holo</code> zome function.
-Then check that you get the result <code>Hello Holo</code>.</p>
+<p>Tests are organized by creating scenarios. Think of them as a series of actions that the user or group of users take when interacting with your app.</p>
+<p>For this test you simply want to get the Alice user to call the <code>hello_holo</code> zome function. Then check that you get the result <code>Hello Holo</code>.</p>
 <p>Place the following just above <code>diorama.run()</code>.</p>
 <p>Register a test scenario that checks <code>hello_holo()</code> returns the correct value:</p>
 <div class="codehilite"><pre><span></span><span class="nx">diorama</span><span class="p">.</span><span class="nx">registerScenario</span><span class="p">(</span><span class="s2">&quot;Test hello holo&quot;</span><span class="p">,</span> <span class="nx">async</span> <span class="p">(</span><span class="nx">s</span><span class="p">,</span> <span class="nx">t</span><span class="p">,</span> <span class="p">{</span> <span class="nx">alice</span> <span class="p">})</span> <span class="p">=&gt;</span> <span class="p">{</span>
 </pre></div>
 
 
-<p>Make a call to the <code>hello_holo</code> Zome function passing no arguments:</p>
+<p>Make a call to the <code>hello_holo</code> Zome function, passing no arguments:</p>
 <div class="codehilite"><pre><span></span>  <span class="kr">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">alice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">,</span> <span class="s2">&quot;hello_holo&quot;</span><span class="p">,</span> <span class="p">{});</span>
 </pre></div>
 
 
-<p>Make sure the result is ok:</p>
+<p>Make sure the result is okay:</p>
 <div class="codehilite"><pre><span></span>  <span class="nx">t</span><span class="p">.</span><span class="nx">ok</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">Ok</span><span class="p">);</span>
 </pre></div>
 
@@ -486,13 +484,12 @@ Then check that you get the result <code>Hello Holo</code>.</p>
 
 
 <h2 id="run-the-test">Run the test<a class="headerlink" href="#run-the-test" title="Permanent link">&para;</a></h2>
-<p>Now in the <code>hello_helo</code> directory of run the test like this:</p>
+<p>Now in the <code>hello_helo</code> directory, run the test like this:</p>
 <div class="codehilite"><pre><span></span>$ hc <span class="nb">test</span>
 </pre></div>
 
 
-<p>This will compile and run the test scenario you just wrote.
-You will see a lot of output but if everything went ok then right at the end you will see:</p>
+<p>This will compile and run the test scenario you just wrote. You will see a lot of output. But if everything went okay, then right at the end you will see:</p>
 <div class="codehilite"><pre><span></span># tests 2
 # pass  2
 
@@ -500,7 +497,7 @@ You will see a lot of output but if everything went ok then right at the end you
 </pre></div>
 
 
-<p>Congratulations you have tested your first Holochain app. Look at you go :sparkles: </p>
+<p>Congratulations; you have tested your first Holochain app. Look at you go! :sparkles: </p>
                 
                   
                 

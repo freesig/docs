@@ -215,8 +215,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../hello_gui/" title="Hello Test Tutorial" class="md-nav__link">
-      Hello Test Tutorial
+    <a href="../hello_gui/" title="Hello GUI" class="md-nav__link">
+      Hello GUI
     </a>
   </li>
 
@@ -298,7 +298,7 @@
       
         <li class="md-nav__item">
   <a href="#add-bob-to-the-test" class="md-nav__link">
-    Add bob to the test
+    Add Bob to the test
   </a>
   
     <nav class="md-nav">
@@ -325,9 +325,29 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#note" class="md-nav__link">
+    Note
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#config-file" class="md-nav__link">
     Config file
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note_1" class="md-nav__link">
+    Note
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -337,8 +357,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#allow-the-users-to-choose-their-agent" class="md-nav__link">
-    Allow the users to choose their agent
+  <a href="#allow-the-users-to-choose-their-instance" class="md-nav__link">
+    Allow the users to choose their instance
   </a>
   
 </li>
@@ -366,8 +386,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#terminal-there" class="md-nav__link">
-    Terminal there
+  <a href="#terminal-three" class="md-nav__link">
+    Terminal three
   </a>
   
 </li>
@@ -396,14 +416,14 @@
         
           <li class="md-nav__item">
   <a href="#tab-one-alice" class="md-nav__link">
-    Tab one - Alice
+    Tab one --- Alice
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#tab-two-bob" class="md-nav__link">
-    Tab two - Bob
+    Tab two --- Bob
   </a>
   
 </li>
@@ -475,7 +495,7 @@
       
         <li class="md-nav__item">
   <a href="#add-bob-to-the-test" class="md-nav__link">
-    Add bob to the test
+    Add Bob to the test
   </a>
   
     <nav class="md-nav">
@@ -502,9 +522,29 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#note" class="md-nav__link">
+    Note
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#config-file" class="md-nav__link">
     Config file
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note_1" class="md-nav__link">
+    Note
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -514,8 +554,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#allow-the-users-to-choose-their-agent" class="md-nav__link">
-    Allow the users to choose their agent
+  <a href="#allow-the-users-to-choose-their-instance" class="md-nav__link">
+    Allow the users to choose their instance
   </a>
   
 </li>
@@ -543,8 +583,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#terminal-there" class="md-nav__link">
-    Terminal there
+  <a href="#terminal-three" class="md-nav__link">
+    Terminal three
   </a>
   
 </li>
@@ -573,14 +613,14 @@
         
           <li class="md-nav__item">
   <a href="#tab-one-alice" class="md-nav__link">
-    Tab one - Alice
+    Tab one --- Alice
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#tab-two-bob" class="md-nav__link">
-    Tab two - Bob
+    Tab two --- Bob
   </a>
   
 </li>
@@ -615,18 +655,16 @@
                 <h1 id="hello-world">Hello World<a class="headerlink" href="#hello-world" title="Permanent link">&para;</a></h1>
 <p>The goal of this tutorial is to add an entry in Alice's instance and then retrieve that same entry in Bob's instance.</p>
 <h2 id="make-your-entry-public">Make your entry public<a class="headerlink" href="#make-your-entry-public" title="Permanent link">&para;</a></h2>
-<p>So far the only entry you have had has been private.
-But this isn't that useful if you want your users to be able to share entries on the same network.</p>
+<p>So far the only entry you have had has been private. But this isn't that useful if you want your users to be able to share entries on the same network.</p>
 <p>Open up your <code>zomes/hello/code/src/lib.rs</code> file.</p>
-<p>Change the entry sharing to <code>Sharing::Public</code>:
-<a href="https://asciinema.org/a/K0Vj50CIVNSYWr5RIbbrc6V3s"><img alt="asciicast" src="https://asciinema.org/a/K0Vj50CIVNSYWr5RIbbrc6V3s.svg" /></a></p>
-<h2 id="add-bob-to-the-test">Add bob to the test<a class="headerlink" href="#add-bob-to-the-test" title="Permanent link">&para;</a></h2>
-<p>Before you made a test where Alice made a few zome calls and verified the results. 
-Now to test that the entries can be shared between agents on the same DNA you can use Bob in your tests to interact with Alice.</p>
-<p>Open up your <code>test/index.js</code> file and add / update the following lines:</p>
-<p>Add <code>bob</code> to the Scenario:</p>
-<div class="codehilite"><pre><span></span><span class="nx">diorama</span><span class="p">.</span><span class="nx">registerScenario</span><span class="p">(</span><span class="s2">&quot;Test hello holo&quot;</span><span class="p">,</span> <span class="nx">async</span> <span class="p">(</span><span class="nx">s</span><span class="p">,</span> <span class="nx">t</span><span class="p">,</span> <span class="p">{</span> <span class="nx">alice</span> <span class="p">})</span> <span class="p">=&gt;</span> <span class="p">{</span>
-<span class="nx">diorama</span><span class="p">.</span><span class="nx">registerScenario</span><span class="p">(</span><span class="s2">&quot;Test hello holo&quot;</span><span class="p">,</span> <span class="nx">async</span> <span class="p">(</span><span class="nx">s</span><span class="p">,</span> <span class="nx">t</span><span class="p">,</span> <span class="p">{</span> <span class="nx">alice</span><span class="p">,</span> <span class="nx">bob</span> <span class="p">})</span> <span class="p">=&gt;</span> <span class="p">{</span>
+<p>Change the entry sharing to <code>Sharing::Public</code>:</p>
+<p><a href="https://asciinema.org/a/K0Vj50CIVNSYWr5RIbbrc6V3s"><img alt="asciicast" src="https://asciinema.org/a/K0Vj50CIVNSYWr5RIbbrc6V3s.svg" /></a></p>
+<h2 id="add-bob-to-the-test">Add Bob to the test<a class="headerlink" href="#add-bob-to-the-test" title="Permanent link">&para;</a></h2>
+<p>Previously you made a test where Alice made a few zome calls and verified the results. Now, to test that the entries can be shared between agents on the same DNA, you can use Bob in your tests to interact with Alice.</p>
+<p>Open up your <code>test/index.js</code> file and add/update the following lines:</p>
+<p>Add <code>bob</code> to the scenario:</p>
+<div class="codehilite"><pre><span></span><span class="nx">diorama</span><span class="p">.</span><span class="nx">registerScenario</span><span class="p">(</span><span class="s2">&quot;Test Hello Holo&quot;</span><span class="p">,</span> <span class="nx">async</span> <span class="p">(</span><span class="nx">s</span><span class="p">,</span> <span class="nx">t</span><span class="p">,</span> <span class="p">{</span> <span class="nx">alice</span> <span class="p">})</span> <span class="p">=&gt;</span> <span class="p">{</span>
+<span class="nx">diorama</span><span class="p">.</span><span class="nx">registerScenario</span><span class="p">(</span><span class="s2">&quot;Test Hello Holo&quot;</span><span class="p">,</span> <span class="nx">async</span> <span class="p">(</span><span class="nx">s</span><span class="p">,</span> <span class="nx">t</span><span class="p">,</span> <span class="p">{</span> <span class="nx">alice</span><span class="p">,</span> <span class="nx">bob</span> <span class="p">})</span> <span class="p">=&gt;</span> <span class="p">{</span>
 </pre></div>
 
 
@@ -646,19 +684,19 @@ Now to test that the entries can be shared between agents on the same DNA you ca
 
 
 <p>Your test should look like this:</p>
-<div class="codehilite"><pre><span></span><span class="nx">diorama</span><span class="p">.</span><span class="nx">registerScenario</span><span class="p">(</span><span class="s2">&quot;Test hello holo&quot;</span><span class="p">,</span> <span class="nx">async</span> <span class="p">(</span><span class="nx">s</span><span class="p">,</span> <span class="nx">t</span><span class="p">,</span> <span class="p">{</span> <span class="nx">alice</span><span class="p">,</span> <span class="nx">bob</span> <span class="p">})</span> <span class="p">=&gt;</span> <span class="p">{</span>
+<div class="codehilite"><pre><span></span><span class="nx">diorama</span><span class="p">.</span><span class="nx">registerScenario</span><span class="p">(</span><span class="s2">&quot;Test Hello Holo&quot;</span><span class="p">,</span> <span class="nx">async</span> <span class="p">(</span><span class="nx">s</span><span class="p">,</span> <span class="nx">t</span><span class="p">,</span> <span class="p">{</span> <span class="nx">alice</span><span class="p">,</span> <span class="nx">bob</span> <span class="p">})</span> <span class="p">=&gt;</span> <span class="p">{</span>
   <span class="kr">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">alice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">,</span> <span class="s2">&quot;hello_holo&quot;</span><span class="p">,</span> <span class="p">{});</span>
   <span class="nx">t</span><span class="p">.</span><span class="nx">ok</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">Ok</span><span class="p">);</span>
 
   <span class="nx">t</span><span class="p">.</span><span class="nx">deepEqual</span><span class="p">(</span><span class="nx">result</span><span class="p">,</span> <span class="p">{</span> <span class="nx">Ok</span><span class="o">:</span> <span class="s1">&#39;Hello Holo&#39;</span> <span class="p">})</span>
 
-  <span class="kr">const</span> <span class="nx">create_result</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">alice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">,</span> <span class="s2">&quot;create_person&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;person&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;Alice&quot;</span> <span class="p">}});</span>
+  <span class="kr">const</span> <span class="nx">create_result</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">alice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">,</span> <span class="s2">&quot;create_person&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;person&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Alice&quot;</span> <span class="p">}});</span>
   <span class="nx">t</span><span class="p">.</span><span class="nx">ok</span><span class="p">(</span><span class="nx">create_result</span><span class="p">.</span><span class="nx">Ok</span><span class="p">);</span>
 
   <span class="kr">const</span> <span class="nx">retrieve_result</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">alice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">,</span> <span class="s2">&quot;retrieve_person&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;address&quot;</span><span class="o">:</span> <span class="nx">create_result</span><span class="p">.</span><span class="nx">Ok</span><span class="p">});</span>
   <span class="nx">t</span><span class="p">.</span><span class="nx">ok</span><span class="p">(</span><span class="nx">retrieve_result</span><span class="p">.</span><span class="nx">Ok</span><span class="p">);</span>
 
-  <span class="nx">t</span><span class="p">.</span><span class="nx">deepEqual</span><span class="p">(</span><span class="nx">retrieve_result</span><span class="p">,</span> <span class="p">{</span> <span class="nx">Ok</span><span class="o">:</span> <span class="p">{</span> <span class="nx">App</span><span class="o">:</span> <span class="p">[</span> <span class="s1">&#39;person&#39;</span><span class="p">,</span> <span class="s1">&#39;{&quot;name&quot;:&quot;Alice&quot;}&#39;</span> <span class="p">]</span> <span class="p">}})</span>
+  <span class="nx">t</span><span class="p">.</span><span class="nx">deepEqual</span><span class="p">(</span><span class="nx">retrieve_result</span><span class="p">,</span> <span class="p">{</span> <span class="nx">Ok</span><span class="o">:</span> <span class="p">{</span> <span class="nx">App</span><span class="o">:</span> <span class="p">[</span> <span class="s1">&#39;person&#39;</span><span class="p">,</span> <span class="s1">&#39;{&quot;name&quot;: &quot;Alice&quot;}&#39;</span> <span class="p">]</span> <span class="p">}})</span>
 
   <span class="kr">const</span> <span class="nx">bob_retrieve_result</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">bob</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">,</span> <span class="s2">&quot;retrieve_person&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;address&quot;</span><span class="o">:</span> <span class="nx">create_result</span><span class="p">.</span><span class="nx">Ok</span><span class="p">});</span>
   <span class="nx">t</span><span class="p">.</span><span class="nx">ok</span><span class="p">(</span><span class="nx">bob_retrieve_result</span><span class="p">.</span><span class="nx">Ok</span><span class="p">);</span>
@@ -688,11 +726,13 @@ Now to test that the entries can be shared between agents on the same DNA you ca
 
 
 <h2 id="conductor">Conductor<a class="headerlink" href="#conductor" title="Permanent link">&para;</a></h2>
-<p>Now it would be cool to see this happen for real outside of a test.
-Up till now you have only used <code>hc run</code> to run a single instance of a node.
-However, in order to have two separate instances communicate we need to run <code>holochain</code> directly and pass it a config file.</p>
+<p>Now it would be cool to see this happen for real outside of a test. Up till now you have only used <code>hc run</code> to run a single instance of a node. However, in order to have two separate instances communicate on one machine, we need to run <code>holochain</code> directly and pass it a config file.</p>
+<blockquote>
+<h4 id="note">Note<a class="headerlink" href="#note" title="Permanent link">&para;</a></h4>
+<p><code>hc</code> and <code>holochain</code> are both conductors that host your apps on your users' machines. <code>hc run</code> is for testing and development, and <code>holochain</code> is for end-users. It can host multiple instances of multiple DNAs for multiple users. Normally Alice and Bob would be running instances of your app in their own conductors on their own machines. But for the purposes of this tutorial, it'll be a lot more convenient to try this on one machine, so you don't have to worry about network setup.</p>
+</blockquote>
 <p>Before you can create the config file, you will need to generate some keys for your agents.</p>
-<p>Use keygen in your nix-shell to generate a key for each agent:</p>
+<p>Use <code>hc keygen</code> in your nix-shell to generate a key for each agent:</p>
 <div class="codehilite"><pre><span></span>nix-shell] hc keygen -n
 </pre></div>
 
@@ -709,19 +749,20 @@ You can set this file in a conductor config as keystore_file for an agent.
 </pre></div>
 
 
-<p>Take note of the <code>Public address</code>, you will need it later. </p>
-<div class="codehilite"><pre><span></span>cp /Users/user/Library/Preferences/org.holochain.holochain/keys/HcSCJhRioEqzvx9sooOfw6ANditrqdcxwfV7p7KP6extmnmzJIs83uKmfO9b8kz agent1.key
+<p>Take note of the <code>Public address</code>; you will need it later.</p>
+<p>Copy the newly generated keystore to your working folder (replace the path with the one in the <code>Keystore written to:</code> line from the output of the previous command):</p>
+<div class="codehilite"><pre><span></span>cp &lt;path_of_generated_keystore&gt; agent1.key
 </pre></div>
 
 
-<p>Now do this again but cp it to agent2.key:</p>
-<div class="codehilite"><pre><span></span>cp /Users/..... agent2.key
+<p>Now run <code>hc keygen</code> again but copy the key store to agent2.key:</p>
+<div class="codehilite"><pre><span></span>cp &lt;path_of_generated_keystore&gt; agent2.key
 </pre></div>
 
 
 <h3 id="config-file">Config file<a class="headerlink" href="#config-file" title="Permanent link">&para;</a></h3>
 <p>Create a new file in the root directory of your project called <code>conductor-config.toml</code>.</p>
-<p>Add an agent with id <code>test_agent1</code> and name <code>Agent 1</code>:</p>
+<p>Add an agent with ID <code>test_agent1</code> and name it <code>Agent 1</code>:</p>
 <div class="codehilite"><pre><span></span><span class="c1"># -----------  Agents  -----------</span>
 <span class="k">[[agents]]</span>
   <span class="n">id</span> <span class="o">=</span> <span class="s">&quot;test_agent1&quot;</span>
@@ -729,26 +770,26 @@ You can set this file in a conductor config as keystore_file for an agent.
 </pre></div>
 
 
-<p>Use the public address from <code>hc keygen</code> that you made for agent 1 before here:</p>
-<div class="codehilite"><pre><span></span>  <span class="n">public_address</span> <span class="o">=</span> <span class="s">&quot;HcScJtQkeJ4hkdqtxrdgh8jPybRynkaxmCSFZxKG6Nsf3tei6zRAnEdy97Qzeua&quot;</span>
+<p>Use the public address and keystore from <code>hc keygen</code> that you made for agent 1 before here:</p>
+<div class="codehilite"><pre><span></span>  <span class="n">public_address</span> <span class="o">=</span> <span class="s">&quot;&lt;public_address_of_agent_1&gt;&quot;</span>
   <span class="n">keystore_file</span> <span class="o">=</span> <span class="s">&quot;./agent1.key&quot;</span>
 </pre></div>
 
 
-<p>Add an agent with id <code>test_agent2</code> and name <code>Agent 2</code>:</p>
+<p>Add an agent with ID <code>test_agent2</code> and name it <code>Agent 2</code>:</p>
 <div class="codehilite"><pre><span></span><span class="k">[[agents]]</span>
   <span class="n">id</span> <span class="o">=</span> <span class="s">&quot;test_agent2&quot;</span>
   <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Agent 2&quot;</span>
 </pre></div>
 
 
-<p>Use the public address from <code>hc keygen</code> that you made for agent 2 before here:</p>
-<div class="codehilite"><pre><span></span>  <span class="n">public_address</span> <span class="o">=</span> <span class="s">&quot;HcSCinAe4uWs66r7pxnBn9xNcCJ5kivg5MqhvZ7rbmqbfzeg8e4Aun8ziwiersz&quot;</span> 
+<p>Use the public address and keystore from <code>hc keygen</code> that you made for agent 2 before here:</p>
+<div class="codehilite"><pre><span></span>  <span class="n">public_address</span> <span class="o">=</span> <span class="s">&quot;&lt;public_address_of_agent_2&gt;&quot;</span> 
   <span class="n">keystore_file</span> <span class="o">=</span> <span class="s">&quot;./agent2.key&quot;</span>
 </pre></div>
 
 
-<p>Run package and get your dna's hash:</p>
+<p>Package your DNA and take note of its hash:</p>
 <div class="codehilite"><pre><span></span>nix-shell] hc package
 </pre></div>
 
@@ -758,16 +799,16 @@ You can set this file in a conductor config as keystore_file for an agent.
 </pre></div>
 
 
-<p>Add the dna with id <code>hello</code> and use the DNA hash you just made above:</p>
+<p>Add the DNA to your config file with ID <code>hello</code> and the hash you just saw above:</p>
 <div class="codehilite"><pre><span></span><span class="c1"># -----------  DNAs  -----------</span>
 <span class="k">[[dnas]]</span>
   <span class="n">id</span> <span class="o">=</span> <span class="s">&quot;hello&quot;</span>
   <span class="n">file</span> <span class="o">=</span> <span class="s">&quot;dist/hello_holo.dna.json&quot;</span>
-  <span class="n">hash</span> <span class="o">=</span> <span class="s">&quot;QmZcje6BoEURaX1vCrsDY11v7fHMd6spmVpzkQ1Vxp9n6D&quot;</span>
+  <span class="n">hash</span> <span class="o">=</span> <span class="s">&quot;&lt;dna_hash&gt;&quot;</span>
 </pre></div>
 
 
-<p>Add the Alice instance with the <code>hello</code> dna:</p>
+<p>Connect agent 1 to the <code>hello</code> DNA to create an instance for Alice:</p>
 <div class="codehilite"><pre><span></span><span class="k">[[instances]]</span>
   <span class="n">id</span> <span class="o">=</span> <span class="s">&quot;Alice&quot;</span>
   <span class="n">dna</span> <span class="o">=</span> <span class="s">&quot;hello&quot;</span>
@@ -787,7 +828,7 @@ You can set this file in a conductor config as keystore_file for an agent.
 </pre></div>
 
 
-<p>Setup the websocket connection on socket <code>3041</code>:</p>
+<p>Setup the WebSocket interface on socket <code>3041</code>:</p>
 <div class="codehilite"><pre><span></span><span class="k">[[interfaces]]</span>
   <span class="n">id</span> <span class="o">=</span> <span class="s">&quot;websocket_interface&quot;</span>
 <span class="k">[interfaces.driver]</span>
@@ -796,7 +837,7 @@ You can set this file in a conductor config as keystore_file for an agent.
 </pre></div>
 
 
-<p>Add your instances to this interface:</p>
+<p>Add your instances to this interface so you can call their zome functions:</p>
 <div class="codehilite"><pre><span></span><span class="k">[[interfaces.instances]]</span>
   <span class="n">id</span> <span class="o">=</span> <span class="s">&quot;Alice&quot;</span>
 <span class="k">[[interfaces.instances]]</span>
@@ -804,21 +845,23 @@ You can set this file in a conductor config as keystore_file for an agent.
 </pre></div>
 
 
-<h2 id="allow-the-users-to-choose-their-agent">Allow the users to choose their agent<a class="headerlink" href="#allow-the-users-to-choose-their-agent" title="Permanent link">&para;</a></h2>
-<p>Before you can use two agents you need a way for the UI to specify which agent the user wants to use.
-You can do this by setting the instance id in the zome call.
-You can think of an instance as a running version of a DNA. Like a variable is an instance of a struct.</p>
-<p>Open the <code>gui/index.html</code>.</p>
-<p>Add a text box for your users to set the agent id:</p>
-<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;instance&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Enter your instance id&quot;</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+<blockquote>
+<h4 id="note_1">Note<a class="headerlink" href="#note_1" title="Permanent link">&para;</a></h4>
+<p>Again, in real life Alice and Bob would each have their own conductor, so they wouldn't be listening on the same WebSocket interface.</p>
+</blockquote>
+<h2 id="allow-the-users-to-choose-their-instance">Allow the users to choose their instance<a class="headerlink" href="#allow-the-users-to-choose-their-instance" title="Permanent link">&para;</a></h2>
+<p>Before you can use two agents, you need a way for the UI to specify which instance the user wants to use. You can do this by setting the instance ID in the zome call. You can think of an instance as a running version of a DNA, in the same way that a variable is an instance of a struct.</p>
+<p>Open the <code>gui/index.html</code> file.</p>
+<p>Add a text box for your users to set the agent ID:</p>
+<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;instance&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Enter your instance ID&quot;</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
 </pre></div>
 
 
-<p>Open the <code>gui/index.js</code> and do the following for every callZome call:
-<a href="https://asciinema.org/a/Tp2xSDERlohFXy90LP7Yu4HQR"><img alt="asciicast" src="https://asciinema.org/a/Tp2xSDERlohFXy90LP7Yu4HQR.svg" /></a></p>
+<p>Open the <code>gui/index.js</code> and do the following for every <code>callZome</code> call:</p>
+<p><a href="https://asciinema.org/a/Tp2xSDERlohFXy90LP7Yu4HQR"><img alt="asciicast" src="https://asciinema.org/a/Tp2xSDERlohFXy90LP7Yu4HQR.svg" /></a></p>
 <h2 id="run-the-app-and-two-uis">Run the app and two UIs<a class="headerlink" href="#run-the-app-and-two-uis" title="Permanent link">&para;</a></h2>
-<p>Now the fun part where you get to play with what you just wrote.</p>
-<p>Open up a three terminal windows and enter the nix-shell in each one:</p>
+<p>Now the fun part, where you get to play with what you just wrote.</p>
+<p>Open up three terminal windows and enter the nix-shell in each one:</p>
 <div class="codehilite"><pre><span></span>nix-shell https://holochain.love
 </pre></div>
 
@@ -829,30 +872,29 @@ You can think of an instance as a running version of a DNA. Like a variable is a
 </pre></div>
 
 
-<p>Start by running the conductor.
-It's a bit different this time, instead of <code>hc run</code> you will use <code>holochain</code> directly:</p>
+<p>Start by running the conductor. It's a bit different this time; instead of <code>hc run</code> you will use <code>holochain</code> directly:</p>
 <div class="codehilite"><pre><span></span>nix-shell] holochain -c conductor-config.toml
 </pre></div>
 
 
 <h4 id="terminal-two">Terminal two<a class="headerlink" href="#terminal-two" title="Permanent link">&para;</a></h4>
-<p>Go to the root folder of your gui:</p>
+<p>Go to the root folder of your GUI:</p>
 <div class="codehilite"><pre><span></span>nix-shell] cd /path/to/my/gui
 </pre></div>
 
 
-<p>Run a gui on port <code>8000</code>:</p>
+<p>Run a GUI on port <code>8000</code>:</p>
 <div class="codehilite"><pre><span></span>nix-shell] python -m SimpleHTTPServer 8000
 </pre></div>
 
 
-<h4 id="terminal-there">Terminal there<a class="headerlink" href="#terminal-there" title="Permanent link">&para;</a></h4>
-<p>Go to the root folder of your gui:</p>
+<h4 id="terminal-three">Terminal three<a class="headerlink" href="#terminal-three" title="Permanent link">&para;</a></h4>
+<p>Go to the root folder of your GUI:</p>
 <div class="codehilite"><pre><span></span>nix-shell] cd /path/to/my/gui
 </pre></div>
 
 
-<p>Run a gui on port <code>8001</code>:</p>
+<p>Run a GUI on port <code>8001</code>:</p>
 <div class="codehilite"><pre><span></span>nix-shell] python -m SimpleHTTPServer 8001
 </pre></div>
 
@@ -860,17 +902,16 @@ It's a bit different this time, instead of <code>hc run</code> you will use <cod
 <h3 id="open-up-the-browser">Open up the browser<a class="headerlink" href="#open-up-the-browser" title="Permanent link">&para;</a></h3>
 <p>Open two tabs.</p>
 <h4 id="tab-one">Tab one<a class="headerlink" href="#tab-one" title="Permanent link">&para;</a></h4>
-<p>Go to <code>0.0.0.0:8000</code>.
-Enter <code>Alice</code> into the <code>Enter your instance id</code> text box.</p>
+<p>Go to <code>0.0.0.0:8000</code>. Enter <code>Alice</code> into the <code>Enter your instance ID</code> text box.</p>
 <h4 id="tab-two">Tab two<a class="headerlink" href="#tab-two" title="Permanent link">&para;</a></h4>
-<p>Go to <code>0.0.0.0:8001</code>.
-Enter <code>Bob</code> into the <code>Enter your instance id</code> text box.</p>
-<h4 id="tab-one-alice">Tab one - Alice<a class="headerlink" href="#tab-one-alice" title="Permanent link">&para;</a></h4>
-<p>Create a person with your name:
-<img alt="" src="https://i.imgur.com/6PEDn6y.png" /></p>
-<h4 id="tab-two-bob">Tab two - Bob<a class="headerlink" href="#tab-two-bob" title="Permanent link">&para;</a></h4>
-<p>Copy the address from the Alice tab and retrieve the person entry:
-<img alt="" src="https://i.imgur.com/ps9RBr2.png" /></p>
+<p>Go to <code>0.0.0.0:8001</code>. Enter <code>Bob</code> into the <code>Enter your instance ID</code> text box.</p>
+<h4 id="tab-one-alice">Tab one --- Alice<a class="headerlink" href="#tab-one-alice" title="Permanent link">&para;</a></h4>
+<p>Create a person entry with your name:</p>
+<p><img alt="" src="https://i.imgur.com/6PEDn6y.png" /></p>
+<h4 id="tab-two-bob">Tab two --- Bob<a class="headerlink" href="#tab-two-bob" title="Permanent link">&para;</a></h4>
+<p>Copy the address from the Alice tab and retrieve the person entry:</p>
+<p><img alt="" src="https://i.imgur.com/ps9RBr2.png" /></p>
+<p>Hooray! Alice and Bob are now able to find each other's information on the DHT</p>
                 
                   
                 
