@@ -19,6 +19,7 @@ Let's start by writing a test so it's easy to see we have a working app before w
 Open up your `tutorial/test/index.js`.
 
 This is how we left the testing scenario in the [Hello Test]() tutorial:
+
 ```javascript
 diorama.registerScenario("Test hello holo", async (s, t, { alice }) => {
   // Make a call to the `hello_holo` Zome function
@@ -123,6 +124,7 @@ mod hello_zome {
 Add the following lines.
 
 Allow this struct to be easily converted to and from JSON:
+
 \#S:INCLUDE
 ```rust
 #[derive(Serialize, Deserialize, Debug, DefaultJson, Clone)]
@@ -234,6 +236,7 @@ Add the following `use` statements:
 
 _TODO: The following code block should be collapsable_
 Check your code matches this:
+
 \#S:SKIP
 ```rust
 #![feature(proc_macro_hygiene)]
@@ -322,6 +325,7 @@ Now you need a way for you UI to actually create a person entry. Holochain has a
 Add the following lines below the previous `person_entry_def` function.
 
 Add a public function that takes a `Person` and returns a result with an `Address`:
+
 \#S:INCLUDE
 ```rust
 #[zome_fn("hc_public")]
@@ -534,7 +538,9 @@ Open the developer console, enter your name, and press the "Submit Name" button.
 
 ### Show the new entry's address
 
-First, a bit of refactoring. If you make the `update_span` function more generic, then you can reuse it for each element.
+Now we're going to show the address on the page rather than the developer console.
+
+But first, a bit of refactoring. If you make the `update_span` function more generic, then you can reuse it for each element that shows the output for a zome function.
 
 Pass in the element's ID so that the function can be reused:
 
@@ -542,7 +548,7 @@ Pass in the element's ID so that the function can be reused:
 
 ### Enter the browser
 
-Go back to your browser and refresh the page. This time when you enter your name and press __Submit Name__ you will see the address show up:
+Go back to your browser and refresh the page. This time when you enter your name and press __Submit Name__, you will see the address show up:
 
 ![](https://i.imgur.com/rMfAa7t.png)
 
@@ -568,7 +574,7 @@ Add a span with the ID `entry_output` to display the person that is returned fro
 
 ### Go to your `hello.js` file
 
-Add the `retrieve_person` function to call the zome function:
+Add the `retrieve_person` function to call the zome function of the same name and show its response:
 
 ```javascript
 function retrieve_person() {
@@ -586,7 +592,7 @@ Wait for the connection and then make a zome call:
   holochain_connection.then(({callZome, close}) => {
 ```
 
-Call the `retrieve_person` public zome function and pass in the address then pass the result to `update_person`:
+Call the `retrieve_person` public zome function, passing in the address. Then pass the result to `update_person`:
 
 ```javascript
     callZome('test-instance', 'hello', 'retrieve_person')({address: address}).then((result) => update_person(result))
