@@ -1,15 +1,21 @@
 version: 2
 jobs:
-  test:
+  generate_and_test:
     docker:
       - image: holochain/holonix:latest
 
     steps:
       - checkout
-      
+      - run:
+          name: Get single_source 
+          command: nix-shell https://holochain.love --run 'git clone https://github.com/freesig/single_source.git && cd single_source && cargo build --release && cp target/release/single_source ../single_source'
       - run:
           name: Run all tests
-          command: nix-shell https://holochain.love --run 'cd skeptic && cargo test --all'
+          command: nix-shell https://holochain.love --run './build_test_cc.sh hello_holo && ./build_and_test.sh hello_test && ./build_and_test.sh hello_gui && ./build_and_test.sh hello_me && ./build_and_test.sh hello_world && ./build_and_test.sh simple_micro_blog'
+      - run:
+          name: Push generated file
+          command: git add docs && git commit -m "[skip ci] pushing generated files" && git push origin develop
+
   build-api:
     docker:
       - image: holochain/holonix:latest
@@ -77,8 +83,6 @@ jobs:
           name: Install and configure dependencies
           command: |
             npm install -g --silent gh-pages@2.1.1
-            git config user.email "ci-build@klukas.net"
-            git config user.name "ci-build"
       - add_ssh_keys:
           fingerprints:
             - "08:d9:fc:72:f9:a4:ab:26:5f:32:29:2e:15:f1:85:ee"
@@ -103,10 +107,12 @@ workflows:
           filters:
             branches:
               only: master 
-      - test:
+      - generate_and_test:
           filters:
             branches:
-              only: master 
+              only: 
+                - master
+                - develop
       - docs-deploy:
           requires:
             - build-api

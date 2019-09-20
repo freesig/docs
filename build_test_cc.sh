@@ -13,4 +13,4 @@ single_source code ../coreconcepts/$CONCEPT.md zomes/hello/code/src/lib.rs rust
 hc package
 ./update_hash.sh
 cd ..
-single_source md coreconcepts/$CONCEPT.md docs/coreconcepts/$CONCEPT.md rust
+single_source md coreconcepts/$CONCEPT.md docs/coreconcepts/$CONCEPT.md
