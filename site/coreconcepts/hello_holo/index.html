@@ -1,0 +1,919 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.2">
+    
+    
+      
+        <title>Hello Holo Tutorial - My Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.30686662.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#hello-holo-tutorial" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="My Docs" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              My Docs
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Hello Holo Tutorial
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="My Docs" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    My Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Some documentation" class="md-nav__link">
+      Some documentation
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../some/" title="Some" class="md-nav__link">
+      Some
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Coreconcepts
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Coreconcepts
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../hello_gui/" title="Hello Test Tutorial" class="md-nav__link">
+      Hello Test Tutorial
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Hello Holo Tutorial
+      </label>
+    
+    <a href="./" title="Hello Holo Tutorial" class="md-nav__link md-nav__link--active">
+      Hello Holo Tutorial
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    Setup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#initializing-your-new-app" class="md-nav__link">
+    Initializing your new app
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#compile" class="md-nav__link">
+    Compile
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zome" class="md-nav__link">
+    Zome
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#compile_1" class="md-nav__link">
+    Compile
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#folder-layout" class="md-nav__link">
+    Folder layout
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#look-at-the-folder-layout" class="md-nav__link">
+    Look at the folder layout
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#open-the-librs-file" class="md-nav__link">
+    Open the lib.rs file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-note-about-return-values" class="md-nav__link">
+    A note about return values
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#say-hello" class="md-nav__link">
+    Say hello :)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#compile_2" class="md-nav__link">
+    Compile
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#talk-to-your-app" class="md-nav__link">
+    Talk to your app
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../hello_me/" title="Hello me" class="md-nav__link">
+      Hello me
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../hello_test/" title="Hello Test Tutorial" class="md-nav__link">
+      Hello Test Tutorial
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../hello_world/" title="Hello World" class="md-nav__link">
+      Hello World
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../simple_micro_blog/" title="Simple micro blog tutorial" class="md-nav__link">
+      Simple micro blog tutorial
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    Setup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#initializing-your-new-app" class="md-nav__link">
+    Initializing your new app
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#compile" class="md-nav__link">
+    Compile
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zome" class="md-nav__link">
+    Zome
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#compile_1" class="md-nav__link">
+    Compile
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#folder-layout" class="md-nav__link">
+    Folder layout
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#look-at-the-folder-layout" class="md-nav__link">
+    Look at the folder layout
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#open-the-librs-file" class="md-nav__link">
+    Open the lib.rs file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-note-about-return-values" class="md-nav__link">
+    A note about return values
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#say-hello" class="md-nav__link">
+    Say hello :)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#compile_2" class="md-nav__link">
+    Compile
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#talk-to-your-app" class="md-nav__link">
+    Talk to your app
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="hello-holo-tutorial">Hello Holo Tutorial<a class="headerlink" href="#hello-holo-tutorial" title="Permanent link">&para;</a></h1>
+<p>Let's begin with the classic Hello ~~World~~ Holo tutorial!
+You will see it's super easy to create a distributed application with Holochain.</p>
+<h3 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Complete the <a href="">installation guide</a>. This will give you an app development environment including the Holochain developer tool <code>hc</code>.</li>
+<li>Open up a terminal (command prompt in Windows).</li>
+<li>
+<p>Enter the development environment.</p>
+<p>macOS/Linux (you'll remember this command from the installation tutorial):</p>
+<p><code>bash
+$ nix-shell https://holochain.love</code></p>
+<p>Windows (do this in the place where you installed Holochain):</p>
+<p>```cmd</p>
+<blockquote>
+<p>vagrant up
+vagrant ssh
+nix-shell https://holochain.love
+```</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="initializing-your-new-app">Initializing your new app<a class="headerlink" href="#initializing-your-new-app" title="Permanent link">&para;</a></h2>
+<p>Pick a new home for all your future amazing Holochain applications to live. Something super creative like <code>home_directory/holochain/</code>.</p>
+<p>Then create a <code>coreconcepts</code> folder for this tutorial series:</p>
+<div class="codehilite"><pre><span></span><span class="nb">cd</span> ~
+mkdir holochain 
+<span class="nb">cd</span> holochain
+mkdir coreconcepts
+</pre></div>
+
+
+<p>Time to put the holochain command line tool (<code>hc</code>) to work and make your app.</p>
+<p>Initialize a new app and enter the app directory:</p>
+<div class="codehilite"><pre><span></span>$ hc init hello_tuts
+$ <span class="nb">cd</span> hello_tuts 
+</pre></div>
+
+
+<h4 id="compile">Compile<a class="headerlink" href="#compile" title="Permanent link">&para;</a></h4>
+<p>It's an always good to frequently compile your app. That way you catch any mistakes early on. </p>
+<p>Give it a go by asking <code>hc</code> to package it up:</p>
+<div class="codehilite"><pre><span></span>$ hc package
+</pre></div>
+
+
+<p>Packaging your app means you are compiling the code into a DNA file and getting it ready to be run.</p>
+<p>You should see a successful compilation like this:</p>
+<div class="codehilite"><pre><span></span><span class="err">Created</span> <span class="err">DNA</span> <span class="err">package</span> <span class="err">file</span> <span class="err">at</span> <span class="s2">&quot;/Users/username/holochain/testing_tuts/hello_holo/dist/hello_holo.dna.json&quot;</span>
+<span class="err">DNA</span> <span class="err">hash:</span> <span class="err">QmY</span><span class="mi">7</span><span class="err">rhg</span><span class="mi">4</span><span class="err">sf</span><span class="mi">6</span><span class="err">xqQMRL</span><span class="mi">1</span><span class="err">u</span><span class="mi">1</span><span class="err">CnXVgmamTfxC</span><span class="mi">59</span><span class="err">c</span><span class="mi">9</span><span class="err">RaoFqM</span><span class="mi">2</span><span class="err">eRs</span>
+</pre></div>
+
+
+<h2 id="zome">Zome<a class="headerlink" href="#zome" title="Permanent link">&para;</a></h2>
+<p>Your app doesn't really do too much right now because it needs a <a href="https://developer.holochain.org/guide/latest/zome/welcome.html">zome</a>. A zome is Holochain's way of organizing code into nice units that perform a certain task (like saying hello).</p>
+<p>Generate a zome called <code>hello</code> inside the zome's folder:</p>
+<div class="codehilite"><pre><span></span>$ hc generate zomes/hello rust-proc
+</pre></div>
+
+
+<h4 id="compile_1">Compile<a class="headerlink" href="#compile_1" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span>$ hc package
+</pre></div>
+
+
+<blockquote>
+<p>Zomes can take a little while to compile the first time. Compiling will be much faster the next time you do it. Feel free to move on with the tutorial while your app compiles.</p>
+</blockquote>
+<p>If all went well you should see:</p>
+<div class="codehilite"><pre><span></span>&gt; cargo build --release --target<span class="o">=</span>wasm32-unknown-unknown --target-dir<span class="o">=</span>target
+   Compiling hello v0.1.0 <span class="o">(</span>/Users/username/holochain/core_concepts/hello_hollo/zomes/hello/code<span class="o">)</span>
+    Finished release <span class="o">[</span>optimized<span class="o">]</span> target<span class="o">(</span>s<span class="o">)</span> in <span class="m">11</span>.95s
+&gt; cargo build --release --target<span class="o">=</span>wasm32-unknown-unknown --target-dir<span class="o">=</span>target
+    Finished release <span class="o">[</span>optimized<span class="o">]</span> target<span class="o">(</span>s<span class="o">)</span> in <span class="m">0</span>.50s
+Created DNA package file at <span class="s2">&quot;/Users/username/holochain/core_concepts/hello_hollo/dist/hello_hollo.dna.json&quot;</span>
+DNA hash: QmdNyxke1Z9Kunws4WUXHnt4cdKQnPogC7YPpfQx67fo1z
+</pre></div>
+
+
+<h2 id="folder-layout">Folder layout<a class="headerlink" href="#folder-layout" title="Permanent link">&para;</a></h2>
+<h4 id="look-at-the-folder-layout">Look at the folder layout<a class="headerlink" href="#look-at-the-folder-layout" title="Permanent link">&para;</a></h4>
+<p><img alt="Folder Layout" src="https://i.imgur.com/FJIq8k9.png" /></p>
+<h4 id="open-the-librs-file">Open the <code>lib.rs</code> file<a class="headerlink" href="#open-the-librs-file" title="Permanent link">&para;</a></h4>
+<p>The zome is a <a href="https://rust-lang.com">Rust</a> project and makes use of <a href="https://doc.rust-lang.org/book/ch19-06-macros.html#the-difference-between-macros-and-functions">macros</a> so you can avoid writing a lot of boilerplate code. The main file you will be editing is <code>hello_hollo/zomes/code/lib.rs</code>.</p>
+<p>The following are all the imports. You are telling Rust, "hey, I need things from all these <a href="https://doc.rust-lang.org/book/ch07-01-packages-and-crates.html">crates</a> in order to do my job."</p>
+<p>#S:INCLUDE</p>
+<div class="codehilite"><pre><span></span><span class="cp">#![feature(proc_macro_hygiene)]</span><span class="w"></span>
+<span class="k">extern</span><span class="w"> </span><span class="k">crate</span><span class="w"> </span><span class="n">hdk</span><span class="p">;</span><span class="w"></span>
+<span class="k">extern</span><span class="w"> </span><span class="k">crate</span><span class="w"> </span><span class="n">hdk_proc_macros</span><span class="p">;</span><span class="w"></span>
+<span class="k">extern</span><span class="w"> </span><span class="k">crate</span><span class="w"> </span><span class="n">serde</span><span class="p">;</span><span class="w"></span>
+<span class="cp">#[macro_use]</span><span class="w"></span>
+<span class="k">extern</span><span class="w"> </span><span class="k">crate</span><span class="w"> </span><span class="n">serde_derive</span><span class="p">;</span><span class="w"></span>
+<span class="k">extern</span><span class="w"> </span><span class="k">crate</span><span class="w"> </span><span class="n">serde_json</span><span class="p">;</span><span class="w"></span>
+<span class="k">extern</span><span class="w"> </span><span class="k">crate</span><span class="w"> </span><span class="n">holochain_json_derive</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+
+
+<p>Next are the <code>use</code> statements. They are saying, "I want to use these specific things from the above crates."</p>
+<p>#S:SKIP</p>
+<div class="codehilite"><pre><span></span><span class="k">use</span><span class="w"> </span><span class="n">hdk</span>::<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">entry_definition</span>::<span class="n">ValidatingEntryType</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">error</span>::<span class="n">ZomeApiResult</span><span class="p">,</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+<span class="k">use</span><span class="w"> </span><span class="n">hdk</span>::<span class="n">holochain_core_types</span>::<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">entry</span>::<span class="n">Entry</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">dna</span>::<span class="n">entry_types</span>::<span class="n">Sharing</span><span class="p">,</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="k">use</span><span class="w"> </span><span class="n">hdk</span>::<span class="n">holochain_json_api</span>::<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">json</span>::<span class="n">JsonString</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">error</span>::<span class="n">JsonError</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="k">use</span><span class="w"> </span><span class="n">hdk</span>::<span class="n">holochain_persistence_api</span>::<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">cas</span>::<span class="n">content</span>::<span class="n">Address</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="k">use</span><span class="w"> </span><span class="n">hdk_proc_macros</span>::<span class="n">zome</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+
+
+<p>You only need these use statements for this tutorial so remove the rest.</p>
+<p>#S:INCLUDE</p>
+<div class="codehilite"><pre><span></span><span class="k">use</span><span class="w"> </span><span class="n">hdk</span>::<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">error</span>::<span class="n">ZomeApiResult</span><span class="p">,</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="k">use</span><span class="w"> </span><span class="n">hdk_proc_macros</span>::<span class="n">zome</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+
+
+<p>There are a few sections of generated code that are not useful for this tutorial. 
+Remove the following piece of code:</p>
+<p>#S:SKIP</p>
+<div class="codehilite"><pre><span></span><span class="cp">#[derive(Serialize, Deserialize, Debug, DefaultJson,Clone)]</span><span class="w"></span>
+<span class="k">pub</span><span class="w"> </span><span class="k">struct</span> <span class="nc">MyEntry</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">content</span>: <span class="nb">String</span><span class="p">,</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+
+
+<p>The <code>my_zome</code> module is where all your zome code live. <code>#[zome]</code> is a <a href="https://doc.rust-lang.org/reference/procedural-macros.html">procedural macro</a> that says that the following module defines all the things that Holochain should know about this zome. It saves you writing lots of code. Change it to <code>hello_zome</code> for this tutorial series:</p>
+<p>#S:INCLUDE</p>
+<div class="codehilite"><pre><span></span><span class="cp">#[zome]</span><span class="w"></span>
+<span class="k">mod</span> <span class="nn">hello_zome</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+</pre></div>
+
+
+<p>The <code>init</code> function is run when a user starts the app for the first time. Every zome defines this function so it can do some initial setup tasks. In this zome it doesn't do anything.</p>
+<div class="codehilite"><pre><span></span><span class="w">    </span><span class="cp">#[init]</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span> <span class="nf">init</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+</pre></div>
+
+
+<p>Return success with the empty value <code>()</code>. In Rust <code>()</code> is called the <a href="https://doc.rust-lang.org/std/primitive.unit.html">unit type</a> and is similar (though not identical) to a <a href="https://en.wikipedia.org/wiki/Void_type">void type</a> in other languages.</p>
+<div class="codehilite"><pre><span></span><span class="w">        </span><span class="nb">Ok</span><span class="p">(())</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+</pre></div>
+
+
+<p>Remove the following template code:</p>
+<p>#S:SKIP</p>
+<div class="codehilite"><pre><span></span><span class="w">     </span><span class="cp">#[entry_def]</span><span class="w"></span>
+<span class="w">     </span><span class="k">fn</span> <span class="nf">my_entry_def</span><span class="p">()</span><span class="w"> </span>-&gt; <span class="nc">ValidatingEntryType</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">entry</span><span class="o">!</span><span class="p">(</span><span class="w"></span>
+<span class="w">            </span><span class="n">name</span>: <span class="s">&quot;my_entry&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="n">description</span>: <span class="s">&quot;this is a same entry defintion&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="n">sharing</span>: <span class="nc">Sharing</span>::<span class="n">Public</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="n">validation_package</span>: <span class="o">||</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="n">hdk</span>::<span class="n">ValidationPackageDefinition</span>::<span class="n">Entry</span><span class="w"></span>
+<span class="w">            </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="n">validation</span>: <span class="o">|</span><span class="w"> </span><span class="n">_validation_data</span>: <span class="nc">hdk</span>::<span class="n">EntryValidationData</span><span class="o">&lt;</span><span class="n">MyEntry</span><span class="o">&gt;|</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="nb">Ok</span><span class="p">(())</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="cp">#[zome_fn(</span><span class="s">&quot;hc_public&quot;</span><span class="cp">)]</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span> <span class="nf">create_my_entry</span><span class="p">(</span><span class="n">entry</span>: <span class="nc">MyEntry</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nc">ZomeApiResult</span><span class="o">&lt;</span><span class="n">Address</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">entry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Entry</span>::<span class="n">App</span><span class="p">(</span><span class="s">&quot;my_entry&quot;</span><span class="p">.</span><span class="n">into</span><span class="p">(),</span><span class="w"> </span><span class="n">entry</span><span class="p">.</span><span class="n">into</span><span class="p">());</span><span class="w"></span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hdk</span>::<span class="n">commit_entry</span><span class="p">(</span><span class="o">&amp;</span><span class="n">entry</span><span class="p">)</span><span class="o">?</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="nb">Ok</span><span class="p">(</span><span class="n">address</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="cp">#[zome_fn(</span><span class="s">&quot;hc_public&quot;</span><span class="cp">)]</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span> <span class="nf">get_my_entry</span><span class="p">(</span><span class="n">address</span>: <span class="nc">Address</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nc">ZomeApiResult</span><span class="o">&lt;</span><span class="nb">Option</span><span class="o">&lt;</span><span class="n">Entry</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">hdk</span>::<span class="n">get_entry</span><span class="p">(</span><span class="o">&amp;</span><span class="n">address</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+</pre></div>
+
+
+<p>This required function is run at application start too, once by the new user and once by the existing peers. It checks that the user is allowed to join the network. In this case it gives everyone a free pass.</p>
+<p>#S:INCLUDE</p>
+<div class="codehilite"><pre><span></span><span class="w">    </span><span class="cp">#[validate_agent]</span><span class="w"></span>
+<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">validate_agent</span><span class="p">(</span><span class="n">validation_data</span>: <span class="nc">EntryValidationData</span><span class="o">&lt;</span><span class="n">AgentId</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nb">Ok</span><span class="p">(())</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+</pre></div>
+
+
+<blockquote>
+<h4 id="a-note-about-return-values">A note about return values<a class="headerlink" href="#a-note-about-return-values" title="Permanent link">&para;</a></h4>
+<p>You'll often see Rust functions returning some sort of <a href="https://doc.rust-lang.org/std/result/"><code>Result</code></a> value. This is a special Rust type that can either be <code>Ok(some_value)</code> to show that the function succeeded or <code>Err(some_error)</code> to report an error. All required Holochain functions, such as init and validators, are expected return a special result type called <a href="https://developer.holochain.org/api/latest/hdk/error/type.ZomeApiResult.html"><code>ZomeApiResult</code></a>, which shuttles data back and forth between your app and the conductor. It also automatically converts data to JSON and back, so it makes sense to use it in your public functions too.</p>
+</blockquote>
+<h2 id="say-hello">Say hello :)<a class="headerlink" href="#say-hello" title="Permanent link">&para;</a></h2>
+<p>Now tell the zome to return <code>Hello Holo</code> from a public function.</p>
+<p>Locate the <code>init</code> function:</p>
+<p>#S:SKIP</p>
+<div class="codehilite"><pre><span></span><span class="k">fn</span> <span class="nf">init</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nb">Ok</span><span class="p">(())</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+
+
+<p>You're going to put your public zome function after it.</p>
+<p>The <code>hc_public</code> procedural macro will turn the function directly below it into a public function that GUIs, other zomes, and DNAs can call. It takes note of the function's name, the parameters it accepts, and the type of value it returns, so Holochain can call it properly.</p>
+<p>Add the <code>hc_public</code> macro:</p>
+<p>#S:INCLUDE</p>
+<div class="codehilite"><pre><span></span><span class="w">    </span><span class="cp">#[zome_fn(</span><span class="s">&quot;hc_public&quot;</span><span class="cp">)]</span><span class="w"></span>
+</pre></div>
+
+
+<p>The function <code>hello_holo</code> takes no arguments and returns a Holochain result type. We're also telling Holochain that if the result is <code>Ok</code> then it will contain some sort of string.</p>
+<p>Start the function:</p>
+<div class="codehilite"><pre><span></span><span class="w">    </span><span class="k">fn</span> <span class="nf">hello_holo</span><span class="p">()</span><span class="w"> </span>-&gt; <span class="nc">ZomeApiResult</span><span class="o">&lt;</span><span class="nb">String</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+</pre></div>
+
+
+<p>Return an <code>Ok</code> result that contains our greeting. <code>into()</code> is a bit of Rust oddness that just means "turn this <a href="">slice</a> into a <code>String</code>":</p>
+<div class="codehilite"><pre><span></span><span class="w">        </span><span class="nb">Ok</span><span class="p">(</span><span class="s">&quot;Hello Holo&quot;</span><span class="p">.</span><span class="n">into</span><span class="p">())</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+</pre></div>
+
+
+<p>Close the zome:</p>
+<div class="codehilite"><pre><span></span><span class="p">}</span><span class="w"></span>
+</pre></div>
+
+
+<h4 id="compile_2">Compile<a class="headerlink" href="#compile_2" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>If you do find any errors, remember to fix them before moving on. You can always get help on the <a href="https://forum.holochain.org/t/about-the-getting-started-category/167">forum</a>.</p>
+</blockquote>
+<div class="codehilite"><pre><span></span>$ hc package
+</pre></div>
+
+
+<h2 id="talk-to-your-app">Talk to your app<a class="headerlink" href="#talk-to-your-app" title="Permanent link">&para;</a></h2>
+<p>Time to run your app in HTTP mode so you can talk to it.</p>
+<p>Run your app with the following command:</p>
+<div class="codehilite"><pre><span></span>$ hc run -i http
+</pre></div>
+
+
+<p>You can send a <a href="https://en.wikipedia.org/wiki/POST_(HTTP)">POST</a> message to your app using <a href="https://curl.haxx.se/">curl</a>, a little command for making HTTP requests. (It's included in the Holochain dev environment.)</p>
+<p>You will need to open a new terminal window and enter the nix-shell again:</p>
+<div class="codehilite"><pre><span></span>$ nix-shell https://holochain.love
+</pre></div>
+
+
+<p>Enter the following request, which will call the <code>hello_holo</code> function and return the result:</p>
+<div class="codehilite"><pre><span></span>$ curl -X POST -H <span class="s2">&quot;Content-Type: application/json&quot;</span> -d <span class="s1">&#39;{&quot;id&quot;: &quot;0&quot;, &quot;jsonrpc&quot;: &quot;2.0&quot;, &quot;method&quot;: &quot;call&quot;, &quot;params&quot;: {&quot;instance_id&quot;: &quot;test-instance&quot;, &quot;zome&quot;: &quot;hello&quot;, &quot;function&quot;: &quot;hello_holo&quot;, &quot;args&quot;: {} }}&#39;</span> http://127.0.0.1:8888
+</pre></div>
+
+
+<p>And you should get back your string from the <code>hello_holo</code> function:</p>
+<div class="codehilite"><pre><span></span><span class="p">{</span><span class="nt">&quot;jsonrpc&quot;</span><span class="p">:</span><span class="s2">&quot;2.0&quot;</span><span class="p">,</span><span class="nt">&quot;result&quot;</span><span class="p">:</span><span class="s2">&quot;{\&quot;Ok\&quot;:\&quot;Hello Holo\&quot;}&quot;</span><span class="p">,</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;0&quot;</span><span class="p">}</span>
+</pre></div>
+
+
+<p>Congratulations --- you have created your first distributed Holochain application! :rocket:</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../hello_gui/" title="Hello Test Tutorial" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Hello Test Tutorial
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../hello_me/" title="Hello me" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Hello me
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.c648116f.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>
