@@ -1,4 +1,3 @@
-\#S:EXTERNAL=hello_me.rs
 # Hello Me
 
 Welcome back to another tutorial in the Core Concepts series. Today you will learn how to add an entry type to your zome and start writing entries to your source chain. Remember an entry is a piece of data in your source chain that has been validated.
@@ -113,7 +112,6 @@ Open up your `zomes/hello/code/src/lib.rs` file. To add an entry into your sourc
 
 In a moment we will add a `Person` struct, but this is where to put it:
 
-\#S:SKIP
 ```rust
 // <---- Add the person struct here.
 
@@ -125,7 +123,6 @@ Add the following lines.
 
 Allow this struct to be easily converted to and from JSON:
 
-\#S:INCLUDE
 ```rust
 #[derive(Serialize, Deserialize, Debug, DefaultJson, Clone)]
 ```
@@ -148,18 +145,6 @@ Look for the following lines inside the `hello_zome` mod.
 ```rust
 #[zome]
 mod hello_zome {
-```
-\#S:HIDE
-```rust
-    #[init]
-    fn init() {
-        Ok(())
-    }
-
-    #[validate_agent]
-    pub fn validate_agent(validation_data: EntryValidationData<AgentId>) {
-        Ok(())
-    }
 ```
 ```rust
   /* --- Lines omitted -- */
@@ -237,7 +222,6 @@ Add the following `use` statements:
 _TODO: The following code block should be collapsable_
 Check your code matches this:
 
-\#S:SKIP
 ```rust
 #![feature(proc_macro_hygiene)]
 #[macro_use]
@@ -326,7 +310,6 @@ Add the following lines below the previous `person_entry_def` function.
 
 Add a public function that takes a `Person` and returns a result with an `Address`:
 
-\#S:INCLUDE
 ```rust
 #[zome_fn("hc_public")]
 pub fn create_person(person: Person) -> ZomeApiResult<Address> {
@@ -608,9 +591,5 @@ function update_person(result) {
   var output = JSON.parse(result);
   var output = JSON.parse(output.Ok.App[1]);
   person.textContent = " " + output.name;
-}
-```
-\#S:HIDE
-```rust
 }
 ```
