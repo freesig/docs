@@ -106,7 +106,6 @@ The zome is a [Rust](https://rust-lang.com) project and makes use of [macros](ht
 
 The following are all the imports. You are telling Rust, "hey, I need things from all these [crates](https://doc.rust-lang.org/book/ch07-01-packages-and-crates.html) in order to do my job."
 
-\#S:INCLUDE
 ```rust
 #![feature(proc_macro_hygiene)]
 extern crate hdk;
@@ -120,7 +119,6 @@ extern crate holochain_json_derive;
 
 Next are the `use` statements. They are saying, "I want to use these specific things from the above crates."
 
-\#S:SKIP
 ```rust
 use hdk::{
     entry_definition::ValidatingEntryType,
@@ -144,7 +142,6 @@ use hdk_proc_macros::zome;
 ```
 You only need these use statements for this tutorial so remove the rest.
 
-\#S:INCLUDE
 ```rust
 use hdk::{
     error::ZomeApiResult,
@@ -156,7 +153,6 @@ use hdk_proc_macros::zome;
 There are a few sections of generated code that are not useful for this tutorial. 
 Remove the following piece of code:
 
-\#S:SKIP
 ```rust
 #[derive(Serialize, Deserialize, Debug, DefaultJson,Clone)]
 pub struct MyEntry {
@@ -166,7 +162,6 @@ pub struct MyEntry {
 
 The `my_zome` module is where all your zome code live. `#[zome]` is a [procedural macro](https://doc.rust-lang.org/reference/procedural-macros.html) that says that the following module defines all the things that Holochain should know about this zome. It saves you writing lots of code. Change it to `hello_zome` for this tutorial series:
 
-\#S:INCLUDE
 ```rust
 #[zome]
 mod hello_zome {
@@ -188,7 +183,6 @@ Return success with the empty value `()`. In Rust `()` is called the [unit type]
 
 Remove the following template code:
 
-\#S:SKIP
 ```rust
      #[entry_def]
      fn my_entry_def() -> ValidatingEntryType {
@@ -220,7 +214,6 @@ Remove the following template code:
 
 This required function is run at application start too, once by the new user and once by the existing peers. It checks that the user is allowed to join the network. In this case it gives everyone a free pass.
 
-\#S:INCLUDE
 ```rust
     #[validate_agent]
     pub fn validate_agent(validation_data: EntryValidationData<AgentId>) {
@@ -238,7 +231,6 @@ Now tell the zome to return `Hello Holo` from a public function.
 
 Locate the `init` function:
 
-\#S:SKIP
 ```rust
 fn init() {
     Ok(())
@@ -251,7 +243,6 @@ The `hc_public` procedural macro will turn the function directly below it into a
 
 Add the `hc_public` macro:
 
-\#S:INCLUDE
 ```rust
     #[zome_fn("hc_public")]
 ```
