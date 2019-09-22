@@ -20,7 +20,7 @@ jobs:
             - "08:d9:fc:72:f9:a4:ab:26:5f:32:29:2e:15:f1:85:ee"
       - run:
           name: Set github 
-          command: git config --global user.email "circleci@circleci" && git config --global user.name "Circleci" && git add docs && git commit -m "[skip ci] pushing generated files" && git push origin develop
+          command: git config --global user.email "circleci@circleci" && git config --global user.name "Circleci" && git add docs && ./update_docs.sh 
 
   build-api:
     docker:
@@ -88,7 +88,7 @@ jobs:
       - run:
           name: Install and configure dependencies
           command: |
-            npm install -g --silent gh-pages@2.1.1
+            npm install -g --silent gh-pages@2.1.1 && git config --global user.email "circleci@circleci" && git config --global user.name "Circleci" 
       - add_ssh_keys:
           fingerprints:
             - "08:d9:fc:72:f9:a4:ab:26:5f:32:29:2e:15:f1:85:ee"
@@ -117,7 +117,6 @@ workflows:
           filters:
             branches:
               only: 
-                - master
                 - develop
       - docs-deploy:
           requires:
