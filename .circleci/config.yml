@@ -8,13 +8,19 @@ jobs:
       - checkout
       - run:
           name: Get single_source 
-          command: nix-shell https://holochain.love --run 'git clone https://github.com/freesig/single_source.git && cd single_source && cargo build --release && cp target/release/single_source ../single_source'
+          command: nix-shell https://holochain.love --run 'git clone https://github.com/freesig/single_source.git && cd single_source && cargo build --release && cd ../ && mkdir utility && cp single_source/target/release/single_source utility/single_source'
+      - run:
+          name: debug
+          command: ls single_source/target/release/ && ls . && pwd
       - run:
           name: Run all tests
-          command: nix-shell https://holochain.love --run './build_test_cc.sh hello_holo && ./build_and_test.sh hello_test && ./build_and_test.sh hello_gui && ./build_and_test.sh hello_me && ./build_and_test.sh hello_world && ./build_and_test.sh simple_micro_blog'
+          command: nix-shell https://holochain.love --run './build_test_cc.sh hello_holo && ./build_test_cc.sh hello_test && ./build_test_cc.sh hello_gui && ./build_test_cc.sh hello_me && ./build_test_cc.sh hello_world && ./build_test_cc.sh simple_micro_blog'
+      - add_ssh_keys:
+          fingerprints:
+            - "08:d9:fc:72:f9:a4:ab:26:5f:32:29:2e:15:f1:85:ee"
       - run:
-          name: Push generated file
-          command: git add docs && git commit -m "[skip ci] pushing generated files" && git push origin develop
+          name: Set github 
+          command: git config --global user.email "circleci@circleci" && git config --global user.name "Circleci" && git add docs && git commit -m "[skip ci] pushing generated files" && git push origin develop
 
   build-api:
     docker:

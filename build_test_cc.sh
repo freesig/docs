@@ -9,8 +9,8 @@ if [ ! -d "coreconcepts_tuts" ]; then
 fi
 
 cd coreconcepts_tuts
-single_source code ../coreconcepts/$CONCEPT.md zomes/hello/code/src/lib.rs rust
-hc package
-./update_hash.sh
+../utility/single_source code ../coreconcepts/$CONCEPT.md zomes/hello/code/src/lib.rs rust
+#hc package
+#./update_hash.sh
 cd ..
-single_source md coreconcepts/$CONCEPT.md docs/coreconcepts/$CONCEPT.md
+utility/single_source md coreconcepts/$CONCEPT.md docs/coreconcepts/$CONCEPT.md
