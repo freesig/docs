@@ -378,8 +378,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../hello_me/" title="Hello me" class="md-nav__link">
-      Hello me
+    <a href="../hello_me/" title="Hello Me" class="md-nav__link">
+      Hello Me
     </a>
   </li>
 
@@ -655,7 +655,6 @@ DNA hash: QmdNyxke1Z9Kunws4WUXHnt4cdKQnPogC7YPpfQx67fo1z
 <h4 id="open-the-librs-file">Open the <code>lib.rs</code> file<a class="headerlink" href="#open-the-librs-file" title="Permanent link">&para;</a></h4>
 <p>The zome is a <a href="https://rust-lang.com">Rust</a> project and makes use of <a href="https://doc.rust-lang.org/book/ch19-06-macros.html#the-difference-between-macros-and-functions">macros</a> so you can avoid writing a lot of boilerplate code. The main file you will be editing is <code>hello_hollo/zomes/code/lib.rs</code>.</p>
 <p>The following are all the imports. You are telling Rust, "hey, I need things from all these <a href="https://doc.rust-lang.org/book/ch07-01-packages-and-crates.html">crates</a> in order to do my job."</p>
-<p>#S:INCLUDE</p>
 <div class="codehilite"><pre><span></span><span class="cp">#![feature(proc_macro_hygiene)]</span><span class="w"></span>
 <span class="k">extern</span><span class="w"> </span><span class="k">crate</span><span class="w"> </span><span class="n">hdk</span><span class="p">;</span><span class="w"></span>
 <span class="k">extern</span><span class="w"> </span><span class="k">crate</span><span class="w"> </span><span class="n">hdk_proc_macros</span><span class="p">;</span><span class="w"></span>
@@ -668,7 +667,6 @@ DNA hash: QmdNyxke1Z9Kunws4WUXHnt4cdKQnPogC7YPpfQx67fo1z
 
 
 <p>Next are the <code>use</code> statements. They are saying, "I want to use these specific things from the above crates."</p>
-<p>#S:SKIP</p>
 <div class="codehilite"><pre><span></span><span class="k">use</span><span class="w"> </span><span class="n">hdk</span>::<span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="n">entry_definition</span>::<span class="n">ValidatingEntryType</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="n">error</span>::<span class="n">ZomeApiResult</span><span class="p">,</span><span class="w"></span>
@@ -692,7 +690,6 @@ DNA hash: QmdNyxke1Z9Kunws4WUXHnt4cdKQnPogC7YPpfQx67fo1z
 
 
 <p>You only need these use statements for this tutorial so remove the rest.</p>
-<p>#S:INCLUDE</p>
 <div class="codehilite"><pre><span></span><span class="k">use</span><span class="w"> </span><span class="n">hdk</span>::<span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="n">error</span>::<span class="n">ZomeApiResult</span><span class="p">,</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
@@ -703,7 +700,6 @@ DNA hash: QmdNyxke1Z9Kunws4WUXHnt4cdKQnPogC7YPpfQx67fo1z
 
 <p>There are a few sections of generated code that are not useful for this tutorial. 
 Remove the following piece of code:</p>
-<p>#S:SKIP</p>
 <div class="codehilite"><pre><span></span><span class="cp">#[derive(Serialize, Deserialize, Debug, DefaultJson,Clone)]</span><span class="w"></span>
 <span class="k">pub</span><span class="w"> </span><span class="k">struct</span> <span class="nc">MyEntry</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="n">content</span>: <span class="nb">String</span><span class="p">,</span><span class="w"></span>
@@ -712,7 +708,6 @@ Remove the following piece of code:</p>
 
 
 <p>The <code>my_zome</code> module is where all your zome code live. <code>#[zome]</code> is a <a href="https://doc.rust-lang.org/reference/procedural-macros.html">procedural macro</a> that says that the following module defines all the things that Holochain should know about this zome. It saves you writing lots of code. Change it to <code>hello_zome</code> for this tutorial series:</p>
-<p>#S:INCLUDE</p>
 <div class="codehilite"><pre><span></span><span class="cp">#[zome]</span><span class="w"></span>
 <span class="k">mod</span> <span class="nn">hello_zome</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 </pre></div>
@@ -731,7 +726,6 @@ Remove the following piece of code:</p>
 
 
 <p>Remove the following template code:</p>
-<p>#S:SKIP</p>
 <div class="codehilite"><pre><span></span><span class="w">     </span><span class="cp">#[entry_def]</span><span class="w"></span>
 <span class="w">     </span><span class="k">fn</span> <span class="nf">my_entry_def</span><span class="p">()</span><span class="w"> </span>-&gt; <span class="nc">ValidatingEntryType</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="n">entry</span><span class="o">!</span><span class="p">(</span><span class="w"></span>
@@ -762,7 +756,6 @@ Remove the following piece of code:</p>
 
 
 <p>This required function is run at application start too, once by the new user and once by the existing peers. It checks that the user is allowed to join the network. In this case it gives everyone a free pass.</p>
-<p>#S:INCLUDE</p>
 <div class="codehilite"><pre><span></span><span class="w">    </span><span class="cp">#[validate_agent]</span><span class="w"></span>
 <span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">validate_agent</span><span class="p">(</span><span class="n">validation_data</span>: <span class="nc">EntryValidationData</span><span class="o">&lt;</span><span class="n">AgentId</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="nb">Ok</span><span class="p">(())</span><span class="w"></span>
@@ -777,7 +770,6 @@ Remove the following piece of code:</p>
 <h2 id="say-hello">Say hello :)<a class="headerlink" href="#say-hello" title="Permanent link">&para;</a></h2>
 <p>Now tell the zome to return <code>Hello Holo</code> from a public function.</p>
 <p>Locate the <code>init</code> function:</p>
-<p>#S:SKIP</p>
 <div class="codehilite"><pre><span></span><span class="k">fn</span> <span class="nf">init</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nb">Ok</span><span class="p">(())</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
@@ -787,7 +779,6 @@ Remove the following piece of code:</p>
 <p>You're going to put your public zome function after it.</p>
 <p>The <code>hc_public</code> procedural macro will turn the function directly below it into a public function that GUIs, other zomes, and DNAs can call. It takes note of the function's name, the parameters it accepts, and the type of value it returns, so Holochain can call it properly.</p>
 <p>Add the <code>hc_public</code> macro:</p>
-<p>#S:INCLUDE</p>
 <div class="codehilite"><pre><span></span><span class="w">    </span><span class="cp">#[zome_fn(</span><span class="s">&quot;hc_public&quot;</span><span class="cp">)]</span><span class="w"></span>
 </pre></div>
 
@@ -876,13 +867,13 @@ Remove the following piece of code:</p>
           </a>
         
         
-          <a href="../hello_me/" title="Hello me" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../hello_me/" title="Hello Me" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Hello me
+                Hello Me
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

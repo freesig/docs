@@ -36,7 +36,7 @@
     
     
       
-        <title>Hello me - My Docs</title>
+        <title>Hello Me - My Docs</title>
       
     
     
@@ -101,7 +101,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Hello me
+                Hello Me
               
             </span>
           
@@ -248,11 +248,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Hello me
+        Hello Me
       </label>
     
-    <a href="./" title="Hello me" class="md-nav__link md-nav__link--active">
-      Hello me
+    <a href="./" title="Hello Me" class="md-nav__link md-nav__link--active">
+      Hello Me
     </a>
     
       
@@ -664,8 +664,7 @@
               
                 
                 
-                <p>#S:EXTERNAL=hello_me.rs</p>
-<h1 id="hello-me">Hello Me<a class="headerlink" href="#hello-me" title="Permanent link">&para;</a></h1>
+                <h1 id="hello-me">Hello Me<a class="headerlink" href="#hello-me" title="Permanent link">&para;</a></h1>
 <p>Welcome back to another tutorial in the Core Concepts series. Today you will learn how to add an entry type to your zome and start writing entries to your source chain. Remember an entry is a piece of data in your source chain that has been validated.</p>
 <p>The design of today's app will be:</p>
 <ol>
@@ -760,7 +759,6 @@
 <h2 id="entry">Entry<a class="headerlink" href="#entry" title="Permanent link">&para;</a></h2>
 <p>Open up your <code>zomes/hello/code/src/lib.rs</code> file. To add an entry into your source chain you start by telling Holochain what kinds of entry exist. First we'll create a <a href="https://doc.rust-lang.org/1.9.0/book/structs.html"><code>struct</code></a> to define the shape of the data.</p>
 <p>In a moment we will add a <code>Person</code> struct, but this is where to put it:</p>
-<p>#S:SKIP</p>
 <div class="codehilite"><pre><span></span><span class="c1">// &lt;---- Add the person struct here.</span>
 
 <span class="cp">#[zome]</span><span class="w"></span>
@@ -770,7 +768,6 @@
 
 <p>Add the following lines.</p>
 <p>Allow this struct to be easily converted to and from JSON:</p>
-<p>#S:INCLUDE</p>
 <div class="codehilite"><pre><span></span><span class="cp">#[derive(Serialize, Deserialize, Debug, DefaultJson, Clone)]</span><span class="w"></span>
 </pre></div>
 
@@ -789,19 +786,6 @@
 <p>Look for the following lines inside the <code>hello_zome</code> mod.</p>
 <div class="codehilite"><pre><span></span><span class="cp">#[zome]</span><span class="w"></span>
 <span class="k">mod</span> <span class="nn">hello_zome</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-</pre></div>
-
-
-<p>#S:HIDE</p>
-<div class="codehilite"><pre><span></span><span class="w">    </span><span class="cp">#[init]</span><span class="w"></span>
-<span class="w">    </span><span class="k">fn</span> <span class="nf">init</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nb">Ok</span><span class="p">(())</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">    </span><span class="cp">#[validate_agent]</span><span class="w"></span>
-<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">validate_agent</span><span class="p">(</span><span class="n">validation_data</span>: <span class="nc">EntryValidationData</span><span class="o">&lt;</span><span class="n">AgentId</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nb">Ok</span><span class="p">(())</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
 </pre></div>
 
 
@@ -867,7 +851,6 @@ Validation is very important. It is the "rules of the game" for your Holochain a
 <h3 id="compile">Compile<a class="headerlink" href="#compile" title="Permanent link">&para;</a></h3>
 <p><em>TODO: The following code block should be collapsable</em>
 Check your code matches this:</p>
-<p>#S:SKIP</p>
 <div class="codehilite"><pre><span></span><span class="cp">#![feature(proc_macro_hygiene)]</span><span class="w"></span>
 <span class="cp">#[macro_use]</span><span class="w"></span>
 <span class="k">extern</span><span class="w"> </span><span class="k">crate</span><span class="w"> </span><span class="n">hdk</span><span class="p">;</span><span class="w"></span>
@@ -951,7 +934,6 @@ Check your code matches this:</p>
 <p>Now you need a way for you UI to actually create a person entry. Holochain has a concept called <code>hc_public</code> which is a way of telling the runtime make this function available to call from outside this zome.</p>
 <p>Add the following lines below the previous <code>person_entry_def</code> function.</p>
 <p>Add a public function that takes a <code>Person</code> and returns a result with an <code>Address</code>:</p>
-<p>#S:INCLUDE</p>
 <div class="codehilite"><pre><span></span><span class="cp">#[zome_fn(</span><span class="s">&quot;hc_public&quot;</span><span class="cp">)]</span><span class="w"></span>
 <span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">create_person</span><span class="p">(</span><span class="n">person</span>: <span class="nc">Person</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nc">ZomeApiResult</span><span class="o">&lt;</span><span class="n">Address</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 </pre></div>
@@ -1177,11 +1159,6 @@ nix-shell<span class="o">]</span> hc run -p <span class="m">8080</span>
   <span class="kd">var</span> <span class="nx">output</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">output</span><span class="p">.</span><span class="nx">Ok</span><span class="p">.</span><span class="nx">App</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
   <span class="nx">person</span><span class="p">.</span><span class="nx">textContent</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="nx">output</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
-
-
-<p>#S:HIDE</p>
-<div class="codehilite"><pre><span></span><span class="p">}</span><span class="w"></span>
 </pre></div>
                 
                   
