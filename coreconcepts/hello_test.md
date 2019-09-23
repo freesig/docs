@@ -1,3 +1,5 @@
+\#S:EXTERNAL=rust=hello_test.rs
+\#S:EXTERNAL=javascript=hello_test.js
 # Hello Test Tutorial
 
 Welcome to the Hello Test tutorial. Today you will be learning how to test your Holochain apps. This tutorial will add to the previous [Hello Holo]() tutorial, so make sure you do that one first.
@@ -10,10 +12,10 @@ When you ran `hc init` in the previous tutorial Holochain already generated some
 
 The tests are written in JavaScript and use the Holochain testing framework [Diorama](https://github.com/holochain/diorama), along with a popular test harness called [Tape](https://github.com/substack/tape). You can run them with [Node.JS](https://nodejs.org/en/), a runtime that lets you execute JavaScript in the terminal.
 
-Open up the `hello_holo/test/index.js` in your favourite text editor. Have a look through the code.
+Open up the `cc_tuts/test/index.js` in your favourite text editor. Have a look through the code.
 
 Imports required to do testing:
-
+\#S:INCLUDE
 ```javascript
 const path = require('path')
 const tape = require('tape')
@@ -33,8 +35,8 @@ process.on('unhandledRejection', error => {
 The path to your compiled DNA.
 
 ```javascript
-const dnaPath = path.join(__dirname, "../dist/hello_holo.dna.json")
-const dna = Diorama.dna(dnaPath, 'hello_holo')
+const dnaPath = path.join(__dirname, "../dist/cc_tuts.dna.json")
+const dna = Diorama.dna(dnaPath, 'cc_tuts')
 ```
 
 Setup a testing scenario.
@@ -57,6 +59,7 @@ This is the test that Holochain generated based on the `my_entry` struct and the
 
 Remove the following section:
 
+\#S:SKIP
 ```javascript
 diorama.registerScenario("description of example test", async (s, t, { alice }) => {
   // Make a call to a Zome function
@@ -85,6 +88,7 @@ Place the following just above `diorama.run()`.
 
 Register a test scenario that checks `hello_holo()` returns the correct value:
 
+\#S:INCLUDE
 ```javascript
 diorama.registerScenario("Test hello holo", async (s, t, { alice }) => {
 ```
@@ -107,11 +111,13 @@ Check that the result matches what you expected:
   t.deepEqual(result, { Ok: 'Hello Holo' })
 })
 ```
-
+\#S:INCLUDE,HIDE
+```javascript
+diorama.run()
+```
 ## Run the test
-
+\#S:CHECK=javascript
 Now in the `hello_helo` directory, run the test like this:
-
 ```bash
 $ hc test
 ```

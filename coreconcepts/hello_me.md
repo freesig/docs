@@ -1,4 +1,4 @@
-\#S:EXTERNAL=hello_me.rs
+\#S:EXTERNAL=rust=hello_me.rs
 # Hello Me
 
 Welcome back to another tutorial in the Core Concepts series. Today you will learn how to add an entry type to your zome and start writing entries to your source chain. Remember an entry is a piece of data in your source chain that has been validated.

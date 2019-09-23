@@ -10,10 +10,9 @@ When you ran `hc init` in the previous tutorial Holochain already generated some
 
 The tests are written in JavaScript and use the Holochain testing framework [Diorama](https://github.com/holochain/diorama), along with a popular test harness called [Tape](https://github.com/substack/tape). You can run them with [Node.JS](https://nodejs.org/en/), a runtime that lets you execute JavaScript in the terminal.
 
-Open up the `hello_holo/test/index.js` in your favourite text editor. Have a look through the code.
+Open up the `cc_tuts/test/index.js` in your favourite text editor. Have a look through the code.
 
 Imports required to do testing:
-
 ```javascript
 const path = require('path')
 const tape = require('tape')
@@ -33,8 +32,8 @@ process.on('unhandledRejection', error => {
 The path to your compiled DNA.
 
 ```javascript
-const dnaPath = path.join(__dirname, "../dist/hello_holo.dna.json")
-const dna = Diorama.dna(dnaPath, 'hello_holo')
+const dnaPath = path.join(__dirname, "../dist/cc_tuts.dna.json")
+const dna = Diorama.dna(dnaPath, 'cc_tuts')
 ```
 
 Setup a testing scenario.
@@ -107,11 +106,37 @@ Check that the result matches what you expected:
   t.deepEqual(result, { Ok: 'Hello Holo' })
 })
 ```
-
 ## Run the test
-
+??? "Check your code"
+    ```javascript
+    const path = require('path')
+    const tape = require('tape')
+    
+    const { Diorama, tapeExecutor, backwardCompatibilityMiddleware } = require('@holochain/diorama')
+    process.on('unhandledRejection', error => {
+      console.error('got unhandledRejection:', error);
+    });
+    
+    const dnaPath = path.join(__dirname, "../dist/cc_tuts.dna.json")
+    const dna = Diorama.dna(dnaPath, 'cc_tuts')
+    const diorama = new Diorama({
+      instances: {
+        alice: dna,
+        bob: dna,
+      },
+      bridges: [],
+      debugLog: false,
+      executor: tapeExecutor(require('tape')),
+      middleware: backwardCompatibilityMiddleware,
+    })
+    diorama.registerScenario("Test hello holo", async (s, t, { alice }) => {
+      const result = await alice.call("hello", "hello_holo", {});
+      t.ok(result.Ok);
+      t.deepEqual(result, { Ok: 'Hello Holo' })
+    })
+    diorama.run()
+    ```
 Now in the `hello_helo` directory, run the test like this:
-
 ```bash
 $ hc test
 ```
