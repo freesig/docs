@@ -10,7 +10,11 @@ fi
 
 cd coreconcepts_tuts
 ../utility/single_source code ../coreconcepts/$CONCEPT.md zomes/hello/code/src/lib.rs rust
-#hc package
+hc package
+if [ "${?}" -gt 0 ]; then
+  echo ${CONCEPT}
+  exit 1
+fi
 #./update_hash.sh
 cd ..
 utility/single_source md coreconcepts/$CONCEPT.md docs/coreconcepts/$CONCEPT.md

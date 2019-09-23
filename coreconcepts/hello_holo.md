@@ -5,23 +5,21 @@ You will see it's super easy to create a distributed application with Holochain.
 
 ### Setup
 
-1. Complete the [installation guide](). This will give you an app development environment including the Holochain developer tool `hc`.
+1. Complete the [installation guide](https://developer.holochain.org/start.html). This will give you an app development environment including the Holochain developer tool `hc`.
 2. Open up a terminal (command prompt in Windows).
-3. Enter the development environment.
-
-    macOS/Linux (you'll remember this command from the installation tutorial):
-    
-    ```bash
-    $ nix-shell https://holochain.love
-    ```
-
-    Windows (do this in the place where you installed Holochain):
-    
-    ```cmd
-    > vagrant up
-    > vagrant ssh
-    > nix-shell https://holochain.love
-    ```
+3. Enter the development environment.  
+macOS/Linux (you'll remember this command from the installation tutorial):  
+<span class="indent">
+```bash
+$ nix-shell https://holochain.love
+```
+</span>
+Windows (do this in the place where you installed Holochain):
+```cmd
+vagrant up
+vagrant ssh
+nix-shell https://holochain.love
+```
 
 ## Initializing your new app
 
@@ -42,15 +40,15 @@ Time to put the holochain command line tool (`hc`) to work and make your app.
 Initialize a new app and enter the app directory:
 
 ```bash
-$ hc init hello_tuts
-$ cd hello_tuts 
+$ hc init cc_tuts
+$ cd cc_tuts 
 ```
 
 #### Compile 
 
 It's an always good to frequently compile your app. That way you catch any mistakes early on. 
 
-Give it a go by asking `hc` to package it up:
+Give it a go by asking `hc` to package your app:
 
 ```bash
 $ hc package
@@ -65,7 +63,7 @@ Created DNA package file at "/Users/username/holochain/testing_tuts/hello_holo/d
 DNA hash: QmY7rhg4sf6xqQMRL1u1CnXVgmamTfxC59c9RaoFqM2eRs
 ```
 
-## Zome
+## Generate a zome
 
 Your app doesn't really do too much right now because it needs a [zome](https://developer.holochain.org/guide/latest/zome/welcome.html). A zome is Holochain's way of organizing code into nice units that perform a certain task (like saying hello).
 
