@@ -25,7 +25,7 @@ You will see it's super easy to create a distributed application with Holochain.
 
 ## Initializing your new app
 
-Pick a new home for all your future amazing Holochain applications to live. Something super creative like `home_directory/holochain/`.
+Pick a new home for all your future Holochain applications to live. Something like  `home_directory/holochain/`.
 
 Then create a `coreconcepts` folder for this tutorial series:
 
@@ -34,6 +34,7 @@ cd ~
 mkdir holochain 
 cd holochain
 mkdir coreconcepts
+cd coreconcepts
 ``` 
 
 Time to put the holochain command line tool (`hc`) to work and make your app.
