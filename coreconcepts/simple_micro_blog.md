@@ -127,7 +127,7 @@ You need a function for creating a new post. Think about the ingredients that mi
 The message will come from the UI. For simplicity the timestamp will come from the UI as well. Time is a pretty tricky concept in the distributed world and requires careful planning. The author's ID will come from the special constant `hdk::AGENT_ADDRESS`, which you can access from your zome functions.
 
 > #### Why do I have to specify a timestamp and author? Aren't they already in the entry's header?
-> If two agents publish entries with identical type and content, they'll have the same hash on the DHT. That means that, for all purposes, _there's only one entry_ with two authors. This is fine for some cases. But it causes problems in a microblog. When one author wants to delete an existing message, does the other author's copy get deleted too? Adding a timestamp and author ID makes the two posts distinct, with their own hashes.
+> If two agents publish entries with identical type and content, they'll have the same address on the DHT. That means that, for all purposes, _there's only one entry_ with two authors. This is fine for some cases. But it causes problems in a microblog. When one author wants to delete an existing message, does the other author's copy get deleted too? Adding a timestamp and author ID makes the two posts distinct and gives them their own addresses.
 
 Add a public `create_post` function that takes a message as a `String` and a timestamp as a `u64`:
 
@@ -136,7 +136,7 @@ Add a public `create_post` function that takes a message as a `String` and a tim
 pub fn create_post(message: String, timestamp: u64) -> ZomeApiResult<Address> {
 ```
 
-Create the `Post` using the message, timestamp and this agents address:
+Create the `Post` using the message, timestamp, and author's address:
 
 ```rust
     let post = Post {
@@ -373,7 +373,7 @@ function get_agent_id() {
   var instance = document.getElementById('instance').value;
 ```
 
-Call the `get_agent_id` function and update the `agent_id` element:
+Call the `get_agent_id` zome function and update the `agent_id` element:
 
 ```javascript
   holochainclient.connect({ url: "ws://localhost:3401"}).then(({callZome, close}) => {
