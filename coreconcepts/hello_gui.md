@@ -113,19 +113,21 @@ Once that's done you can easily link to the compiled js file by adding this `scr
 Now that you have linked the hc-web-client.js library you can make a simple zome call with some vanilla JavaScript.
 
 Add this function inside your `<body>` tag:
-
+\#S:INCLUDE,MODE=gui
 ```javascript
 <script type="text/javascript">
 ```
 
 Make a WebSocket connection to Holochain on port 3401:
 
+\#S:MODE=test
 ```javascript
 var holochain_connection = holochainclient.connect({ url: "ws://localhost:3401"});
 ```
 
 Add a `hello()` JavaScript function so you can call it from your HTML:
 
+\#S:MODE=gui
 ```javascript
 function hello() {
 ```
