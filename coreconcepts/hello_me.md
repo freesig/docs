@@ -539,7 +539,7 @@ function update_person(result) {
   person.textContent = " " + output.name;
 }
 ```
-\#S:HIDE
+\#S:HIDE,INCLUDE
 ```rust
 }
 ```
