@@ -48,6 +48,7 @@ t.deepEqual(bob_retrieve_result, { Ok: { App: [ 'person', '{"name":"Alice"}' ] }
 \#S:HIDE
 ```javascript
 })
+diorama.run()
 ```
 Your test should look like this:
 

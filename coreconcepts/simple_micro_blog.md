@@ -1,3 +1,7 @@
+\#S:MODE=test
+\#S:EXTERNAL=javascript=simple_micro_blog.js=test
+\#S:EXTERNAL=rust=simple_micro_blog_p1.rs
+
 # Simple Micro Blog tutorial
 
 Welcome to the Simple Micro blog tutorial in the Core Concepts tutorial series. The aim of this tutorial is to show how entries can be linked to each other in a Holochain app. A link is simply a relationship between two entries. It's a useful way to find some data from something you already know. For example, you could link from your user's agent ID entry to their blog posts.
@@ -50,6 +54,16 @@ Update the `person` entry type definition to `post`:
 [![asciicast](https://asciinema.org/a/aYwqCZ2w2b4D3vAZw4F4unOfz.svg)](https://asciinema.org/a/aYwqCZ2w2b4D3vAZw4F4unOfz)
 
 ## Agent ID
+
+\#S:INCLUDE
+```rust
+#[derive(Serialize, Deserialize, Debug, DefaultJson, Clone)]
+pub struct Agent {
+    id: String,
+}
+```
+
+\#S:EXTERNAL=rust=simple_micro_blog_p2.rs
 
 Now you have a post entry but you also need some way to find the posts an agent makes. To do this you can create an agent 'anchor' entry which you will use to link to the posts that the user makes. An anchor is a simple string whose only purpose is to be an easy-to-find entry to attach links to.
 
@@ -195,7 +209,7 @@ Get all the `author_post` links from the agent's address and load them as the `P
 
 ```rust
     hdk::utils::get_links_and_load_type(
-        &address,
+        &agent_address,
         LinkMatch::Exactly("author_post"),
         LinkMatch::Any,
     )
@@ -206,6 +220,7 @@ Get all the `author_post` links from the agent's address and load them as the `P
 
 We're using a new directive, `link::LinkMatch`. You'll need to add it to your `use` statements at the top of the file:
 
+\#S:SKIP
 ```rust
 use hdk::holochain_core_types::{
     entry::Entry,
@@ -220,6 +235,7 @@ As a user, you will need some way of getting your own agent's ID in the UI later
 
 Add a public `get_agent_id` function that returns an `Address`:
 
+\#S:INCLUDE
 ```rust
 #[zome_fn("hc_public")]
 fn get_agent_id() -> ZomeApiResult<Address> {
@@ -252,6 +268,7 @@ Add an `onfocusout` event to the instance text box that will call the same funct
 
 Now open up the `hello.js` file and add the `get_agent_id` function:
 
+\#S:MODE=gui,SKIP
 ```javascript
 function get_agent_id() {
 ```
@@ -275,7 +292,7 @@ Call the `get_agent_id` zome function and then update the `agent_id` element wit
 
 Back in `index.html` turn the "create person" HTML into a post entry widget. Use a `textarea`, call the `create_post` function, and update all the labels and IDs:
 
-[![asciicast](https://asciinema.org/a/mAPERkw51QbQQp2KZkTxZnwDB.svg)](https://asciinema.org/a/mAPERkw51QbQQp2KZkTxZnwDB)
+<script id="asciicast-mAPERkw51QbQQp2KZkTxZnwDB" src="https://asciinema.org/a/mAPERkw51QbQQp2KZkTxZnwDB.js" async></script>
 
 ## Update the UI to retrieve an agent's posts
 
@@ -387,3 +404,8 @@ Call the `get_agent_id` zome function and update the `agent_id` element:
 This is very similar to `retrieve_person`, so just update that function:
 
 [![asciicast](https://asciinema.org/a/oiFGzlKexjVVMrNxf7Gc00Oiw.svg)](https://asciinema.org/a/oiFGzlKexjVVMrNxf7Gc00Oiw)
+
+\#S:INCLUDE,HIDE
+```rust
+}
+```

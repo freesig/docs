@@ -50,6 +50,7 @@ Your test should look like this:
     t.ok(bob_retrieve_result.Ok);
     t.deepEqual(bob_retrieve_result, { Ok: { App: [ 'person', '{"name":"Alice"}' ] }})
     })
+    diorama.run()
     ```
 
 
