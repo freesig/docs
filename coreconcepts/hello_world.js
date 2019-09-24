@@ -30,3 +30,5 @@ diorama.registerScenario("Test Hello Holo", async (s, t, { alice, bob }) => {
   t.ok(retrieve_result.Ok);
   t.deepEqual(retrieve_result, { Ok: { App: [ 'person', '{"name":"Alice"}' ] }})
 
+})
+diorama.run()

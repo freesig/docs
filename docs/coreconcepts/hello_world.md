@@ -46,11 +46,6 @@ Your test should look like this:
 
 ??? question "Check your code"
     ```javascript
-    const bob_retrieve_result = await bob.call("hello", "retrieve_person", {"address": create_result.Ok});
-    t.ok(bob_retrieve_result.Ok);
-    t.deepEqual(bob_retrieve_result, { Ok: { App: [ 'person', '{"name":"Alice"}' ] }})
-    })
-    diorama.run()
     ```
 
 

@@ -29,6 +29,10 @@ Add `bob` to the scenario:
 ```
 
 Make the `retrieve_person` call with the result from `create_person`:
+\#S:HIDE,SKIP
+```javascript
+console.log(create_result);
+```
 
 ```javascript
 const bob_retrieve_result = await bob.call("hello", "retrieve_person", {"address": create_result.Ok});
