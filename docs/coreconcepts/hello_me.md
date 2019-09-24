@@ -39,56 +39,56 @@ Add the new tests below `t.deepEqual(result, { Ok: 'Hello Holo' })`.
 Add a call to the `create_person` function with a person whose name is Alice:
 
 ```javascript
-const create_result = await alice.call("hello", "create_person", {"person": { "name" : "Alice" }});
+  const create_result = await alice.call("hello", "create_person", {"person": { "name" : "Alice" }});
 ```
 
 Check that the result of the call is Ok:
 
 ```javascript
-t.ok(create_result.Ok);
+  t.ok(create_result.Ok);
 ```
 
 Add a call to the `retrieve_person` function with the address from the last call:
 
 ```javascript
-const retrieve_result = await alice.call("hello", "retrieve_person", {"address": create_result.Ok});
+  const retrieve_result = await alice.call("hello", "retrieve_person", {"address": create_result.Ok});
 ```
 
 Check that this call is Ok as well:
 
 ```javascript
-t.ok(retrieve_result.Ok);
+  t.ok(retrieve_result.Ok);
 ```
 This is the actual result we want at the end of the test. Check that the entry at the address is indeed `Alice`:
 
 ```javascript
-t.deepEqual(retrieve_result, { Ok: { App: [ 'person', '{"name":"Alice"}' ] }})
+  t.deepEqual(retrieve_result, { Ok: { App: [ 'person', '{"name":"Alice"}' ] }})
 ```
-
 ### Running the test
 
 Your test should now look like this:
 
-```javascript
-diorama.registerScenario("Test hello holo", async (s, t, { alice }) => {
-  // Make a call to the `hello_holo` Zome function
-  // passing no arguments.
-  const result = await alice.call("hello", "hello_holo", {});
-  // Make sure the result is ok.
-  t.ok(result.Ok);
-
-  // Check that the result matches what you expected.
-  t.deepEqual(result, { Ok: 'Hello Holo' })
-  
-  const create_result = await alice.call("hello", "create_person", {"person": { "name" : "Alice" }});
-  t.ok(create_result.Ok);
-  
-  const retrieve_result = await alice.call("hello", "retrieve_person", {"address": create_result.Ok});
-  t.ok(retrieve_result.Ok);
-  
-  t.deepEqual(retrieve_result, { Ok: { App: [ 'person', '{"name":"Alice"}' ] }})
-})
-```
+??? question "Check your code"
+    ```javascript
+    diorama.registerScenario("Test hello holo", async (s, t, { alice }) => {
+      // Make a call to the `hello_holo` Zome function
+      // passing no arguments.
+      const result = await alice.call("hello", "hello_holo", {});
+      // Make sure the result is ok.
+      t.ok(result.Ok);
+    
+      // Check that the result matches what you expected.
+      t.deepEqual(result, { Ok: 'Hello Holo' })
+      
+      // <---- Put your new tests here
+      const create_result = await alice.call("hello", "create_person", {"person": { "name" : "Alice" }});
+      t.ok(create_result.Ok);
+      const retrieve_result = await alice.call("hello", "retrieve_person", {"address": create_result.Ok});
+      t.ok(retrieve_result.Ok);
+      t.deepEqual(retrieve_result, { Ok: { App: [ 'person', '{"name":"Alice"}' ] }})
+    
+    })
+    ```
 
 Obviously these tests will fail right now. Can you guess what the first failure will be? Let's have a look.
 
@@ -219,60 +219,30 @@ Add the following `use` statements:
 
 ### Compile
 
-_TODO: The following code block should be collapsable_
-Check your code matches this:
-
-```rust
-#![feature(proc_macro_hygiene)]
-#[macro_use]
-extern crate hdk;
-extern crate hdk_proc_macros;
-extern crate serde;
-#[macro_use]
-extern crate serde_derive;
-extern crate serde_json;
-#[macro_use]
-extern crate holochain_json_derive;
-
-use hdk::{
-    entry_definition::ValidatingEntryType,
-    error::ZomeApiResult,
-};
-
-use hdk::holochain_core_types::{
-    entry::Entry,
-    dna::entry_types::Sharing,
-};
-
-use hdk::holochain_json_api::{
-    json::JsonString,
-    error::JsonError,
-};
-
-use hdk::holochain_persistence_api::{
-    cas::content::Address
-};
-
-use hdk_proc_macros::zome;
-
-#[derive(Serialize, Deserialize, Debug, DefaultJson,Clone)]
-pub struct Person{
-    name: String,
-}
-
-#[zome]
-mod hello_zome {
-
-    #[init]
-    fn init() {
-        Ok(())
+??? question "Check your code"
+    ```rust
+    #[derive(Serialize, Deserialize, Debug, DefaultJson, Clone)]
+    pub struct Person {
+        name: String,
     }
-
-    #[validate_agent]
-    pub fn validate_agent(validation_data: EntryValidationData<AgentId>) {
-        Ok(())
-    }
-
+    #[zome]
+    mod hello_zome {
+        #[init]
+        fn init() {
+            Ok(())
+        }
+    
+        #[validate_agent]
+        pub fn validate_agent(validation_data: EntryValidationData<AgentId>) {
+            Ok(())
+        }
+      /* --- Lines omitted -- */
+      #[zome_fn("hc_public")]
+      fn hello_holo() -> ZomeApiResult<String> {
+          Ok("Hello Holo".into())
+      }
+    
+      // <---- Add the following lines here.
     #[entry_def]
     fn person_entry_def() -> ValidatingEntryType {
         entry!(
@@ -287,14 +257,7 @@ mod hello_zome {
             }
         )
     }
-
-    #[zome_fn("hc_public")]
-    fn hello_holo() -> ZomeApiResult<String> {
-        Ok("Hello Holo".into())
-    }
-
-}
-```
+    ```
 
 Package the app (in the nix-shell) and check that there's no compile errors:
 
@@ -336,7 +299,52 @@ Return the `Ok` result with the new person entry's address:
 
 ### Compile
 
-_TODO: Add collapsable "your code should look like this section"_
+??? question "Check your code"
+    ```rust
+    #[derive(Serialize, Deserialize, Debug, DefaultJson, Clone)]
+    pub struct Person {
+        name: String,
+    }
+    #[zome]
+    mod hello_zome {
+        #[init]
+        fn init() {
+            Ok(())
+        }
+    
+        #[validate_agent]
+        pub fn validate_agent(validation_data: EntryValidationData<AgentId>) {
+            Ok(())
+        }
+      /* --- Lines omitted -- */
+      #[zome_fn("hc_public")]
+      fn hello_holo() -> ZomeApiResult<String> {
+          Ok("Hello Holo".into())
+      }
+    
+      // <---- Add the following lines here.
+    #[entry_def]
+    fn person_entry_def() -> ValidatingEntryType {
+        entry!(
+            name: "person",
+            description: "Person to say hello to",
+            sharing: Sharing::Private,
+            validation_package: || {
+                hdk::ValidationPackageDefinition::Entry
+            },
+            validation: | _validation_data: hdk::EntryValidationData<Person>| {
+                Ok(())
+            }
+        )
+    }
+    #[zome_fn("hc_public")]
+    pub fn create_person(person: Person) -> ZomeApiResult<Address> {
+        let entry = Entry::App("person".into(), person.into());
+        let address = hdk::commit_entry(&entry)?;
+        Ok(address)
+    }
+    ```
+
 Check for compile errors again:
 
 ```bash
@@ -367,7 +375,56 @@ Get the entry from your local storage, asking for it by address:
 
 ### Test
 
-_TODO: Add collapsable "your code should look like this section"_
+??? question "Check your code"
+    ```rust
+    #[derive(Serialize, Deserialize, Debug, DefaultJson, Clone)]
+    pub struct Person {
+        name: String,
+    }
+    #[zome]
+    mod hello_zome {
+        #[init]
+        fn init() {
+            Ok(())
+        }
+    
+        #[validate_agent]
+        pub fn validate_agent(validation_data: EntryValidationData<AgentId>) {
+            Ok(())
+        }
+      /* --- Lines omitted -- */
+      #[zome_fn("hc_public")]
+      fn hello_holo() -> ZomeApiResult<String> {
+          Ok("Hello Holo".into())
+      }
+    
+      // <---- Add the following lines here.
+    #[entry_def]
+    fn person_entry_def() -> ValidatingEntryType {
+        entry!(
+            name: "person",
+            description: "Person to say hello to",
+            sharing: Sharing::Private,
+            validation_package: || {
+                hdk::ValidationPackageDefinition::Entry
+            },
+            validation: | _validation_data: hdk::EntryValidationData<Person>| {
+                Ok(())
+            }
+        )
+    }
+    #[zome_fn("hc_public")]
+    pub fn create_person(person: Person) -> ZomeApiResult<Address> {
+        let entry = Entry::App("person".into(), person.into());
+        let address = hdk::commit_entry(&entry)?;
+        Ok(address)
+    }
+    #[zome_fn("hc_public")]
+    fn retrieve_person(address: Address) -> ZomeApiResult<Option<Entry>> {
+        hdk::get_entry(&address)
+    }
+    ```
+
 Instead of directly compiling, you can run the test you wrote at the start (the test always compiles before it runs):
 
 ```bash

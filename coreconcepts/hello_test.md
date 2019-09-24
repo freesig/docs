@@ -1,5 +1,6 @@
+\#S:MODE=test
 \#S:EXTERNAL=rust=hello_test.rs
-\#S:EXTERNAL=javascript=hello_test.js
+\#S:EXTERNAL=javascript=hello_test.js=test
 # Hello Test Tutorial
 
 Welcome to the Hello Test tutorial. Today you will be learning how to test your Holochain apps. This tutorial will add to the previous [Hello Holo]() tutorial, so make sure you do that one first.

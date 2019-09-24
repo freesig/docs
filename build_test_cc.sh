@@ -4,13 +4,13 @@ CONCEPT=$1
 
 [ -z "$CONCEPT" ] && echo "first argument must be core concept name eg. hello_holo" && exit 1
 
-if [ ! -d "coreconcepts_tuts" ]; then
+if [ ! -d "cc_tuts" ]; then
   git clone --depth 1 https://github.com/freesig/cc_tuts.git
 fi
 
 cd cc_tuts
 ../utility/single_source code ../coreconcepts/$CONCEPT.md zomes/hello/code/src/lib.rs rust
-../utility/single_source code ../coreconcepts/$CONCEPT.md test/index.js javascript 
+../utility/single_source code ../coreconcepts/$CONCEPT.md test/index.js javascript test
 
 echo "packaging: ${CONCEPT}"
 

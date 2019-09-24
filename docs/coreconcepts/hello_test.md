@@ -107,7 +107,7 @@ Check that the result matches what you expected:
 })
 ```
 ## Run the test
-??? "Check your code"
+??? question "Check your code"
     ```javascript
     const path = require('path')
     const tape = require('tape')

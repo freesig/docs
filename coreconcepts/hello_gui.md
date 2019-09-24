@@ -1,5 +1,6 @@
+\#S:MODE=test
 \#S:EXTERNAL=rust=hello_gui.rs
-\#S:EXTERNAL=javascript=hello_gui.js
+\#S:EXTERNAL=javascript=hello_gui.js=test
 # Hello GUI
 
 Welcome to the first GUI tutorial. So far we have interacted with our zome using `curl` or `hc test`, but that's not as nice as having a GUI. Today you will learn how to interact with a Holochain app using a super simple web page.
