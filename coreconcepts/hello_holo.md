@@ -1,3 +1,4 @@
+\#S:EXTERNAL=javascript=hello_holo.js
 # Hello Holo Tutorial
 
 Let's begin with the classic Hello ~~World~~ Holo tutorial!

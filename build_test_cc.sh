@@ -10,11 +10,24 @@ fi
 
 cd coreconcepts_tuts
 ../utility/single_source code ../coreconcepts/$CONCEPT.md zomes/hello/code/src/lib.rs rust
+../utility/single_source code ../coreconcepts/$CONCEPT.md test/index.js javascript 
+
+echo "packaging: ${CONCEPT}"
+
 hc package
 if [ "${?}" -gt 0 ]; then
   echo ${CONCEPT}
   exit 1
 fi
 #./update_hash.sh
+
+echo "testing: ${CONCEPT}"
+
+hc test 
+if [ "${?}" -gt 0 ]; then
+  echo ${CONCEPT}
+  exit 1
+fi
+
 cd ..
 utility/single_source md coreconcepts/$CONCEPT.md docs/coreconcepts/$CONCEPT.md
