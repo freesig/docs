@@ -1,4 +1,6 @@
 \#S:EXTERNAL=rust=hello_world.rs
+\#S:MODE=test,INCLUDE
+\#S:EXTERNAL=javascript=hello_world.js=test
 # Hello World
 
 The goal of this tutorial is to add an entry in Alice's instance and then retrieve that same entry in Bob's instance.
@@ -21,9 +23,9 @@ Open up your `test/index.js` file and add/update the following lines:
 
 Add `bob` to the scenario:
 
-```javascript
-diorama.registerScenario("Test Hello Holo", async (s, t, { alice }) => {
-diorama.registerScenario("Test Hello Holo", async (s, t, { alice, bob }) => {
+```diff
+- diorama.registerScenario("Test Hello Holo", async (s, t, { alice }) => {
++ diorama.registerScenario("Test Hello Holo", async (s, t, { alice, bob }) => {
 ```
 
 Make the `retrieve_person` call with the result from `create_person`:
@@ -43,30 +45,14 @@ Check that the result does indeed match the person entry that Alice created:
 ```javascript
 t.deepEqual(bob_retrieve_result, { Ok: { App: [ 'person', '{"name":"Alice"}' ] }})
 ```
-
-Your test should look like this:
-
+\#S:HIDE
 ```javascript
-diorama.registerScenario("Test Hello Holo", async (s, t, { alice, bob }) => {
-  const result = await alice.call("hello", "hello_holo", {});
-  t.ok(result.Ok);
-
-  t.deepEqual(result, { Ok: 'Hello Holo' })
-  
-  const create_result = await alice.call("hello", "create_person", {"person": { "name": "Alice" }});
-  t.ok(create_result.Ok);
-  
-  const retrieve_result = await alice.call("hello", "retrieve_person", {"address": create_result.Ok});
-  t.ok(retrieve_result.Ok);
-  
-  t.deepEqual(retrieve_result, { Ok: { App: [ 'person', '{"name": "Alice"}' ] }})
-  
-  const bob_retrieve_result = await bob.call("hello", "retrieve_person", {"address": create_result.Ok});
-  t.ok(bob_retrieve_result.Ok);
-  
-  t.deepEqual(bob_retrieve_result, { Ok: { App: [ 'person', '{"name":"Alice"}' ] }})
 })
 ```
+Your test should look like this:
+
+\#S:CHECK=javascript=test
+
 
 ### Run the test
 
