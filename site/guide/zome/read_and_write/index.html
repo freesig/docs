@@ -1,0 +1,2501 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.2">
+    
+    
+      
+        <title>Read & Write Data Operations - My Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.30686662.css">
+      
+      
+    
+    
+      <script src="../../../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#read-write-data-operations" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../../.." title="My Docs" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              My Docs
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Read & Write Data Operations
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../../.." title="My Docs" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    My Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      Core Concepts Tutorials
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        Core Concepts Tutorials
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../coreconcepts/hello_holo/" title="Hello Holo Tutorial" class="md-nav__link">
+      Hello Holo Tutorial
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../coreconcepts/hello_test/" title="Hello Test Tutorial" class="md-nav__link">
+      Hello Test Tutorial
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../coreconcepts/hello_gui/" title="Hello GUI" class="md-nav__link">
+      Hello GUI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../coreconcepts/hello_me/" title="Hello Me" class="md-nav__link">
+      Hello Me
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../coreconcepts/hello_world/" title="Hello World" class="md-nav__link">
+      Hello World
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../coreconcepts/simple_micro_blog/" title="Simple Micro Blog tutorial" class="md-nav__link">
+      Simple Micro Blog tutorial
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Guide
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Guide
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1">
+    
+    <label class="md-nav__link" for="nav-2-1">
+      Welcome
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-1">
+        Welcome
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../welcome/" title="Welcome" class="md-nav__link">
+      Welcome
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../overview/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../how_to_contribute/" title="How to contribute" class="md-nav__link">
+      How to contribute
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../planning_a_dapp/" title="Planning a dApp" class="md-nav__link">
+      Planning a dApp
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3">
+    
+    <label class="md-nav__link" for="nav-2-3">
+      Building Holochain Apps - Intro
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-3">
+        Building Holochain Apps - Intro
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../building_apps/" title="Building Apps" class="md-nav__link">
+      Building Apps
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro_to_dna_config/" title="Intro to DNA - Configuration" class="md-nav__link">
+      Intro to DNA - Configuration
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro_to_dna_code/" title="Intro to DNA - Code" class="md-nav__link">
+      Intro to DNA - Code
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro_to_command_line_tools/" title="Intro to Command Line Tools" class="md-nav__link">
+      Intro to Command Line Tools
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../new_project/" title="Create A New Project" class="md-nav__link">
+      Create A New Project
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../project_source_folders/" title="Project Source Folders" class="md-nav__link">
+      Project Source Folders
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../configuring_an_app/" title="Configuring an App" class="md-nav__link">
+      Configuring an App
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../rust/" title="Writing in Rust" class="md-nav__link">
+      Writing in Rust
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../assemblyscript/" title="Writing in Assemblyscript" class="md-nav__link">
+      Writing in Assemblyscript
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../intro_to_webassembly/" title="Intro to WebAssembly" class="md-nav__link">
+      Intro to WebAssembly
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../alpha_migrate/" title="Updating from Proto to Rust" class="md-nav__link">
+      Updating from Proto to Rust
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../built_with_holochain/" title="Built With Holochain" class="md-nav__link">
+      Built With Holochain
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../building_for_different_platforms/" title="Building for Different Platforms" class="md-nav__link">
+      Building for Different Platforms
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4" type="checkbox" id="nav-2-4" checked>
+    
+    <label class="md-nav__link" for="nav-2-4">
+      Building Holochain Apps - Zome Code
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-4">
+        Building Holochain Apps - Zome Code
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../welcome/" title="Building Holochain Apps: Zome Code" class="md-nav__link">
+      Building Holochain Apps: Zome Code
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../first_steps/" title="Build A To-Do App!" class="md-nav__link">
+      Build A To-Do App!
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../adding_a_zome/" title="Adding a Zome" class="md-nav__link">
+      Adding a Zome
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../intro_to_hdk/" title="Intro to HDK" class="md-nav__link">
+      Intro to HDK
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../define_zome/" title="Intro to Zome Definition" class="md-nav__link">
+      Intro to Zome Definition
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../entry_type_definitions/" title="App Entry Type Definitions" class="md-nav__link">
+      App Entry Type Definitions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../init/" title="Init" class="md-nav__link">
+      Init
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../validate_agent/" title="Validate Agent" class="md-nav__link">
+      Validate Agent
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../zome_functions/" title="Zome Functions" class="md-nav__link">
+      Zome Functions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../capabilities/" title="Capabilities" class="md-nav__link">
+      Capabilities
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Read & Write Data Operations
+      </label>
+    
+    <a href="./" title="Read & Write Data Operations" class="md-nav__link md-nav__link--active">
+      Read & Write Data Operations
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-local-source-chain-headers-and-entries" class="md-nav__link">
+    The Local Source Chain: Headers and Entries
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#headers" class="md-nav__link">
+    Headers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#entries" class="md-nav__link">
+    Entries
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#system-entries" class="md-nav__link">
+    System Entries
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#app-entries" class="md-nav__link">
+    App Entries
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#entry-sharing" class="md-nav__link">
+    Entry Sharing
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-propagation" class="md-nav__link">
+    Data Propagation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#writing-data" class="md-nav__link">
+    Writing Data
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-entries-or-committing" class="md-nav__link">
+    Creating Entries, or "Committing"
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updating-entries" class="md-nav__link">
+    Updating Entries
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removing-entries" class="md-nav__link">
+    Removing Entries
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reading-data" class="md-nav__link">
+    Reading Data
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-an-entry" class="md-nav__link">
+    Get an Entry
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#query-local-chain-entries" class="md-nav__link">
+    Query Local Chain Entries
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-in-rust-read-write-data" class="md-nav__link">
+    Building in Rust: Read &amp; Write Data
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hdkcommit_entry" class="md-nav__link">
+    hdk::commit_entry
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hdkupdate_entry" class="md-nav__link">
+    hdk::update_entry
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hdkremove_entry" class="md-nav__link">
+    hdk::remove_entry
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hdkget_entry" class="md-nav__link">
+    hdk::get_entry
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hdkquery" class="md-nav__link">
+    hdk::query
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../entry_validation/" title="(E) Entry Validation" class="md-nav__link">
+      (E) Entry Validation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../linking/" title="(E) Linking" class="md-nav__link">
+      (E) Linking
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../node_to_node_messages/" title="(E) Node to Node Messaging" class="md-nav__link">
+      (E) Node to Node Messaging
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../calling_other_zomes/" title="(E) Calling Other Zomes" class="md-nav__link">
+      (E) Calling Other Zomes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../crypto/" title="Crypto Functions" class="md-nav__link">
+      Crypto Functions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../bundling/" title="(E) Bundling" class="md-nav__link">
+      (E) Bundling
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../emitting_signals/" title="Emitting Signals" class="md-nav__link">
+      Emitting Signals
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../dna_variables/" title="API DNA Variables" class="md-nav__link">
+      API DNA Variables
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api_functions/" title="List of API Functions" class="md-nav__link">
+      List of API Functions
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-5" type="checkbox" id="nav-2-5">
+    
+    <label class="md-nav__link" for="nav-2-5">
+      Building Holochain Apps - Packaging
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-5">
+        Building Holochain Apps - Packaging
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packaging/" title="Building Holochain Apps: Packaging" class="md-nav__link">
+      Building Holochain Apps: Packaging
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../build_files/" title=".hcbuild Files" class="md-nav__link">
+      .hcbuild Files
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../hcignore_files/" title=".hcignore Files" class="md-nav__link">
+      .hcignore Files
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-6" type="checkbox" id="nav-2-6">
+    
+    <label class="md-nav__link" for="nav-2-6">
+      Building Holochain Apps - Testing
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-6">
+        Building Holochain Apps - Testing
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro_to_testing/" title="Building Holochain Apps: Testing" class="md-nav__link">
+      Building Holochain Apps: Testing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../running_tests/" title="Running Tests" class="md-nav__link">
+      Running Tests
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro_to_holochain_nodejs/" title="Intro to holochain-nodejs" class="md-nav__link">
+      Intro to holochain-nodejs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-6-4" type="checkbox" id="nav-2-6-4">
+    
+    <label class="md-nav__link" for="nav-2-6-4">
+      Configuration
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-6-4">
+        Configuration
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../testing_configuration/" title="Configuration" class="md-nav__link">
+      Configuration
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../configuration_alternatives/" title="Configuration Alternatives" class="md-nav__link">
+      Configuration Alternatives
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-6-5" type="checkbox" id="nav-2-6-5">
+    
+    <label class="md-nav__link" for="nav-2-6-5">
+      Scenario Testing
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-6-5">
+        Scenario Testing
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../scenario_testing/" title="Scenario Testing" class="md-nav__link">
+      Scenario Testing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../scenario_testing_setup/" title="Setup" class="md-nav__link">
+      Setup
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../scenario_testing_running_tape/" title="Running With Tape" class="md-nav__link">
+      Running With Tape
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../other_test_harnesses/" title="Other Test Harnesses" class="md-nav__link">
+      Other Test Harnesses
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-6-6" type="checkbox" id="nav-2-6-6">
+    
+    <label class="md-nav__link" for="nav-2-6-6">
+      DNA Instances
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-6-6">
+        DNA Instances
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../nodejs_dna_instances/" title="DNA Instances" class="md-nav__link">
+      DNA Instances
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../nodejs_calling_zome_functions/" title="Calling Zome Functions" class="md-nav__link">
+      Calling Zome Functions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../handling_async/" title="Handle Network Asynchronicity" class="md-nav__link">
+      Handle Network Asynchronicity
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../testing_checking_results/" title="(E) Checking Results" class="md-nav__link">
+      (E) Checking Results
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../managing_the_conductor/" title="Manually Manage the Conductor" class="md-nav__link">
+      Manually Manage the Conductor
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../access_instance_info/" title="Access Instance Info" class="md-nav__link">
+      Access Instance Info
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-7" type="checkbox" id="nav-2-7">
+    
+    <label class="md-nav__link" for="nav-2-7">
+      Running Holochain Apps
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-7">
+        Running Holochain Apps
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../conductors/" title="Conductors" class="md-nav__link">
+      Conductors
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-7-2" type="checkbox" id="nav-2-7-2">
+    
+    <label class="md-nav__link" for="nav-2-7-2">
+      Development Conductor
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-7-2">
+        Development Conductor
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../development_conductor/" title="Development Conductor" class="md-nav__link">
+      Development Conductor
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../hc_configuring_networking/" title="Configuring Networking" class="md-nav__link">
+      Configuring Networking
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-7-3" type="checkbox" id="nav-2-7-3">
+    
+    <label class="md-nav__link" for="nav-2-7-3">
+      Production Conductor
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-7-3">
+        Production Conductor
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../production_conductor/" title="Production Conductor" class="md-nav__link">
+      Production Conductor
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro_to_toml_config/" title="Intro to TOML Config Files" class="md-nav__link">
+      Intro to TOML Config Files
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../conductor_agents/" title="Agents" class="md-nav__link">
+      Agents
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../conductor_dnas/" title="DNAs" class="md-nav__link">
+      DNAs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../conductor_instances/" title="Instances" class="md-nav__link">
+      Instances
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../conductor_interfaces/" title="Interfaces" class="md-nav__link">
+      Interfaces
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../conductor_bridges/" title="Bridges" class="md-nav__link">
+      Bridges
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../conductor_ui_bundles/" title="UI Bundles" class="md-nav__link">
+      UI Bundles
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../conductor_ui_interfaces/" title="UI Interfaces" class="md-nav__link">
+      UI Interfaces
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../conductor_logging/" title="Logging" class="md-nav__link">
+      Logging
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../conductor_networking/" title="Networking" class="md-nav__link">
+      Networking
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../conductor_persistence_dir/" title="Persistence Directory" class="md-nav__link">
+      Persistence Directory
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../json_rpc_interfaces/" title="Intro to JSON-RPC Interfaces" class="md-nav__link">
+      Intro to JSON-RPC Interfaces
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-7-5" type="checkbox" id="nav-2-7-5">
+    
+    <label class="md-nav__link" for="nav-2-7-5">
+      Conductor JSON-RPC API
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-7-5">
+        Conductor JSON-RPC API
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../conductor_json_rpc_api/" title="Conductor JSON-RPC API" class="md-nav__link">
+      Conductor JSON-RPC API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../json_rpc_http/" title="HTTP" class="md-nav__link">
+      HTTP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../json_rpc_websockets/" title="WebSockets" class="md-nav__link">
+      WebSockets
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../conductor_admin/" title="Conductor Admin" class="md-nav__link">
+      Conductor Admin
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../apps_user_interfaces/" title="Building Holochain Apps - User Interfaces" class="md-nav__link">
+      Building Holochain Apps - User Interfaces
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../bridging/" title="Building Holochain Apps - Bridging" class="md-nav__link">
+      Building Holochain Apps - Bridging
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-10" type="checkbox" id="nav-2-10">
+    
+    <label class="md-nav__link" for="nav-2-10">
+      (E) Going Live with Holochain Apps
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-10">
+        (E) Going Live with Holochain Apps
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../live_hc_apps/" title="Going Live with Holochain Apps" class="md-nav__link">
+      Going Live with Holochain Apps
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../creating_versioned_releases/" title="(E) Creating Versioned Releases" class="md-nav__link">
+      (E) Creating Versioned Releases
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-11" type="checkbox" id="nav-2-11">
+    
+    <label class="md-nav__link" for="nav-2-11">
+      (E) Building Holochain Apps - Advanced Topics
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-11">
+        (E) Building Holochain Apps - Advanced Topics
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../apps_advanced_topics/" title="Building Holochain Apps: Advanced Topics" class="md-nav__link">
+      Building Holochain Apps: Advanced Topics
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../json_string/" title="Understanding JsonString" class="md-nav__link">
+      Understanding JsonString
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../building_for_android/" title="Building For Android" class="md-nav__link">
+      Building For Android
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-12" type="checkbox" id="nav-2-12">
+    
+    <label class="md-nav__link" for="nav-2-12">
+      (E) Extending Holochain
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-12">
+        (E) Extending Holochain
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../extending_holochain/" title="Extending Holochain" class="md-nav__link">
+      Extending Holochain
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-12-2" type="checkbox" id="nav-2-12-2">
+    
+    <label class="md-nav__link" for="nav-2-12-2">
+      (E) Embedding Holochain
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-12-2">
+        (E) Embedding Holochain
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../embedding_holochain/" title="Embedding Holochain" class="md-nav__link">
+      Embedding Holochain
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../core_api/" title="(E) Core API" class="md-nav__link">
+      (E) Core API
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../dpki/" title="Key Management (DPKI)" class="md-nav__link">
+      Key Management (DPKI)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../naming_conventions/" title="Naming conventions" class="md-nav__link">
+      Naming conventions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../writing_development_kit/" title="Writing a Development Kit (HDK'" class="md-nav__link">
+      Writing a Development Kit (HDK'
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../implementation/" title="Implementing Zome API functions" class="md-nav__link">
+      Implementing Zome API functions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-12-7" type="checkbox" id="nav-2-12-7">
+    
+    <label class="md-nav__link" for="nav-2-12-7">
+      Redux Architecture
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-12-7">
+        Redux Architecture
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../state_actions/" title="State & Actions" class="md-nav__link">
+      State & Actions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../state/actions/" title="State actions" class="md-nav__link">
+      State actions
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../state/actors/" title="State actors" class="md-nav__link">
+      State actors
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../faq/" title="FAQ" class="md-nav__link">
+      FAQ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-14" type="checkbox" id="nav-2-14">
+    
+    <label class="md-nav__link" for="nav-2-14">
+      (E) Glossary
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-14">
+        (E) Glossary
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../glossary/" title="Glossary" class="md-nav__link">
+      Glossary
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../agent/" title="(E) Agent" class="md-nav__link">
+      (E) Agent
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../keys/" title="(E) Keys" class="md-nav__link">
+      (E) Keys
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../dna/" title="(E) DNA" class="md-nav__link">
+      (E) DNA
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="(E) Zome" class="md-nav__link">
+      (E) Zome
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../source_chain/" title="(E) Source Chain" class="md-nav__link">
+      (E) Source Chain
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../distributed_hash_table/" title="Distributed Hash Table" class="md-nav__link">
+      Distributed Hash Table
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-local-source-chain-headers-and-entries" class="md-nav__link">
+    The Local Source Chain: Headers and Entries
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#headers" class="md-nav__link">
+    Headers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#entries" class="md-nav__link">
+    Entries
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#system-entries" class="md-nav__link">
+    System Entries
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#app-entries" class="md-nav__link">
+    App Entries
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#entry-sharing" class="md-nav__link">
+    Entry Sharing
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-propagation" class="md-nav__link">
+    Data Propagation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#writing-data" class="md-nav__link">
+    Writing Data
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-entries-or-committing" class="md-nav__link">
+    Creating Entries, or "Committing"
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updating-entries" class="md-nav__link">
+    Updating Entries
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removing-entries" class="md-nav__link">
+    Removing Entries
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reading-data" class="md-nav__link">
+    Reading Data
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-an-entry" class="md-nav__link">
+    Get an Entry
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#query-local-chain-entries" class="md-nav__link">
+    Query Local Chain Entries
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-in-rust-read-write-data" class="md-nav__link">
+    Building in Rust: Read &amp; Write Data
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hdkcommit_entry" class="md-nav__link">
+    hdk::commit_entry
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hdkupdate_entry" class="md-nav__link">
+    hdk::update_entry
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hdkremove_entry" class="md-nav__link">
+    hdk::remove_entry
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hdkget_entry" class="md-nav__link">
+    hdk::get_entry
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hdkquery" class="md-nav__link">
+    hdk::query
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="read-write-data-operations">Read &amp; Write Data Operations<a class="headerlink" href="#read-write-data-operations" title="Permanent link">&para;</a></h1>
+<h2 id="the-local-source-chain-headers-and-entries">The Local Source Chain: Headers and Entries<a class="headerlink" href="#the-local-source-chain-headers-and-entries" title="Permanent link">&para;</a></h2>
+<p>At the core of how Holochain is designed is the "local source chain".
+It is the data structure that puts Holochain in the family of "distributed ledger technology".
+It functions as an "append-only log", which is a fancy way of saying that data can only ever be written to the log,
+and never modified in place, nor removed, without breaking the integrity of the data that follows it in the log. As has been found for many other projects, this is a critical design choice for a distributed technology.</p>
+<blockquote>
+<p>Note that across the world of crytocurrency and distributed ledgers, these logs are sometimes given different names, despite usually refering to a very similar data structure: feed, log, ledger, and chain are only four such examples. What they share is the append-only nature, as well as the use of cryptographic signatures for securing data integrity.</p>
+</blockquote>
+<p>As a consequence of this log-like data structure, Holochain is a departure from traditional relational
+(SQL) and also non-relational (noSQL) databases. There are no tables, and no foreign keys, at least on the formal level of Holochain.
+Despite this, one must of course still be able to persist data, and read back persisted data, and all of that happens in relation to the local source chain.</p>
+<p>With Holochain, there are two aspects that combine to form each "element" in this chain-like log: headers, and entries.</p>
+<h3 id="headers">Headers<a class="headerlink" href="#headers" title="Permanent link">&para;</a></h3>
+<p>The fundamental chain-like aspect of Holochain is driven by "headers". They are a minimal data structure containing only a handful of values, but are sufficient to supply Holochain with verifiable data integrity.</p>
+<p>Fundamental to creating the "chain", each header contains a reference to the "last" header. There are a couple aspects to this:
+1. The cryptographic hash (its data "fingerprint") for a header is determined
+2. The hash of the previously written header is used as a fixed-length input for the next header, thus influencing the hash of that new header (since any change to contents change a hash)
+3. The only time this does not apply is for the very first header, for which there is no previous header hash, and a value of <code>0</code> is used</p>
+<p>Other data contained in the headers includes (but isn't limited to):
+- the public key/address, and the cryptographically signed signature of the author
+- a timestamp conveying the moment of creation of the header, from the perspective of the author's system clock
+- the hash of the "entry" being created
+- the "entry type" of the "entry" being created</p>
+<p>The meaning and role of entries is covered next.</p>
+<h3 id="entries">Entries<a class="headerlink" href="#entries" title="Permanent link">&para;</a></h3>
+<p>Entries are elements of data which get persisted to the same storage as Headers, yet have a different nature. They represent the substance of the data that is of interest to the end users of Holochain, storing records such as transactions, social media posts, or whatever else app developers come up with. The hash of each entry is stored and referenced in its corresponding header. Every local source chain should have exactly one Entry for every Header.</p>
+<p>All Entries have a type. Entries can be "system" Entries, or "app" Entries. System Entries are Entries integral to the proper functioning of Holochain. Importantly, there are system Entries written to each local source chain, at the time of its initialization.</p>
+<h4 id="system-entries">System Entries<a class="headerlink" href="#system-entries" title="Permanent link">&para;</a></h4>
+<p>These include firstly, the DNA itself. The DNA is written as the first entry into each local source chain. Importantly, this is the foundation for establishing confidence in the data of everyone's chains: the fact that you all know you started out by running the same code (otherwise, the hash of the initial DNA entry would be different). There will be more discussion on this later.</p>
+<p>The second Entry to be written to the chain is information about the agent using this source chain. That includes their "public key" which is also their address on the network.</p>
+<p>There are also other system entry types which are automatically created to record the occurrence of certain actions such as the creation or removal of a link, the marking of an existing entry as deleted, or the granting or revoking of a capability token. These will be covered in more detail in later chapters.</p>
+<h4 id="app-entries">App Entries<a class="headerlink" href="#app-entries" title="Permanent link">&para;</a></h4>
+<p>Next, there are the "App" Entries. The definitions for these entry types, and how to validate them, are in the hands of developers. When end users are attempting actions which should author data, the data will first be checked against the validation rules supplied by the DNA developer. The possibilities for App Entry type definitions are endless. Defining App Entry types is how you setup the schemas, data structures, and data integrity of your DNA.</p>
+<h4 id="entry-sharing">Entry Sharing<a class="headerlink" href="#entry-sharing" title="Permanent link">&para;</a></h4>
+<p>Not every Entry must be shared with other people running the same DNA. There are two (and may be more later) levels of sharing for App Entries defined: <code>public</code> and <code>private</code>.</p>
+<p>With <code>public</code>, all Entries of that type will get propagated to the other peers running the same DNA, so that they will hold a copy as well, and make your data more resilient, and so that it is available even when you're offline.</p>
+<p>With <code>private</code>, the Entry will never leave your device. In order to still be able to verify your local source chain, the HEADER for that Entry will be propagated to other peers, but the Entry itself will not.</p>
+<h2 id="data-propagation">Data Propagation<a class="headerlink" href="#data-propagation" title="Permanent link">&para;</a></h2>
+<p>After any chain-modifying functions are called, Holochain will attempt to notify other peers in the network of those actions. Note that it is not a requirement that the device be online or connected to any other networks or nodes for Holochain to be usable! Holochain will persist the changes locally to be gossiped to connected peers at a later date. As mentioned previously, if the entry is one of a <code>private</code> App Entry type, then only the Header will be published, not the entry itself. Publishing of the data is secondary to being able to author data in the first place, so this will be further elaborated in the <a href="../entry_validation/">entry validation</a> article.</p>
+<h2 id="writing-data">Writing Data<a class="headerlink" href="#writing-data" title="Permanent link">&para;</a></h2>
+<p>Broadly speaking, writing data is accomplished by writing Zome source code that makes API calls to Holochain to affect the local source chain. One should only modify chain data by calling Holochain API functions, as there is lots of internal logic that it is instrumental that Holochain perform, for each change. When an API function to alter the chain from Zome source code is invoked, a series of steps is performed internally. It is important to know, at least roughly, what those steps are so that you can use Holochain effectively.</p>
+<p>Apart from the following three functions, there is only one additional way that data can be written to the local source chain, which is written about in <a href="../linking/">linking</a>.</p>
+<h3 id="creating-entries-or-committing">Creating Entries, or "Committing"<a class="headerlink" href="#creating-entries-or-committing" title="Permanent link">&para;</a></h3>
+<p>Of course, first and foremost, there is the simple action of writing a new Entry. This is actually known as "committing" an Entry. It is known as "committing" an Entry in Holochain for precisely the reason that once you write it, you can't "unwrite" it, or delete it, without corrupting the integrity of your local source chain. It is there for good, and can only be "marked" as updated or deleted by writing additional entries in the future.</p>
+<p>Because the Entry will be permanent in your local source chain, it must first pass validation, in order to be written in the first place. Validation of Entries is core to the distributed data integrity model of Holochain.</p>
+<p>Invoking the commit entry API function will not always return "success". The call can fail if the Entry fails to pass validation, or something else goes wrong internally while Holochain is attempting to write the Entry to the local source chain. Like in any code, failure tolerant code is far better, and Zomes should be written to handle possible error cases.</p>
+<p>So in general, the process that Holochain follows while trying to write an Entry during a "commit" call is this:</p>
+<ol>
+<li>Collects data necessary for use in validation (a "validation package")</li>
+<li>Checks whether the new entry is valid by passing it through the validation callback specified in the Zome for its given entry type. If this fails, it will exit here and return either a user defined, or system level error message</li>
+<li>Creates a new Header for the Entry, and writes it to storage</li>
+<li>Writes the Entry itself to storage</li>
+<li>Announces over the network module this new Header and Entry, requesting that peers validate and hold a copy of it. This is known internally as "publishing".</li>
+<li>Returns the "address" of the new Entry, which is the crytographic hash of the Entry data combined with its entry type string. This address can be used later to retrieve the Entry.</li>
+</ol>
+<h3 id="updating-entries">Updating Entries<a class="headerlink" href="#updating-entries" title="Permanent link">&para;</a></h3>
+<p>The act of updating an Entry is technically speaking just the same "committing an Entry", plus storing a bit of metadata indicating that this new entry is an "update" to the entry at an old address which is also given. This has the effect that when an attempt to retrieve an Entry by its address, it will forward the request along to the latest version in a potential series of updates, and return that instead. There is always the option to return the results for an Entry according to whether it's the "initial" version, the "latest", or getting the entire history too.</p>
+<p>So to update an Entry, use the address of that entry, and provide the new Entry to replace it. You can use the address of the Entry at any point in its update history as the address to update (as long as it hasn't been marked deleted), and it will still work, technically updating the very latest version of that Entry instead of whatever you pass in.</p>
+<p>So in general, the process that Holochain follows while trying to update an Entry during an "update_entry" call is this:</p>
+<ol>
+<li>Retrieves the very latest version of the Entry at the given address</li>
+<li>Collects data necessary for use in validation (a "validation package")</li>
+<li>Checks whether the new entry is valid by passing it through the validation callback specified in the Zome for its given entry type. If this fails, it will exit here and return either a user defined, or system level error message</li>
+<li>Creates a new Header for the Entry, and writes it to storage</li>
+<li>Writes the Entry itself to storage</li>
+<li>Announces over the network module this new Header and Entry, requesting that peers validate and hold a copy of it. This is known internally as "publishing". <strong>This step also involves updating the metadata for the Entry at the old address such that default requests for it will forward to the new Entry.</strong></li>
+<li>Returns the "address" of the new Entry, which is the crytographic hash of the Entry data combined with its entry type string. This address can be used later to retrieve the Entry.</li>
+</ol>
+<h3 id="removing-entries">Removing Entries<a class="headerlink" href="#removing-entries" title="Permanent link">&para;</a></h3>
+<p>The goal of removing an Entry is so that it will not automatically show up as a result when attempts to retrieve it are made, it is NOT to delete it entirely. Removing an Entry will not prevent someone who wishes to retrieve it from retrieving it, they will just have to pass a special option to do so. This makes sense due to the "append-only" nature of Holochain: the original Entry is never gone.</p>
+<p>To remove an Entry, Holochain actually commits an Entry of a special type: <code>DeletionEntry</code>.</p>
+<p>So in general, the process that Holochain follows while trying to remove an Entry during an "remove_entry" call is this:</p>
+<ol>
+<li>Retrieves the very latest version of the Entry at the given address</li>
+<li>Collects data necessary for use in validation (a "validation package")</li>
+<li>Creates a new <code>DeletionEntry</code>, containing the address of the very latest version of the given entry</li>
+<li>Checks whether the <code>DeletionEntry</code> is valid by passing it through the validation callback specified in the Zome for its given entry type. If this fails, it will exit here and return either a user defined, or system level error message</li>
+<li>Creates a new Header for the Entry, and writes it to storage</li>
+<li>Writes the Entry itself to storage</li>
+<li>Announces over the network module this new Header and Entry, requesting that peers validate and hold a copy of it. This is known internally as "publishing". <strong>This step also involves updating the metadata for the Entry at the old address such that default requests for it will return no Entry.</strong></li>
+<li>Returns a null value, as there is no need to retrieve the new <code>DeletionEntry</code> at any point for any reason.</li>
+</ol>
+<h2 id="reading-data">Reading Data<a class="headerlink" href="#reading-data" title="Permanent link">&para;</a></h2>
+<p>Reading data is a lot more straightforward than writing data. Data is either read from your own device, if it lives there, or is fetched from peers over network connections. Throughout the writing data section, it was mentioned that Entries and even Headers have "addresses". These addresses are linked to the content itself, following a pattern known as <a href="https://en.wikipedia.org/wiki/Content-addressable_storage">"content addressable storage"</a>.</p>
+<p>This means that to determine the address, the content is passed through a cryptographic hash function, which will deterministically give the same hash whenever the same content is given, and can take an input of any length, and return a result of fixed length. The content is then deposited in a location on a computer, and a network, where it can be retrieved given its address/hash.</p>
+<p>Only Entries may be retrieved by their address, not Headers.</p>
+<h3 id="get-an-entry">Get an Entry<a class="headerlink" href="#get-an-entry" title="Permanent link">&para;</a></h3>
+<h3 id="query-local-chain-entries">Query Local Chain Entries<a class="headerlink" href="#query-local-chain-entries" title="Permanent link">&para;</a></h3>
+<h2 id="building-in-rust-read-write-data">Building in Rust: Read &amp; Write Data<a class="headerlink" href="#building-in-rust-read-write-data" title="Permanent link">&para;</a></h2>
+<h3 id="hdkcommit_entry">hdk::commit_entry<a class="headerlink" href="#hdkcommit_entry" title="Permanent link">&para;</a></h3>
+<h3 id="hdkupdate_entry">hdk::update_entry<a class="headerlink" href="#hdkupdate_entry" title="Permanent link">&para;</a></h3>
+<h3 id="hdkremove_entry">hdk::remove_entry<a class="headerlink" href="#hdkremove_entry" title="Permanent link">&para;</a></h3>
+<h3 id="hdkget_entry">hdk::get_entry<a class="headerlink" href="#hdkget_entry" title="Permanent link">&para;</a></h3>
+<h3 id="hdkquery">hdk::query<a class="headerlink" href="#hdkquery" title="Permanent link">&para;</a></h3>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../capabilities/" title="Capabilities" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Capabilities
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../entry_validation/" title="(E) Entry Validation" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                (E) Entry Validation
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/application.c648116f.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,3182 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.2">
+    
+    
+      
+        <title>Understanding JsonString - My Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.30686662.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#serialization-and-jsonstring" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="My Docs" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              My Docs
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Understanding JsonString
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="My Docs" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    My Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      Core Concepts Tutorials
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        Core Concepts Tutorials
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../coreconcepts/hello_holo/" title="Hello Holo Tutorial" class="md-nav__link">
+      Hello Holo Tutorial
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../coreconcepts/hello_test/" title="Hello Test Tutorial" class="md-nav__link">
+      Hello Test Tutorial
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../coreconcepts/hello_gui/" title="Hello GUI" class="md-nav__link">
+      Hello GUI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../coreconcepts/hello_me/" title="Hello Me" class="md-nav__link">
+      Hello Me
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../coreconcepts/hello_world/" title="Hello World" class="md-nav__link">
+      Hello World
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../coreconcepts/simple_micro_blog/" title="Simple Micro Blog tutorial" class="md-nav__link">
+      Simple Micro Blog tutorial
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Guide
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Guide
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1">
+    
+    <label class="md-nav__link" for="nav-2-1">
+      Welcome
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-1">
+        Welcome
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../welcome/" title="Welcome" class="md-nav__link">
+      Welcome
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../overview/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../how_to_contribute/" title="How to contribute" class="md-nav__link">
+      How to contribute
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../planning_a_dapp/" title="Planning a dApp" class="md-nav__link">
+      Planning a dApp
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3">
+    
+    <label class="md-nav__link" for="nav-2-3">
+      Building Holochain Apps - Intro
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-3">
+        Building Holochain Apps - Intro
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../building_apps/" title="Building Apps" class="md-nav__link">
+      Building Apps
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../intro_to_dna_config/" title="Intro to DNA - Configuration" class="md-nav__link">
+      Intro to DNA - Configuration
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../intro_to_dna_code/" title="Intro to DNA - Code" class="md-nav__link">
+      Intro to DNA - Code
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../intro_to_command_line_tools/" title="Intro to Command Line Tools" class="md-nav__link">
+      Intro to Command Line Tools
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../new_project/" title="Create A New Project" class="md-nav__link">
+      Create A New Project
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../project_source_folders/" title="Project Source Folders" class="md-nav__link">
+      Project Source Folders
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../configuring_an_app/" title="Configuring an App" class="md-nav__link">
+      Configuring an App
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../zome/rust/" title="Writing in Rust" class="md-nav__link">
+      Writing in Rust
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../zome/assemblyscript/" title="Writing in Assemblyscript" class="md-nav__link">
+      Writing in Assemblyscript
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../zome/intro_to_webassembly/" title="Intro to WebAssembly" class="md-nav__link">
+      Intro to WebAssembly
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../alpha_migrate/" title="Updating from Proto to Rust" class="md-nav__link">
+      Updating from Proto to Rust
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../built_with_holochain/" title="Built With Holochain" class="md-nav__link">
+      Built With Holochain
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../building_for_different_platforms/" title="Building for Different Platforms" class="md-nav__link">
+      Building for Different Platforms
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4" type="checkbox" id="nav-2-4">
+    
+    <label class="md-nav__link" for="nav-2-4">
+      Building Holochain Apps - Zome Code
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-4">
+        Building Holochain Apps - Zome Code
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../zome/welcome/" title="Building Holochain Apps: Zome Code" class="md-nav__link">
+      Building Holochain Apps: Zome Code
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../first_steps/" title="Build A To-Do App!" class="md-nav__link">
+      Build A To-Do App!
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../zome/adding_a_zome/" title="Adding a Zome" class="md-nav__link">
+      Adding a Zome
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../zome/intro_to_hdk/" title="Intro to HDK" class="md-nav__link">
+      Intro to HDK
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../zome/define_zome/" title="Intro to Zome Definition" class="md-nav__link">
+      Intro to Zome Definition
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../zome/entry_type_definitions/" title="App Entry Type Definitions" class="md-nav__link">
+      App Entry Type Definitions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../zome/init/" title="Init" class="md-nav__link">
+      Init
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../zome/validate_agent/" title="Validate Agent" class="md-nav__link">
+      Validate Agent
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../zome/zome_functions/" title="Zome Functions" class="md-nav__link">
+      Zome Functions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../zome/capabilities/" title="Capabilities" class="md-nav__link">
+      Capabilities
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../zome/read_and_write/" title="Read & Write Data Operations" class="md-nav__link">
+      Read & Write Data Operations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../zome/entry_validation/" title="(E) Entry Validation" class="md-nav__link">
+      (E) Entry Validation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../zome/linking/" title="(E) Linking" class="md-nav__link">
+      (E) Linking
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../zome/node_to_node_messages/" title="(E) Node to Node Messaging" class="md-nav__link">
+      (E) Node to Node Messaging
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../zome/calling_other_zomes/" title="(E) Calling Other Zomes" class="md-nav__link">
+      (E) Calling Other Zomes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../zome/crypto/" title="Crypto Functions" class="md-nav__link">
+      Crypto Functions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../zome/bundling/" title="(E) Bundling" class="md-nav__link">
+      (E) Bundling
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../zome/emitting_signals/" title="Emitting Signals" class="md-nav__link">
+      Emitting Signals
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../zome/dna_variables/" title="API DNA Variables" class="md-nav__link">
+      API DNA Variables
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../zome/api_functions/" title="List of API Functions" class="md-nav__link">
+      List of API Functions
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-5" type="checkbox" id="nav-2-5">
+    
+    <label class="md-nav__link" for="nav-2-5">
+      Building Holochain Apps - Packaging
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-5">
+        Building Holochain Apps - Packaging
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../packaging/" title="Building Holochain Apps: Packaging" class="md-nav__link">
+      Building Holochain Apps: Packaging
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../build_files/" title=".hcbuild Files" class="md-nav__link">
+      .hcbuild Files
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../hcignore_files/" title=".hcignore Files" class="md-nav__link">
+      .hcignore Files
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-6" type="checkbox" id="nav-2-6">
+    
+    <label class="md-nav__link" for="nav-2-6">
+      Building Holochain Apps - Testing
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-6">
+        Building Holochain Apps - Testing
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../intro_to_testing/" title="Building Holochain Apps: Testing" class="md-nav__link">
+      Building Holochain Apps: Testing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../running_tests/" title="Running Tests" class="md-nav__link">
+      Running Tests
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../intro_to_holochain_nodejs/" title="Intro to holochain-nodejs" class="md-nav__link">
+      Intro to holochain-nodejs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-6-4" type="checkbox" id="nav-2-6-4">
+    
+    <label class="md-nav__link" for="nav-2-6-4">
+      Configuration
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-6-4">
+        Configuration
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../testing_configuration/" title="Configuration" class="md-nav__link">
+      Configuration
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../configuration_alternatives/" title="Configuration Alternatives" class="md-nav__link">
+      Configuration Alternatives
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-6-5" type="checkbox" id="nav-2-6-5">
+    
+    <label class="md-nav__link" for="nav-2-6-5">
+      Scenario Testing
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-6-5">
+        Scenario Testing
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../scenario_testing/" title="Scenario Testing" class="md-nav__link">
+      Scenario Testing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../scenario_testing_setup/" title="Setup" class="md-nav__link">
+      Setup
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../scenario_testing_running_tape/" title="Running With Tape" class="md-nav__link">
+      Running With Tape
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../other_test_harnesses/" title="Other Test Harnesses" class="md-nav__link">
+      Other Test Harnesses
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-6-6" type="checkbox" id="nav-2-6-6">
+    
+    <label class="md-nav__link" for="nav-2-6-6">
+      DNA Instances
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-6-6">
+        DNA Instances
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../nodejs_dna_instances/" title="DNA Instances" class="md-nav__link">
+      DNA Instances
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../nodejs_calling_zome_functions/" title="Calling Zome Functions" class="md-nav__link">
+      Calling Zome Functions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../handling_async/" title="Handle Network Asynchronicity" class="md-nav__link">
+      Handle Network Asynchronicity
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../testing_checking_results/" title="(E) Checking Results" class="md-nav__link">
+      (E) Checking Results
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../managing_the_conductor/" title="Manually Manage the Conductor" class="md-nav__link">
+      Manually Manage the Conductor
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../access_instance_info/" title="Access Instance Info" class="md-nav__link">
+      Access Instance Info
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-7" type="checkbox" id="nav-2-7">
+    
+    <label class="md-nav__link" for="nav-2-7">
+      Running Holochain Apps
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-7">
+        Running Holochain Apps
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../conductors/" title="Conductors" class="md-nav__link">
+      Conductors
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-7-2" type="checkbox" id="nav-2-7-2">
+    
+    <label class="md-nav__link" for="nav-2-7-2">
+      Development Conductor
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-7-2">
+        Development Conductor
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../development_conductor/" title="Development Conductor" class="md-nav__link">
+      Development Conductor
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../hc_configuring_networking/" title="Configuring Networking" class="md-nav__link">
+      Configuring Networking
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-7-3" type="checkbox" id="nav-2-7-3">
+    
+    <label class="md-nav__link" for="nav-2-7-3">
+      Production Conductor
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-7-3">
+        Production Conductor
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../production_conductor/" title="Production Conductor" class="md-nav__link">
+      Production Conductor
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../intro_to_toml_config/" title="Intro to TOML Config Files" class="md-nav__link">
+      Intro to TOML Config Files
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../conductor_agents/" title="Agents" class="md-nav__link">
+      Agents
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../conductor_dnas/" title="DNAs" class="md-nav__link">
+      DNAs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../conductor_instances/" title="Instances" class="md-nav__link">
+      Instances
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../conductor_interfaces/" title="Interfaces" class="md-nav__link">
+      Interfaces
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../conductor_bridges/" title="Bridges" class="md-nav__link">
+      Bridges
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../conductor_ui_bundles/" title="UI Bundles" class="md-nav__link">
+      UI Bundles
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../conductor_ui_interfaces/" title="UI Interfaces" class="md-nav__link">
+      UI Interfaces
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../conductor_logging/" title="Logging" class="md-nav__link">
+      Logging
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../conductor_networking/" title="Networking" class="md-nav__link">
+      Networking
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../conductor_persistence_dir/" title="Persistence Directory" class="md-nav__link">
+      Persistence Directory
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../json_rpc_interfaces/" title="Intro to JSON-RPC Interfaces" class="md-nav__link">
+      Intro to JSON-RPC Interfaces
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-7-5" type="checkbox" id="nav-2-7-5">
+    
+    <label class="md-nav__link" for="nav-2-7-5">
+      Conductor JSON-RPC API
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-7-5">
+        Conductor JSON-RPC API
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../conductor_json_rpc_api/" title="Conductor JSON-RPC API" class="md-nav__link">
+      Conductor JSON-RPC API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../json_rpc_http/" title="HTTP" class="md-nav__link">
+      HTTP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../json_rpc_websockets/" title="WebSockets" class="md-nav__link">
+      WebSockets
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../conductor_admin/" title="Conductor Admin" class="md-nav__link">
+      Conductor Admin
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../apps_user_interfaces/" title="Building Holochain Apps - User Interfaces" class="md-nav__link">
+      Building Holochain Apps - User Interfaces
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../bridging/" title="Building Holochain Apps - Bridging" class="md-nav__link">
+      Building Holochain Apps - Bridging
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-10" type="checkbox" id="nav-2-10">
+    
+    <label class="md-nav__link" for="nav-2-10">
+      (E) Going Live with Holochain Apps
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-10">
+        (E) Going Live with Holochain Apps
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../live_hc_apps/" title="Going Live with Holochain Apps" class="md-nav__link">
+      Going Live with Holochain Apps
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../creating_versioned_releases/" title="(E) Creating Versioned Releases" class="md-nav__link">
+      (E) Creating Versioned Releases
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-11" type="checkbox" id="nav-2-11" checked>
+    
+    <label class="md-nav__link" for="nav-2-11">
+      (E) Building Holochain Apps - Advanced Topics
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-11">
+        (E) Building Holochain Apps - Advanced Topics
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../apps_advanced_topics/" title="Building Holochain Apps: Advanced Topics" class="md-nav__link">
+      Building Holochain Apps: Advanced Topics
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Understanding JsonString
+      </label>
+    
+    <a href="./" title="Understanding JsonString" class="md-nav__link md-nav__link--active">
+      Understanding JsonString
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-serialize-anything-why-json" class="md-nav__link">
+    Why serialize anything? Why JSON?
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#holochain-zomes-are-written-in-wasm" class="md-nav__link">
+    Holochain zomes are written in WASM.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#holochain-aims-to-support-all-wasm-languages-not-just-rustjs" class="md-nav__link">
+    Holochain aims to support all WASM languages not just Rust/JS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-serialization-only-pertains-to-communication-with-core" class="md-nav__link">
+    JSON serialization only pertains to communication with core
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#serialization-through-rust-types" class="md-nav__link">
+    Serialization through Rust types
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-rust-serializes-serde-from-1000m" class="md-nav__link">
+    How Rust serializes: serde from 1000m
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-structure-the-rust-compiler-and-you" class="md-nav__link">
+    JSON structure, the Rust compiler and you
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#binary-data-as-base64" class="md-nav__link">
+    Binary data as base64
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-is-lame-can-holochain-support-ltmy-favourite-serialization-formatgt" class="md-nav__link">
+    JSON is lame! Can Holochain support &lt;my favourite serialization format&gt;?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jsonstring" class="md-nav__link">
+    JsonString
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-problem-and-our-solution" class="md-nav__link">
+    The problem and our solution
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#string-handling" class="md-nav__link">
+    String handling
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#string-serialization" class="md-nav__link">
+    String serialization
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementing-jsonstring-for-custom-types" class="md-nav__link">
+    Implementing JsonString for custom types
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#boilerplate" class="md-nav__link">
+    Boilerplate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#automatic-derive" class="md-nav__link">
+    Automatic derive
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-jsonstring-as-the-property-of-a-structenum" class="md-nav__link">
+    Using JsonString as the property of a struct/enum
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#swap-jsonstring-with-string" class="md-nav__link">
+    Swap JsonString with String
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-serde-attributes" class="md-nav__link">
+    Using serde attributes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skip-the-attribute" class="md-nav__link">
+    Skip the attribute
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wrapconvert-to-a-new-type-or-struct" class="md-nav__link">
+    Wrap/convert to a new type or struct
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hiding-jsonstring-with-intoltjsonstringgt" class="md-nav__link">
+    Hiding JsonString with Into&lt;JsonString&gt;
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../building_for_android/" title="Building For Android" class="md-nav__link">
+      Building For Android
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-12" type="checkbox" id="nav-2-12">
+    
+    <label class="md-nav__link" for="nav-2-12">
+      (E) Extending Holochain
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-12">
+        (E) Extending Holochain
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../extending_holochain/" title="Extending Holochain" class="md-nav__link">
+      Extending Holochain
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-12-2" type="checkbox" id="nav-2-12-2">
+    
+    <label class="md-nav__link" for="nav-2-12-2">
+      (E) Embedding Holochain
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-12-2">
+        (E) Embedding Holochain
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../embedding_holochain/" title="Embedding Holochain" class="md-nav__link">
+      Embedding Holochain
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../core_api/" title="(E) Core API" class="md-nav__link">
+      (E) Core API
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../dpki/" title="Key Management (DPKI)" class="md-nav__link">
+      Key Management (DPKI)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../naming_conventions/" title="Naming conventions" class="md-nav__link">
+      Naming conventions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../writing_development_kit/" title="Writing a Development Kit (HDK'" class="md-nav__link">
+      Writing a Development Kit (HDK'
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../zome/implementation/" title="Implementing Zome API functions" class="md-nav__link">
+      Implementing Zome API functions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-12-7" type="checkbox" id="nav-2-12-7">
+    
+    <label class="md-nav__link" for="nav-2-12-7">
+      Redux Architecture
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-12-7">
+        Redux Architecture
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../state_actions/" title="State & Actions" class="md-nav__link">
+      State & Actions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../state/actions/" title="State actions" class="md-nav__link">
+      State actions
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../state/actors/" title="State actors" class="md-nav__link">
+      State actors
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../faq/" title="FAQ" class="md-nav__link">
+      FAQ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-14" type="checkbox" id="nav-2-14">
+    
+    <label class="md-nav__link" for="nav-2-14">
+      (E) Glossary
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-14">
+        (E) Glossary
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../glossary/" title="Glossary" class="md-nav__link">
+      Glossary
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../agent/" title="(E) Agent" class="md-nav__link">
+      (E) Agent
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../keys/" title="(E) Keys" class="md-nav__link">
+      (E) Keys
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../dna/" title="(E) DNA" class="md-nav__link">
+      (E) DNA
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../zome/" title="(E) Zome" class="md-nav__link">
+      (E) Zome
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../source_chain/" title="(E) Source Chain" class="md-nav__link">
+      (E) Source Chain
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../distributed_hash_table/" title="Distributed Hash Table" class="md-nav__link">
+      Distributed Hash Table
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-serialize-anything-why-json" class="md-nav__link">
+    Why serialize anything? Why JSON?
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#holochain-zomes-are-written-in-wasm" class="md-nav__link">
+    Holochain zomes are written in WASM.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#holochain-aims-to-support-all-wasm-languages-not-just-rustjs" class="md-nav__link">
+    Holochain aims to support all WASM languages not just Rust/JS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-serialization-only-pertains-to-communication-with-core" class="md-nav__link">
+    JSON serialization only pertains to communication with core
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#serialization-through-rust-types" class="md-nav__link">
+    Serialization through Rust types
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-rust-serializes-serde-from-1000m" class="md-nav__link">
+    How Rust serializes: serde from 1000m
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-structure-the-rust-compiler-and-you" class="md-nav__link">
+    JSON structure, the Rust compiler and you
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#binary-data-as-base64" class="md-nav__link">
+    Binary data as base64
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-is-lame-can-holochain-support-ltmy-favourite-serialization-formatgt" class="md-nav__link">
+    JSON is lame! Can Holochain support &lt;my favourite serialization format&gt;?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jsonstring" class="md-nav__link">
+    JsonString
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-problem-and-our-solution" class="md-nav__link">
+    The problem and our solution
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#string-handling" class="md-nav__link">
+    String handling
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#string-serialization" class="md-nav__link">
+    String serialization
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementing-jsonstring-for-custom-types" class="md-nav__link">
+    Implementing JsonString for custom types
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#boilerplate" class="md-nav__link">
+    Boilerplate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#automatic-derive" class="md-nav__link">
+    Automatic derive
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-jsonstring-as-the-property-of-a-structenum" class="md-nav__link">
+    Using JsonString as the property of a struct/enum
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#swap-jsonstring-with-string" class="md-nav__link">
+    Swap JsonString with String
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-serde-attributes" class="md-nav__link">
+    Using serde attributes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skip-the-attribute" class="md-nav__link">
+    Skip the attribute
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wrapconvert-to-a-new-type-or-struct" class="md-nav__link">
+    Wrap/convert to a new type or struct
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hiding-jsonstring-with-intoltjsonstringgt" class="md-nav__link">
+    Hiding JsonString with Into&lt;JsonString&gt;
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="serialization-and-jsonstring">Serialization and JsonString<a class="headerlink" href="#serialization-and-jsonstring" title="Permanent link">&para;</a></h1>
+<h2 id="why-serialize-anything-why-json">Why serialize anything? Why JSON?<a class="headerlink" href="#why-serialize-anything-why-json" title="Permanent link">&para;</a></h2>
+<h3 id="holochain-zomes-are-written-in-wasm">Holochain zomes are written in WASM.<a class="headerlink" href="#holochain-zomes-are-written-in-wasm" title="Permanent link">&para;</a></h3>
+<p>WASM only supports working directly with integers and manually allocating
+memory. This means that sharing any data between holochain core and zome
+functions must be serialized. There is no way that WASM functions can
+understand the Rust type system natively. Serialized data can be allocated for
+WASM to read out and deserialize into Rust types/structs/enums.</p>
+<p>Any developers using the Rust HDK get the serialization/deserialization and
+type handling <em>almost</em> "for free". The macros for defining entities and zomes
+automatically wrap the memory work and serialization round trips for anything
+that implements <code>Into&lt;JsonString&gt;</code> and <code>TryFrom&lt;JsonString&gt;</code> (see below).</p>
+<p>We use <code>serde</code> for our serialization round trips as it is by far the most
+popular and mature option for Rust. Many serialization formats other than JSON
+are supported by <code>serde</code> but JSON is a solid option. JSON allows us to easily
+bring the Rust type system across to WASM with decent performance.</p>
+<p>From the <code>serde_json</code> github repository README:</p>
+<blockquote>
+<p>It is fast. You should expect in the ballpark of 500 to 1000 megabytes per
+second deserialization and 600 to 900 megabytes per second serialization,
+depending on the characteristics of your data. This is competitive with the
+fastest C and C++ JSON libraries or even 30% faster for many use cases.
+Benchmarks live in the serde-rs/json-benchmark repo.</p>
+</blockquote>
+<h3 id="holochain-aims-to-support-all-wasm-languages-not-just-rustjs">Holochain aims to support all WASM languages not just Rust/JS<a class="headerlink" href="#holochain-aims-to-support-all-wasm-languages-not-just-rustjs" title="Permanent link">&para;</a></h3>
+<p>The official Holochain HDK is Rust. The Rust HDK will
+always be the most tightly integrated HDK with core simply because Holochain
+itself is Rust based.</p>
+<p>Generally though, we are hoping and expecting many different WASM zome
+languages build an ecosystem over time. Personally I'm hoping for a decent LISP
+to appear ;)</p>
+<p>To encourage as many languages as possible we want to keep the minimum
+requirements for interacting with holochain core as minimal as possible.</p>
+<p>Currently the two requirements for writing zomes in <code>&lt;your favourite language&gt;</code>:</p>
+<ul>
+<li>Must compile to WASM</li>
+<li>Must be able to serialize UTF-8 data and allocate to memory read by core</li>
+</ul>
+<p>We can't do much about the first requirement but here are some lists to watch:</p>
+<ul>
+<li>https://github.com/appcypher/awesome-wasm-langs</li>
+<li>https://github.com/mbasso/awesome-wasm</li>
+</ul>
+<p>The second requirement means that we must be very mindful of choosing a
+serialization format that can round trip through as many languages as possible.</p>
+<p>In the end, this is the main reason we chose JSON for communication with core.</p>
+<p>Note that at the time of writing, the AssemblyScript (ostentisbly JavaScript)
+WASM implementation does not even provide a native <code>JSON.parse()</code> method!
+To do something as apparently simple as serialize JSON in JavaScript we have
+had to implement a custom JSON parser. At least JSON (naturally) maps very well
+to JavaScript native data, other serialization/language combinations are even
+further from maturity.</p>
+<p>WASM is very promising but very immature so esoteric serialization options are
+not really viable options right now, even if <code>serde</code> supports them in Rust.</p>
+<h3 id="json-serialization-only-pertains-to-communication-with-core">JSON serialization only pertains to communication with core<a class="headerlink" href="#json-serialization-only-pertains-to-communication-with-core" title="Permanent link">&para;</a></h3>
+<p>Holochain often makes a distinction between "app data" and "core data".
+Following the biomimicry theme we sometimes call this "conscious" vs.
+"subconscious" when this data is used in zomes or core logic respectively.</p>
+<p>The most obvious example of this is the <code>Entry</code> enum that has an <code>Entry::App</code>
+variant explicitly for app data, and other variants for system logic.</p>
+<p>The <code>Entry</code> enum itself is serialized via JSON so that is has maximal
+compatibility across all zome languages (see above) across the core/wasm
+boundary. However, the <em>contents</em> of <code>Entry::App(..)</code> are treated as an opaque
+UTF-8 string by Holochain core. Naturally the HDK macros we offer provide sugar
+to work with the value of app entries but this is not enforced anywhere within
+core. Because the Rust serialization round tripping must work across both core
+and the HDK it must work equally well while treating the app entry values as
+opaque in the subconscious and meaningful structs in the conscious. This is
+achieved through a healthy dose of compiler and macro magic.</p>
+<p>This means that zome developers can implement their own serialization logic for
+their own data if they wish. Simply by wrapping a zome-serialized app entry
+value in <code>"\"...\""</code> it becomes a string primitive from core's perspective. The
+zome can do anything needed with this, including custom validation logic, etc.
+The <code>RawString</code> type handles this automatically with <code>JsonString</code> (see below).</p>
+<h2 id="serialization-through-rust-types">Serialization through Rust types<a class="headerlink" href="#serialization-through-rust-types" title="Permanent link">&para;</a></h2>
+<h3 id="how-rust-serializes-serde-from-1000m">How Rust serializes: serde from 1000m<a class="headerlink" href="#how-rust-serializes-serde-from-1000m" title="Permanent link">&para;</a></h3>
+<p>The <code>serde</code> crate leans heavily on the Rust compiler for serialization round
+tripping.</p>
+<p>Using the "vanilla" <code>serde_json</code> crate affords this logic on the way in:</p>
+<div class="codehilite"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="n">foo_json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">serde_json</span>::<span class="n">to_string</span><span class="p">(</span><span class="n">foo</span><span class="p">).</span><span class="n">unwrap</span><span class="p">();</span><span class="w"></span>
+</pre></div>
+
+<p>Notes:</p>
+<ul>
+<li>There is an <code>unwrap</code> but this can't fail for simple structs/enums in practise</li>
+<li>The <code>unwrap</code> can fail e.g. serializing streams but we don't do that</li>
+<li>The compiler enforces that everything we pass to <code>serde</code> can <code>Serialize</code></li>
+<li><code>foo</code> can be anything that implements <code>Serialize</code></li>
+<li>we have no direct control over the structure of the JSON output</li>
+<li>the <code>Serialize</code> implementation of <code>foo</code> decides this for us</li>
+<li>in the case of nested data e.g. hash maps, <code>Serialize</code> works recursively</li>
+</ul>
+<p>OR using the manual <code>json!</code> macro:</p>
+<div class="codehilite"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="n">foo_json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">json</span><span class="o">!</span><span class="p">({</span><span class="s">&quot;foo&quot;</span>: <span class="nc">foo</span><span class="p">.</span><span class="n">inner</span><span class="p">()});</span><span class="w"></span>
+</pre></div>
+
+<p>Notes:</p>
+<ul>
+<li>We no longer have an <code>unwrap</code> so there is slightly less boilerplate to type</li>
+<li>We have a lot of direct control over the structure of our output JSON</li>
+<li>For better or worse we avoid what the compiler says about <code>Serialize</code> on <code>Foo</code></li>
+<li>We must now manually ensure that <code>"{\"foo\":...}"</code> is handled <em>everywhere</em></li>
+<li>Including in crates we don't control</li>
+<li>Including when we change our JSON structure across future releases</li>
+<li>Including across WASM boundaries in HDK consumers</li>
+</ul>
+<p>AND on the way out:</p>
+<div class="codehilite"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="n">foo</span>: <span class="nc">Foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Foo</span>::<span class="n">try_from</span><span class="p">(</span><span class="o">&amp;</span><span class="n">hopefully_foo_json</span><span class="p">)</span><span class="o">?</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+
+<p>Notes:</p>
+<ul>
+<li>Serde relies on compiler info, the type <code>Foo</code> on the left, to deserialize</li>
+<li>Serde requires that <code>hopefully_foo_json</code> makes sense as <code>Foo</code></li>
+<li>This <em>definitely can</em> fail as the json is just a <code>String</code> to the compiler</li>
+<li>In real code do not <code>unwrap</code> this, handle the <code>Err</code> carefully!</li>
+</ul>
+<h3 id="json-structure-the-rust-compiler-and-you">JSON structure, the Rust compiler and you<a class="headerlink" href="#json-structure-the-rust-compiler-and-you" title="Permanent link">&para;</a></h3>
+<p>All this means that our JSON data MUST closely align with the types we define
+for the compiler. There is a lot of flexibility offered by <code>serde</code> for tweaking
+the output (e.g. lowercasing names of things, modifying strings, etc.) but the
+tweaks involve a lot of boilerplate and have limits.</p>
+<p>For example this can be awkard when handling <code>Result</code> values. The <code>Result</code> enum
+has two variants in Rust, <code>Ok</code> and <code>Err</code>. Both of these, like all enum variants
+in Rust, follow the title case convention.</p>
+<p>This means that in a JS conductor/HDK consuming JSON values returned from zome
+functions that return a <code>Result</code> (a good idea!) we see this JavaScript:</p>
+<div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">app</span><span class="p">.</span><span class="nx">call</span><span class="p">(...)</span>
+<span class="kr">const</span> <span class="nx">myVar</span> <span class="o">=</span> <span class="nx">result</span><span class="p">.</span><span class="nx">Ok</span><span class="p">...</span>
+</pre></div>
+
+<p>We get a <code>result.Ok</code> rather than the <code>result.ok</code> that we'd expect from
+idiomatic JavaScript.</p>
+<p>As the JSON structure comes from the Rust compiler, we have two options:</p>
+<ul>
+<li>Force serde to output JSON that follows the conventions of another language</li>
+<li>Force conductors/HDKs to provide sugar to map between Rust/XXX idioms</li>
+<li>Force developers to work with a very leaky abstraction over the Rust compiler</li>
+</ul>
+<p>As the first option requires a lot of boilerplate and isn't interoperable
+across all languages anyway (e.g. kebab case, snake case, etc.) we currently
+are pushing this sugar down to conductor/HDK implementations. Additionally, the
+serialized form of entries is used to calculate <code>Address</code> values for storage
+and retrieval from the local chain and DHT so we need to be very careful here
+as it will be hard to change in the future.</p>
+<p>That said, we are open to constructive feedback on what this sugar looks like
+and how it works! Ideally zome development is as idiomatic as possible across
+as many languages as possible 🕶</p>
+<h3 id="binary-data-as-base64">Binary data as base64<a class="headerlink" href="#binary-data-as-base64" title="Permanent link">&para;</a></h3>
+<p>We recommend base64 encoding binary data straight into an app entry string that
+you can use in your zome logic directly (see above).</p>
+<p>Yes this uses more space than binary data, 33% more to be specific :(</p>
+<p>But there are benefits:</p>
+<ul>
+<li>It is UTF-8 and web (e.g. data URI) friendly</li>
+<li>Simply wrapped in <code>"\"..\""</code> it becomes valid JSON (see <code>RawString</code> below)</li>
+<li>It has wide language support (see above for why this is important)</li>
+<li>It will be supported by all persistence backends for the forseeable future</li>
+<li>At least these storage systems require base64 encoded data at some point:<ul>
+<li>Browser based localStorage</li>
+<li>MongoDB</li>
+<li>Elasticsearch</li>
+<li>Amazon SimpleDB</li>
+<li>Amazon DynamoDB.</li>
+</ul>
+</li>
+</ul>
+<p>The performance penalty can be minimal:</p>
+<p>https://lemire.me/blog/2018/01/17/ridiculously-fast-base64-encoding-and-decoding/</p>
+<h3 id="json-is-lame-can-holochain-support-ltmy-favourite-serialization-formatgt">JSON is lame! Can Holochain support <code>&lt;my favourite serialization format&gt;</code>?<a class="headerlink" href="#json-is-lame-can-holochain-support-ltmy-favourite-serialization-formatgt" title="Permanent link">&para;</a></h3>
+<p>Yes... and no...</p>
+<p>It depends what you mean by "support".</p>
+<p>Right now, most serialization formats are supported in app/zome data simply by
+wrapping the output in double quotes so core sees it as a JSON string literal.
+Holochain core won't try to interpret/mangle any of that data so the zome can
+theoretically do whatever it wants at that point without a performance hit.</p>
+<p>In practise, there are some limitations as mentioned in this doc:</p>
+<ul>
+<li>WASM languages tend to have no or limited serialization options</li>
+<li>you may need to roll your own parse/stringify logic</li>
+<li>seriously... e.g. we pushed our own <code>JSON.parse</code> implementation upstream
+    for the AssemblyScript team, that's <em>JSON parsing in JavaScript</em>!</li>
+<li>don't underestimate how bleeding edge and limited the WASM tooling still is<ul>
+<li>to work directly with WASM you must be prepared to bleed</li>
+</ul>
+</li>
+<li>If you don't use JSON you can't use <code>hdk</code> macros for that part of your zome</li>
+<li>Only valid UTF-8 strings are supported (may change in the future)</li>
+</ul>
+<p>If you're looking for a way to provide core data in non-JSON format then NO
+that is not supported and won't be in the short-mid term future.</p>
+<p>Yes, <code>serde</code> supports many serialization options but:</p>
+<ul>
+<li>Not all data in core uses default <code>serde</code> serialization logic</li>
+<li>e.g. this document explaining non-default serde serialization logic</li>
+<li>Swapping to a different serializer in serde is not just a matter of passing
+  config to serde</li>
+<li>we'd have to centralise/<code>match</code> everywhere and swap out <code>serde_json</code> for
+    analogous crates in each other format we'd want to use</li>
+<li>even using a <code>SerialString</code> instead of <code>JsonString</code> (see below) would not
+    clear out every implementation without a lot of work</li>
+<li>Serde is already quite heavy in compilation/WASM files so we don't want to
+  bloat that more with edge-case serialization needs</li>
+<li>every new format is a new crate</li>
+<li>We don't (yet) have any use-cases showing that JSON is a problem/bottleneck</li>
+<li>Adding more serialization options would exacerbate non-idiomatic conductor
+  and HDK data structure mapping issues (see above)</li>
+</ul>
+<h2 id="jsonstring">JsonString<a class="headerlink" href="#jsonstring" title="Permanent link">&para;</a></h2>
+<h3 id="the-problem-and-our-solution">The problem and our solution<a class="headerlink" href="#the-problem-and-our-solution" title="Permanent link">&para;</a></h3>
+<p>Sometimes we want to <em>nest</em> serialization (e.g. <code>hdk::call</code>) and sometimes we
+want to <em>wrap</em> serialization (e.g. <code>Entry::App</code>), sometimes converting to a
+string uses entirely different logic (e.g. error values). Ideally we want the
+compiler to guide us through this process as mistakes are common and difficult
+to debug. We also want serialization logic to be as invisible as possible to
+zome developers using our HDKs.</p>
+<p>Serde will serialize anything that implements <code>Serialize</code>, including <code>String</code>
+so we added a type <code>JsonString</code> that does not <em>automatically</em> round trip to act
+as a logical "checkpoint" in our code.</p>
+<p><code>JsonString</code> doesn't "do" anything beyond giving ourselves and the compiler a
+shared target while stepping through the serialization round trip.</p>
+<p>Essentially we trade this:</p>
+<div class="codehilite"><pre><span></span><span class="c1">// foo_a is a Foo</span>
+<span class="c1">// foo_json is a String</span>
+<span class="c1">// Foo implements Serialize and Deserialize</span>
+<span class="kd">let</span><span class="w"> </span><span class="n">foo_json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">serde_json</span>::<span class="n">to_string</span><span class="p">(</span><span class="o">&amp;</span><span class="n">foo_a</span><span class="p">)</span><span class="o">?</span><span class="p">;</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="n">foo_b</span>: <span class="nc">Foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">serde_json</span>::<span class="n">from_str</span><span class="p">(</span><span class="o">&amp;</span><span class="n">foo_json</span><span class="p">)</span><span class="o">?</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+
+<p>for this:</p>
+<div class="codehilite"><pre><span></span><span class="c1">// foo_a is a Foo</span>
+<span class="c1">// JsonString implements From&lt;Foo&gt;</span>
+<span class="c1">// Foo implements TryFrom&lt;JsonString&gt;</span>
+<span class="kd">let</span><span class="w"> </span><span class="n">foo_json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JsonString</span>::<span class="n">from</span><span class="p">(</span><span class="n">foo_a</span><span class="p">);</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="n">foo_b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Foo</span>::<span class="n">try_from</span><span class="p">(</span><span class="n">hopefully_foo_json</span><span class="p">)</span><span class="o">?</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+
+<p>Which looks very similar but protects us from this bug:</p>
+<div class="codehilite"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="n">foo_json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">serde_json</span>::<span class="n">to_string</span><span class="p">(</span><span class="o">&amp;</span><span class="n">foo_a</span><span class="p">)</span><span class="o">?</span><span class="p">;</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="n">foo_json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">serde_json</span>::<span class="n">to_string</span><span class="p">(</span><span class="o">&amp;</span><span class="n">foo_json</span><span class="p">)</span><span class="o">?</span><span class="p">;</span><span class="w"> </span><span class="c1">// &lt;-- double serialized :/</span>
+<span class="kd">let</span><span class="w"> </span><span class="n">foo_b</span>: <span class="nc">Foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">serde_json</span>::<span class="n">from_str</span><span class="p">(</span><span class="o">&amp;</span><span class="n">foo_json</span><span class="p">)</span><span class="o">?</span><span class="p">;</span><span class="w"> </span><span class="c1">// &lt;-- will fail :(</span>
+</pre></div>
+
+<p>Because nesting <code>JsonString::from()</code> calls is a compiler error:</p>
+<div class="codehilite"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="n">foo_json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JsonString</span>::<span class="n">from</span><span class="p">(</span><span class="n">JsonString</span>::<span class="n">from</span><span class="p">(</span><span class="n">foo_a</span><span class="p">));</span><span class="w"> </span><span class="c1">// &lt;-- compiler saves us :)</span>
+</pre></div>
+
+<p>and this bug:</p>
+<div class="codehilite"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="n">foo_a</span>: <span class="nc">Foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">serde_json</span>::<span class="n">from_str</span><span class="p">(</span><span class="o">&amp;</span><span class="n">string_but_not_json</span><span class="p">)</span><span class="o">?</span><span class="p">;</span><span class="w"> </span><span class="c1">// &lt;-- runtime error :(</span>
+</pre></div>
+
+<p>Because calling <code>Foo::try_from(String)</code> is (probably) a compiler error:</p>
+<div class="codehilite"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="n">foo_a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Foo</span>::<span class="n">try_from</span><span class="p">(</span><span class="n">string_but_not_json</span><span class="p">)</span><span class="o">?</span><span class="p">;</span><span class="w"> </span><span class="c1">// &lt;-- compiler saves us again :)</span>
+</pre></div>
+
+<p>and this bug:</p>
+<div class="codehilite"><pre><span></span><span class="k">type</span> <span class="nc">Foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Result</span><span class="o">&lt;</span><span class="nb">String</span><span class="p">,</span><span class="w"> </span><span class="nb">String</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="n">foo_json_a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">json</span><span class="o">!</span><span class="p">({</span><span class="s">&quot;Err&quot;</span>: <span class="nc">some_error</span><span class="p">.</span><span class="n">to_string</span><span class="p">()});</span><span class="w"> </span><span class="c1">// &lt;-- good key `Err`</span>
+<span class="c1">// somewhere else... maybe a different crate or old crate version...</span>
+<span class="kd">let</span><span class="w"> </span><span class="n">foo_json_b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">json</span><span class="o">!</span><span class="p">({</span><span class="s">&quot;error&quot;</span>: <span class="nc">some_error</span><span class="p">.</span><span class="n">to_string</span><span class="p">()});</span><span class="w"> </span><span class="c1">// &lt;-- bad key `error` :/</span>
+
+<span class="kd">let</span><span class="w"> </span><span class="n">foo</span>: <span class="nc">Foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">serde_json</span>::<span class="n">from</span><span class="p">(</span><span class="o">&amp;</span><span class="n">foo_json_a</span><span class="p">)</span><span class="o">?</span><span class="p">;</span><span class="w"> </span><span class="c1">// &lt;-- works, key matches variant name</span>
+<span class="kd">let</span><span class="w"> </span><span class="n">foo</span>: <span class="nc">Foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">serde_json</span>::<span class="n">from</span><span class="p">(</span><span class="o">&amp;</span><span class="n">foo_json_b</span><span class="p">)</span><span class="o">?</span><span class="p">;</span><span class="w"> </span><span class="c1">// &lt;-- runtime error! :(</span>
+</pre></div>
+
+<p>Because the structure of the JSON data is defined centrally at compile time:</p>
+<div class="codehilite"><pre><span></span><span class="c1">// Result&lt;Into&lt;JsonString&gt;, Into&lt;JsonString&gt;&gt; is implemented for you by HC core</span>
+<span class="kd">let</span><span class="w"> </span><span class="n">foo_json_a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JsonString</span>::<span class="n">from</span><span class="p">(</span><span class="nb">Err</span><span class="p">(</span><span class="n">some_error</span><span class="p">.</span><span class="n">to_string</span><span class="p">()));</span><span class="w"></span>
+<span class="c1">// only one way to do things, automatically consistent across all crates</span>
+<span class="c1">// doing anything different is a compiler issue</span>
+<span class="kd">let</span><span class="w"> </span><span class="n">foo_json_b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JsonString</span>::<span class="n">from</span><span class="p">(</span><span class="nb">Err</span><span class="p">(</span><span class="n">some_error</span><span class="p">.</span><span class="n">to_string</span><span class="p">()));</span><span class="w"></span>
+</pre></div>
+
+<p>Which is great for the majority of data that needs serializing. There are some
+important edge cases that we need to cover with additional techniques/tooling.</p>
+<h4 id="string-handling">String handling<a class="headerlink" href="#string-handling" title="Permanent link">&para;</a></h4>
+<p><code>JsonString::from_json(&amp;str)</code> requires the <code>&amp;str</code> passed to it is already a
+serialized JSON value. We may add the option to validate this for debug builds at runtime in the future.</p>
+<p>Previously <code>JsonString</code> implemented the <code>From&lt;String&gt;</code> trait but this was removed. Strings are a special case as they may either contain serialized json or be used as a JSON string primitive. <code>JsonString::from_json</code> makes it explicit that you mean the former.</p>
+<p>We can use <code>serde_json::to_string</code> and <code>json!</code> to create JSON data that we can
+then wrap in <code>JsonString</code>.</p>
+<div class="codehilite"><pre><span></span><span class="c1">// same end result for both of these...</span>
+<span class="kd">let</span><span class="w"> </span><span class="n">foo_json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JsonString</span>::<span class="n">from_json</span><span class="p">(</span><span class="o">&amp;</span><span class="n">serde_json</span>::<span class="n">to_string</span><span class="p">(</span><span class="o">&amp;</span><span class="n">foo</span><span class="p">));</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="n">foo_json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JsonString</span>::<span class="n">from</span><span class="p">(</span><span class="n">foo</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
+<p>More commonly useful, we can move back and forward between <code>String</code> and
+<code>JsonString</code> without incurring serialization overhead or human error:</p>
+<div class="codehilite"><pre><span></span><span class="c1">// this does a round trip through types without triggering any serde</span>
+<span class="n">JsonString</span>::<span class="n">from_json</span><span class="p">(</span><span class="o">&amp;</span><span class="nb">String</span>::<span class="n">from</span><span class="p">(</span><span class="n">JsonString</span>::<span class="n">from</span><span class="p">(</span><span class="n">foo</span><span class="p">)));</span><span class="w"></span>
+</pre></div>
+
+<p>This is helpful when a function signature requires a <code>String</code> or <code>JsonString</code>
+argument and we have the inverse type. It also helps when manually building
+JSON data by <em>wrapping</em> already serialized data e.g. with <code>format!</code>.</p>
+<p>An example taken from core:</p>
+<div class="codehilite"><pre><span></span><span class="k">fn</span> <span class="nf">result_to_json_string</span><span class="o">&lt;</span><span class="n">T</span>: <span class="nb">Into</span><span class="o">&lt;</span><span class="n">JsonString</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">E</span>: <span class="nb">Into</span><span class="o">&lt;</span><span class="n">JsonString</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="n">result</span>: <span class="nb">Result</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">E</span><span class="o">&gt;</span><span class="p">,</span><span class="w"></span>
+<span class="p">)</span><span class="w"> </span>-&gt; <span class="nc">JsonString</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">is_ok</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">result</span><span class="p">.</span><span class="n">is_ok</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">inner_json</span>: <span class="nc">JsonString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">match</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nb">Ok</span><span class="p">(</span><span class="n">inner</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">inner</span><span class="p">.</span><span class="n">into</span><span class="p">(),</span><span class="w"></span>
+<span class="w">        </span><span class="nb">Err</span><span class="p">(</span><span class="n">inner</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">inner</span><span class="p">.</span><span class="n">into</span><span class="p">(),</span><span class="w"></span>
+<span class="w">    </span><span class="p">};</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">inner_string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">String</span>::<span class="n">from</span><span class="p">(</span><span class="n">inner_json</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">JsonString</span>::<span class="n">from_json</span><span class="p">(</span><span class="o">&amp;</span><span class="n">format</span><span class="o">!</span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="s">&quot;{{</span><span class="se">\&quot;</span><span class="s">{}</span><span class="se">\&quot;</span><span class="s">:{}}}&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">is_ok</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s">&quot;Ok&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s">&quot;Err&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="n">inner_string</span><span class="w"></span>
+<span class="w">    </span><span class="p">))</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="k">impl</span><span class="o">&lt;</span><span class="n">T</span>: <span class="nb">Into</span><span class="o">&lt;</span><span class="n">JsonString</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">E</span>: <span class="nb">Into</span><span class="o">&lt;</span><span class="n">JsonString</span><span class="o">&gt;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">JsonError</span><span class="o">&gt;</span><span class="w"> </span><span class="nb">From</span><span class="o">&lt;</span><span class="nb">Result</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">E</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">JsonString</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span> <span class="nf">from</span><span class="p">(</span><span class="n">result</span>: <span class="nb">Result</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">E</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nc">JsonString</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">result_to_json_string</span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+
+<p>Which looks like this:</p>
+<div class="codehilite"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="n">result</span>: <span class="nb">Result</span><span class="o">&lt;</span><span class="nb">String</span><span class="p">,</span><span class="w"> </span><span class="n">HolochainError</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="w">    </span><span class="nb">Err</span><span class="p">(</span><span class="n">HolochainError</span>::<span class="n">ErrorGeneric</span><span class="p">(</span><span class="s">&quot;foo&quot;</span><span class="p">.</span><span class="n">into</span><span class="p">()));</span><span class="w"></span>
+
+<span class="n">assert_eq</span><span class="o">!</span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="n">JsonString</span>::<span class="n">from</span><span class="p">(</span><span class="n">result</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="n">JsonString</span>::<span class="n">from</span><span class="p">(</span><span class="s">&quot;{</span><span class="se">\&quot;</span><span class="s">Err</span><span class="se">\&quot;</span><span class="s">:{</span><span class="se">\&quot;</span><span class="s">ErrorGeneric</span><span class="se">\&quot;</span><span class="s">:</span><span class="se">\&quot;</span><span class="s">foo</span><span class="se">\&quot;</span><span class="s">}}&quot;</span><span class="p">),</span><span class="w"></span>
+<span class="p">);</span><span class="w"></span>
+</pre></div>
+
+<p>When given a <code>Result</code> containing any value that can be turned into a
+<code>JsonString</code> (see below), we can <em>convert</em> it first, then <em>wrap</em> it with
+<code>String::from</code> + <code>format!</code>.</p>
+<h3 id="string-serialization">String serialization<a class="headerlink" href="#string-serialization" title="Permanent link">&para;</a></h3>
+<p>Sometimes we <em>want</em> a <code>String</code> to be serialized as a JSON string primitive
+rather than simply wrapped in a <code>JsonString</code> struct. <code>JsonString::from</code> won't
+do what we need because it always wraps strings, we need to <em>nest</em> the <code>String</code>
+serialization.</p>
+<div class="codehilite"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="n">foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">String</span>::<span class="n">from</span><span class="p">(</span><span class="n">JsonString</span>::<span class="n">from_json</span><span class="p">(</span><span class="s">&quot;foo&quot;</span><span class="p">));</span><span class="w"> </span><span class="c1">// &quot;foo&quot; = not what we want</span>
+<span class="kd">let</span><span class="w"> </span><span class="n">foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">???</span><span class="p">;</span><span class="w"> </span><span class="c1">// &quot;\&quot;foo\&quot;&quot; = what we want</span>
+</pre></div>
+
+<p>To keep the type safety from <code>JsonString</code> and nest String serialization use
+<code>RawString</code> wrapped in <code>JsonString</code>. <code>RawString</code> wraps <code>String</code> and serializes
+it to a JSON string primitive when <code>JsonString</code>ified.</p>
+<div class="codehilite"><pre><span></span><span class="c1">// does what we need :)</span>
+<span class="kd">let</span><span class="w"> </span><span class="n">foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">String</span>::<span class="n">from</span><span class="p">(</span><span class="n">JsonString</span>::<span class="n">from</span><span class="p">(</span><span class="n">RawString</span>::<span class="n">from</span><span class="p">(</span><span class="s">&quot;foo&quot;</span><span class="p">)));</span><span class="w"> </span><span class="c1">// &quot;\&quot;foo\&quot;&quot;</span>
+</pre></div>
+
+<p>An example of this can be seen in the core version of the <code>Result</code>
+serialization from above that deals with <code>String</code> error values:</p>
+<div class="codehilite"><pre><span></span><span class="k">impl</span><span class="o">&lt;</span><span class="n">T</span>: <span class="nb">Into</span><span class="o">&lt;</span><span class="n">JsonString</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">From</span><span class="o">&lt;</span><span class="nb">Result</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="nb">String</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">JsonString</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span> <span class="nf">from</span><span class="p">(</span><span class="n">result</span>: <span class="nb">Result</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="nb">String</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nc">JsonString</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">is_ok</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">result</span><span class="p">.</span><span class="n">is_ok</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">inner_json</span>: <span class="nc">JsonString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">match</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nb">Ok</span><span class="p">(</span><span class="n">inner</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">inner</span><span class="p">.</span><span class="n">into</span><span class="p">(),</span><span class="w"></span>
+<span class="w">            </span><span class="c1">// strings need this special handling c.f. Error</span>
+<span class="w">            </span><span class="nb">Err</span><span class="p">(</span><span class="n">inner</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">RawString</span>::<span class="n">from</span><span class="p">(</span><span class="n">inner</span><span class="p">).</span><span class="n">into</span><span class="p">(),</span><span class="w"> </span><span class="c1">// &lt;-- RawString here!</span>
+<span class="w">        </span><span class="p">};</span><span class="w"></span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">inner_string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">String</span>::<span class="n">from</span><span class="p">(</span><span class="n">inner_json</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">format</span><span class="o">!</span><span class="p">(</span><span class="w"></span>
+<span class="w">            </span><span class="s">&quot;{{</span><span class="se">\&quot;</span><span class="s">{}</span><span class="se">\&quot;</span><span class="s">:{}}}&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">is_ok</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s">&quot;Ok&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s">&quot;Err&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="n">inner_string</span><span class="w"></span>
+<span class="w">        </span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="n">into</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+
+<p>Which looks like this:</p>
+<div class="codehilite"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="n">result</span>: <span class="nb">Result</span><span class="o">&lt;</span><span class="nb">String</span><span class="p">,</span><span class="w"> </span><span class="nb">String</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Err</span><span class="p">(</span><span class="nb">String</span>::<span class="n">from</span><span class="p">(</span><span class="s">&quot;foo&quot;</span><span class="p">));</span><span class="w"></span>
+
+<span class="n">assert_eq</span><span class="o">!</span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="n">JsonString</span>::<span class="n">from</span><span class="p">(</span><span class="n">result</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="n">JsonString</span>::<span class="n">from</span><span class="p">(</span><span class="s">&quot;{</span><span class="se">\&quot;</span><span class="s">Err</span><span class="se">\&quot;</span><span class="s">:</span><span class="se">\&quot;</span><span class="s">foo</span><span class="se">\&quot;</span><span class="s">}&quot;</span><span class="p">),</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+</pre></div>
+
+<p>If we didn't do this then the <code>format!</code> would return invalid JSON data with the
+String error value missing the wrapping double quotes.</p>
+<p><code>RawString</code> is useful when working with types that have a <code>.to_string()</code> method
+or similar where the returned string is <em>not</em> valid JSON.</p>
+<p>Examples of when <code>RawString</code> could be useful:</p>
+<ul>
+<li>Error descriptions that return plain text in a string</li>
+<li>Base64 encoded binary data</li>
+<li>Enum variants with custom string representations</li>
+<li>"Black boxing" JSON data that Rust should not attempt to parse</li>
+</ul>
+<h3 id="implementing-jsonstring-for-custom-types">Implementing <code>JsonString</code> for custom types<a class="headerlink" href="#implementing-jsonstring-for-custom-types" title="Permanent link">&para;</a></h3>
+<p>As mentioned above, there are two trait implementations that every struct or
+enum should implement to be compatible with core serialization logic:</p>
+<ul>
+<li><code>impl From&lt;MyType&gt; for JsonString</code> to serialize <code>MyType</code></li>
+<li><code>impl TryFrom&lt;JsonString&gt; for MyType</code> to attempt to deserialize into <code>MyType</code></li>
+</ul>
+<p>Note that <code>TryFrom</code> is currently an unstable Rust feature. To enable it add
+<code>!#[feature(try_from)]</code> to your crate/zome.</p>
+<p>Based on discussions in the Rust community issue queues/forums, we expect this
+feature to eventually stabilise and no longer require feature flags to use.</p>
+<p>The <code>TryFrom</code> trait will need to be added as <code>use std::convert::TryFrom</code> to
+each module/zome implementing it for a struct/enum.</p>
+<h4 id="boilerplate">Boilerplate<a class="headerlink" href="#boilerplate" title="Permanent link">&para;</a></h4>
+<p>To defer all the logic to standard <code>serde</code> defaults with some sensible
+debug logic in the case of an error, there are two utility functions in core,
+<code>default_to_json</code> and <code>default_try_from_json</code>.</p>
+<p>The standard minimal boilerplate looks like this:</p>
+<div class="codehilite"><pre><span></span><span class="k">struct</span> <span class="nc">MyType</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
+
+<span class="k">impl</span><span class="w"> </span><span class="nb">From</span><span class="o">&lt;</span><span class="n">MyType</span><span class="o">&gt;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">JsonString</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">fn</span> <span class="nf">from</span><span class="p">(</span><span class="n">my_type</span>: <span class="nc">MyType</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nc">Self</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">default_to_json</span><span class="p">(</span><span class="n">my_type</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="k">impl</span><span class="w"> </span><span class="n">TryFrom</span><span class="o">&lt;</span><span class="n">JsonString</span><span class="o">&gt;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">MyType</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">type</span> <span class="nc">Error</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HolochainError</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">fn</span> <span class="nf">try_from</span><span class="p">(</span><span class="n">json_string</span>: <span class="nc">JsonString</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nb">Result</span><span class="o">&lt;</span><span class="n">Self</span><span class="p">,</span><span class="w"> </span><span class="n">Self</span>::<span class="n">Error</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">default_try_from_json</span><span class="p">(</span><span class="n">json_string</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+
+<h4 id="automatic-derive">Automatic derive<a class="headerlink" href="#automatic-derive" title="Permanent link">&para;</a></h4>
+<p>The standard boilerplate has been implemented as a derive macro in the
+<code>holochain_persistence_derive</code> crate.</p>
+<p>Simply <code>#[derive(DefaultJson)]</code> to add the above boilerplate plus some extra
+conveniences (e.g. for references) to your type.</p>
+<p><code>DefaultJson</code> requires:</p>
+<ul>
+<li><code>JsonString</code> is included</li>
+<li><code>HolochainError</code> is included</li>
+<li><code>MyType</code> implements <code>Serialize</code>, <code>Deserialize</code> and <code>Debug</code> from serde/std</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="k">use</span><span class="w"> </span><span class="n">holochain_persistence_api</span>::<span class="n">json</span>::<span class="n">JsonString</span><span class="p">;</span><span class="w"></span>
+<span class="k">use</span><span class="w"> </span><span class="n">holochain_core_types</span>::<span class="n">error</span>::<span class="n">HolochainError</span><span class="p">;</span><span class="w"></span>
+
+<span class="cp">#[derive(Serialize, Deserialize, Debug, DefaultJson)]</span><span class="w"></span>
+<span class="k">struct</span> <span class="nc">MyType</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
+</pre></div>
+
+<h3 id="using-jsonstring-as-the-property-of-a-structenum">Using JsonString as the property of a struct/enum<a class="headerlink" href="#using-jsonstring-as-the-property-of-a-structenum" title="Permanent link">&para;</a></h3>
+<p>Because <code>JsonString</code> cannot <em>automatically</em> be round tripped with <code>Serialize</code>
+and <code>Deserialize</code>, the following can cause difficulty:</p>
+<div class="codehilite"><pre><span></span><span class="cp">#[derive(Serialize, Deserialize)]</span><span class="w"></span>
+<span class="k">struct</span> <span class="nc">Foo</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">bar</span>: <span class="nc">JsonString</span><span class="p">,</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+
+<p>The compiler will complain about this because anything deriving <code>Serialize</code>
+recursively must consist only of values that also implement <code>Serialize</code>.</p>
+<p>There are a few approaches here, each with benefits and tradeoffs.</p>
+<ol>
+<li>Swap out <code>JsonString</code> with <code>String</code></li>
+<li>Use a serde attribute to manually serialize <code>Bar</code></li>
+<li>Use a serde attribute to skip <code>Bar</code></li>
+<li>Create a "new type" or wrapper/conversion struct</li>
+</ol>
+<h4 id="swap-jsonstring-with-string">Swap <code>JsonString</code> with <code>String</code><a class="headerlink" href="#swap-jsonstring-with-string" title="Permanent link">&para;</a></h4>
+<p>This approach is quick and dirty. Simply change the type of <code>Bar</code> to <code>String</code>.
+When prototyping or on deadline, this might be the most attractive option ;)</p>
+<p>This will likely cause problems upstream and downstream of what you are doing,
+or may be symptomatic of poorly handled JSON somewhere. This is <em>roughly</em> how
+<code>Entry</code> used to work, with a <code>String</code> valued <code>SerializedEntry</code>and <code>JsonString</code>
+valued <code>Entry</code> that could be swapped between using a <code>From</code> implementation.</p>
+<p>Done correctly we can "onboard" values to <code>Foo</code> by simply carefully wrapping
+and unwrapping the <code>String</code>. Done badly, we reintroduce the possibility for
+invalid wrap/nest/etc. logic to creep in.</p>
+<p>This works best when the fields on <code>Foo</code> are private and immutable, exposed
+only through getter/setter/new style methods that internally convert between
+<code>JsonString</code> and <code>String</code>.</p>
+<p>This option is less suitable if we <em>want</em> to double serialize the nested JSON
+data when serializing <code>Foo</code>. For an example of where we preserve JSON rather
+than trying to automatically deserialize or wrap it with structs, see the
+return values from <code>hdk::call</code> (not using structs, but similar ideas).</p>
+<p>Also consider that somebody reading your code might entirely miss the fact that
+<code>Foo::bar</code> is JSON data if all they read is the struct definition.</p>
+<p>It may be worthwhile adding methods to <code>Foo</code> to enforce this:</p>
+<div class="codehilite"><pre><span></span><span class="cp">#[derive(Serialize, Deserialize)]</span><span class="w"></span>
+<span class="k">pub</span><span class="w"> </span><span class="k">struct</span> <span class="nc">Foo</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">bar</span>: <span class="nb">String</span><span class="p">,</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="k">impl</span><span class="w"> </span><span class="n">Foo</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">new</span><span class="p">(</span><span class="n">bar</span>: <span class="nc">JsonString</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nc">Foo</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">Foo</span><span class="w"> </span><span class="p">{</span><span class="n">bar</span>: <span class="nb">String</span>::<span class="n">from</span><span class="p">(</span><span class="n">bar</span><span class="p">)}</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">bar</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nc">JsonString</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">JsonString</span>::<span class="n">from</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">bar</span><span class="p">.</span><span class="n">clone</span><span class="p">())</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+
+<p>Treat <code>bar</code> as though it was going to be stored as a <code>JsonString</code> right until
+the last moment.</p>
+<p>Avoid this:</p>
+<div class="codehilite"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="n">bar_json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">json</span><span class="o">!</span><span class="p">({</span><span class="s">&quot;bar&quot;</span>: <span class="nc">bar</span><span class="p">.</span><span class="n">inner</span><span class="p">()}).</span><span class="n">to_string</span><span class="p">();</span><span class="w"></span>
+<span class="c1">// somwhere later...</span>
+<span class="kd">let</span><span class="w"> </span><span class="n">foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Foo</span><span class="p">{</span><span class="n">bar</span>: <span class="nc">bar_json</span><span class="p">};</span><span class="w"></span>
+</pre></div>
+
+<p>Because then <em>everything</em> that needs to use <code>Foo</code> must consistently implement
+the manual jsonification logic. This is especially important if <code>Foo</code> and/or
+bar is to be used across multiple crates.</p>
+<p>Instead, prefer this:</p>
+<div class="codehilite"><pre><span></span><span class="cp">#[derive(Serialize, Deserialize, Debug, DefaultJson)]</span><span class="w"></span>
+<span class="k">struct</span> <span class="nc">Bar</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">bar</span>: <span class="p">..</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kd">let</span><span class="w"> </span><span class="n">bar_json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JsonString</span>::<span class="n">from</span><span class="p">(</span><span class="n">Bar</span><span class="p">{</span><span class="n">bar</span>: <span class="p">..});</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="n">foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Foo</span>::<span class="n">new</span><span class="p">(</span><span class="n">bar</span><span class="p">);</span><span class="w"> </span><span class="c1">// assuming impl Foo::new from above</span>
+</pre></div>
+
+<p>The result is still a raw <code>String</code> in <code>Foo</code> but the validity and consistency of
+the JSON data is enforced across all crates by <code>JsonString::from(bar)</code>.</p>
+<p>It is even possible to internalise the <code>JsonString</code> completely within the <code>Foo</code>
+methods using <code>Into&lt;JsonString&gt;</code>. This is covered in more detail below.</p>
+<h4 id="using-serde-attributes">Using serde attributes<a class="headerlink" href="#using-serde-attributes" title="Permanent link">&para;</a></h4>
+<p>Serde allows us to set serialization logic at the field level for structs.</p>
+<p>The best example of this is handling of <code>AppEntryValue</code> in core.
+As all zome data is treated as JSON, assumed to line up with internal structs
+in the HDK but potentially opaque string primitives (see above) we simply alias
+<code>AppEntryValue</code> to <code>JsonString</code>.</p>
+<p>The <code>Entry</code> enum needs to be serialized for many reasons in different contexts,
+including for system entries that zome logic never handles directly.</p>
+<p>It looks something like this (at the time of writing):</p>
+<div class="codehilite"><pre><span></span><span class="cp">#[derive(Clone, Debug, Serialize, Deserialize, DefaultJson)]</span><span class="w"></span>
+<span class="k">pub</span><span class="w"> </span><span class="k">enum</span> <span class="nc">Entry</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="cp">#[serde(serialize_with = </span><span class="s">&quot;serialize_app_entry&quot;</span><span class="cp">)]</span><span class="w"></span>
+<span class="w">    </span><span class="cp">#[serde(deserialize_with = </span><span class="s">&quot;deserialize_app_entry&quot;</span><span class="cp">)]</span><span class="w"></span>
+<span class="w">    </span><span class="n">App</span><span class="p">(</span><span class="n">AppEntryType</span><span class="p">,</span><span class="w"> </span><span class="n">AppEntryValue</span><span class="p">),</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">Dna</span><span class="p">(</span><span class="n">Dna</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="n">AgentId</span><span class="p">(</span><span class="n">AgentId</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="n">Delete</span><span class="p">(</span><span class="n">Delete</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="n">LinkAdd</span><span class="p">(</span><span class="n">LinkAdd</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="n">LinkRemove</span><span class="p">(</span><span class="n">LinkRemove</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="n">LinkList</span><span class="p">(</span><span class="n">LinkList</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="n">ChainHeader</span><span class="p">(</span><span class="n">ChainHeader</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="n">ChainMigrate</span><span class="p">(</span><span class="n">ChainMigrate</span><span class="p">),</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+
+<p>Note that <code>Entry</code>:</p>
+<ul>
+<li>Derives <code>Serialize</code> and <code>Deserialize</code> and even <code>DefaultJson</code>!</li>
+<li>Contains <code>AppEntryValue</code> in a tuple, which is a <code>JsonString</code></li>
+<li>Uses some serde serialization attributes</li>
+</ul>
+<p>This works because the serialization attributes tell serde how to handle the
+<code>JsonString</code> <em>in this context</em>. This is a double edged sword. We have explicit
+control over the serialization so we can never accidentally wrap/nest/etc. JSON
+data in an invalid way. We also only define the serialization for this type in
+this one place. If <code>AppEntryValue</code> was used in some other struct/enum, we would
+have to manually remember to use the same or compatible serialize/deserialize
+callbacks.</p>
+<p>This approach also gives a lot of control over the final JSON structure. We can
+avoid stutters and reams of redundant data in the final output. This can
+mitigate the verbosity and awkwardness of compiler-driven JSON structures
+when sending data to other languages (see above).</p>
+<p>The serde documentation explains in great (technical) detail how to implement
+custom serialization and deserialization logic for many different data types:</p>
+<p>https://serde.rs/field-attrs.html</p>
+<p>For reference, the callbacks used in <code>Entry</code> above look like this:</p>
+<div class="codehilite"><pre><span></span><span class="k">pub</span><span class="w"> </span><span class="k">type</span> <span class="nc">AppEntryValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JsonString</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">fn</span> <span class="nf">serialize_app_entry</span><span class="o">&lt;</span><span class="n">S</span><span class="o">&gt;</span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="n">app_entry_type</span>: <span class="kp">&amp;</span><span class="nc">AppEntryType</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">app_entry_value</span>: <span class="kp">&amp;</span><span class="nc">AppEntryValue</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">serializer</span>: <span class="nc">S</span><span class="p">,</span><span class="w"></span>
+<span class="p">)</span><span class="w"> </span>-&gt; <span class="nb">Result</span><span class="o">&lt;</span><span class="n">S</span>::<span class="nb">Ok</span><span class="p">,</span><span class="w"> </span><span class="n">S</span>::<span class="n">Error</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">where</span><span class="w"></span>
+<span class="w">    </span><span class="n">S</span>: <span class="nc">Serializer</span><span class="p">,</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">serializer</span><span class="p">.</span><span class="n">serialize_tuple</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">?</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">state</span><span class="p">.</span><span class="n">serialize_element</span><span class="p">(</span><span class="o">&amp;</span><span class="n">app_entry_type</span><span class="p">.</span><span class="n">to_string</span><span class="p">())</span><span class="o">?</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">state</span><span class="p">.</span><span class="n">serialize_element</span><span class="p">(</span><span class="o">&amp;</span><span class="n">app_entry_value</span><span class="p">.</span><span class="n">to_string</span><span class="p">())</span><span class="o">?</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">state</span><span class="p">.</span><span class="n">end</span><span class="p">()</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="k">fn</span> <span class="nf">deserialize_app_entry</span><span class="o">&lt;</span><span class="na">&#39;de</span><span class="p">,</span><span class="w"> </span><span class="n">D</span><span class="o">&gt;</span><span class="p">(</span><span class="n">deserializer</span>: <span class="nc">D</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nb">Result</span><span class="o">&lt;</span><span class="p">(</span><span class="n">AppEntryType</span><span class="p">,</span><span class="w"> </span><span class="n">AppEntryValue</span><span class="p">),</span><span class="w"> </span><span class="n">D</span>::<span class="n">Error</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">where</span><span class="w"></span>
+<span class="w">    </span><span class="n">D</span>: <span class="nc">Deserializer</span><span class="o">&lt;</span><span class="na">&#39;de</span><span class="o">&gt;</span><span class="p">,</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="cp">#[derive(Deserialize)]</span><span class="w"></span>
+<span class="w">    </span><span class="k">struct</span> <span class="nc">SerializedAppEntry</span><span class="p">(</span><span class="nb">String</span><span class="p">,</span><span class="w"> </span><span class="nb">String</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">serialized_app_entry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SerializedAppEntry</span>::<span class="n">deserialize</span><span class="p">(</span><span class="n">deserializer</span><span class="p">)</span><span class="o">?</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="nb">Ok</span><span class="p">((</span><span class="w"></span>
+<span class="w">        </span><span class="n">AppEntryType</span>::<span class="n">from</span><span class="p">(</span><span class="n">serialized_app_entry</span><span class="p">.</span><span class="mi">0</span><span class="p">),</span><span class="w"></span>
+<span class="w">        </span><span class="n">AppEntryValue</span>::<span class="n">from</span><span class="p">(</span><span class="n">serialized_app_entry</span><span class="p">.</span><span class="mi">1</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="p">))</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+
+<p>Obviously this is a lot of boilerplate for one tuple, and is really only the
+tip of the iceberg for how complex custom serde implementations can get. Use
+this for surgical implementations along critical path type safety/ergonomics.</p>
+<h4 id="skip-the-attribute">Skip the attribute<a class="headerlink" href="#skip-the-attribute" title="Permanent link">&para;</a></h4>
+<p>Serde also allows for attributes to be completely skipped during serialization.</p>
+<p>In the context of a <code>JsonString</code> this is unlikely to be the desired behaviour.
+If we are serializing the outer struct we <em>probably</em> want the inner JSON data
+to also be serialized, but not necessarily, or perhaps we don't <em>need</em> it and
+so can live without it.</p>
+<p>This option has very clear tradeoffs. We lose the JSON data when the outer
+struct is serialized but also don't have to worry about how it might be
+represented.</p>
+<p>This option is very handy during development/prototyping/debugging when you
+want to sketch out a larger idea without immediately tackling serde logic.</p>
+<p>Simply add the <code>#[serde(skip)]</code> attribute to your struct.</p>
+<div class="codehilite"><pre><span></span><span class="cp">#[derive(Serialize, Deserialize)]</span><span class="w"></span>
+<span class="k">struct</span> <span class="nc">Foo</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="cp">#[serde(skip)]</span><span class="w"></span>
+<span class="w">  </span><span class="n">bar</span>: <span class="nc">JsonString</span><span class="p">,</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+
+<h4 id="wrapconvert-to-a-new-type-or-struct">Wrap/convert to a new type or struct<a class="headerlink" href="#wrapconvert-to-a-new-type-or-struct" title="Permanent link">&para;</a></h4>
+<p>If it is possible to create a struct that better represents the data, or a new
+type to hold it, then <em>that</em> struct can implement to/try_from <code>JsonString</code>.</p>
+<p>This is very similar to the first option where we put a <code>String</code> into <code>Foo</code> but
+it provides semantics, information for the compiler and somewhere to hook
+<code>into()</code> for our code.</p>
+<div class="codehilite"><pre><span></span><span class="c1">// Bar as a new type</span>
+<span class="cp">#[derive(Serialize, Deserialize, Debug, DefaultJson)]</span><span class="w"></span>
+<span class="k">struct</span> <span class="nc">Bar</span><span class="p">(</span><span class="nb">String</span><span class="p">)</span><span class="w"></span>
+
+<span class="cp">#[derive(Serialize, Deserialize)]</span><span class="w"></span>
+<span class="k">struct</span> <span class="nc">Foo</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">bar</span>: <span class="nc">Bar</span><span class="p">,</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="k">impl</span><span class="w"> </span><span class="n">Foo</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">fn</span> <span class="nf">new</span><span class="p">(</span><span class="n">bar</span>: <span class="nc">Bar</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nc">Foo</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">Foo</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">bar</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">fn</span> <span class="nf">bar</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nc">Bar</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="bp">self</span><span class="p">.</span><span class="n">bar</span><span class="p">.</span><span class="n">clone</span><span class="p">()</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="c1">// somewhere else...</span>
+<span class="kd">let</span><span class="w"> </span><span class="n">json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JsonString</span>::<span class="n">from</span><span class="p">(..);</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="n">bar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Bar</span>::<span class="n">from</span><span class="p">(</span><span class="n">json</span><span class="p">);</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="n">foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Foo</span>::<span class="n">new</span><span class="p">(</span><span class="n">bar</span><span class="p">);</span><span class="w"></span>
+
+<span class="c1">// or...</span>
+<span class="kd">let</span><span class="w"> </span><span class="n">json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JsonString</span>::<span class="n">from</span><span class="p">(..);</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="n">foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Foo</span>::<span class="n">new</span><span class="p">(</span><span class="n">json</span><span class="p">.</span><span class="n">into</span><span class="p">());</span><span class="w"></span>
+</pre></div>
+
+<p>The biggest drawback to this approach is the potential for stutter. With lots
+of nested types we give the compiler more power but also can incidentally bloat
+the JSON output a lot.</p>
+<p>Many ad-hoc/once-off types can also become confusing for humans and lead to
+duplicated/redundant code over time.</p>
+<p>It is easy to end up with JSON like <code>{"Foo":{"bar":{"Bar":[".."]}}}</code> with a
+poorly chosen combination of enum variants and tuples.</p>
+<p>As per all the considerations outlined for using <code>String</code> directly on <code>Foo</code>,
+avoid using <code>json!</code> or similar to build up the internal <code>String</code> of <code>Bar</code>.</p>
+<h2 id="hiding-jsonstring-with-intoltjsonstringgt">Hiding JsonString with <code>Into&lt;JsonString&gt;</code><a class="headerlink" href="#hiding-jsonstring-with-intoltjsonstringgt" title="Permanent link">&para;</a></h2>
+<p>It is possible in function signatures to simply leave an argument open to
+anything that can be converted to <code>JsonString</code>.</p>
+<p>This is exactly like using <code>Into&lt;String&gt;</code> but for JSON data. An even looser
+option is to only require <code>TryInto&lt;JsonString&gt;</code> but this makes little or no
+difference to us in practise.</p>
+<p>An example of this is the <code>store_as_json</code> used to pass native Rust typed data
+across the WASM boundary. This is used internally by the <code>define_zome!</code> macro
+for all zome funtions:</p>
+<div class="codehilite"><pre><span></span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">store_as_json</span><span class="o">&lt;</span><span class="n">J</span>: <span class="nc">TryInto</span><span class="o">&lt;</span><span class="n">JsonString</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="n">stack</span>: <span class="kp">&amp;</span><span class="nc">mut</span><span class="w"> </span><span class="n">WasmStack</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">jsonable</span>: <span class="nc">J</span><span class="p">,</span><span class="w"></span>
+<span class="p">)</span><span class="w"> </span>-&gt; <span class="nb">Result</span><span class="o">&lt;</span><span class="n">SinglePageAllocation</span><span class="p">,</span><span class="w"> </span><span class="n">RibosomeErrorCode</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">j</span>: <span class="nc">JsonString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jsonable</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="n">try_into</span><span class="p">()</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="n">map_err</span><span class="p">(</span><span class="o">|</span><span class="n">_</span><span class="o">|</span><span class="w"> </span><span class="n">RibosomeErrorCode</span>::<span class="n">ArgumentDeserializationFailed</span><span class="p">)</span><span class="o">?</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">json_bytes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="p">.</span><span class="n">into_bytes</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">json_bytes_len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">json_bytes</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">u32</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">json_bytes_len</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">U16_MAX</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">Err</span><span class="p">(</span><span class="n">RibosomeErrorCode</span>::<span class="n">OutOfMemory</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="n">write_in_wasm_memory</span><span class="p">(</span><span class="n">stack</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">json_bytes</span><span class="p">,</span><span class="w"> </span><span class="n">json_bytes_len</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">u16</span><span class="p">)</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+
+<p>The relevant <code>into()</code> or <code>try_into()</code> method is called <em>internally</em> by the
+function accepting <code>Into&lt;JsonString&gt;</code>, meaning the caller needs to know almost
+nothing about <em>how</em> the serialization is done. Additionally, the caller <em>could</em>
+do its own custom serialization, passing a <code>String</code> through, which would be
+wrapped as-is into a <code>JsonString</code>.</p>
+<p>Unfortunately this doesn't work as well for structs because of the way trait
+bounds work (or don't work) without complex boxing etc. See above for simple
+strategies to cope with nested/wrapped serialization in nested native data
+structures.</p>
+<p>This approach can be combined with the "quick and dirty" <code>Foo</code> with private
+<code>String</code> internals to create a <code>Foo</code> that can store <em>anything</em> that round trips
+through <code>JsonString</code>:</p>
+<div class="codehilite"><pre><span></span><span class="k">struct</span> <span class="nc">Foo</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">bar</span>: <span class="nb">String</span><span class="p">,</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="k">impl</span><span class="w"> </span><span class="n">Foo</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">fn</span> <span class="nf">new</span><span class="o">&lt;</span><span class="n">J</span>: <span class="nb">Into</span><span class="o">&lt;</span><span class="n">JsonString</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">bar</span>: <span class="nc">J</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nc">Foo</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">Foo</span><span class="p">{</span><span class="w"> </span><span class="n">bar</span>: <span class="nb">String</span>::<span class="n">from</span><span class="p">(</span><span class="n">JsonString</span>::<span class="n">from</span><span class="p">(</span><span class="n">bar</span><span class="p">))</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">fn</span> <span class="nf">bar</span><span class="o">&lt;</span><span class="n">T</span>: <span class="nc">TryFrom</span><span class="o">&lt;</span><span class="n">JsonString</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nb">Result</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">HolochainError</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nb">Ok</span><span class="p">(</span><span class="n">JsonString</span>::<span class="n">from</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">bar</span><span class="p">.</span><span class="n">clone</span><span class="p">()).</span><span class="n">try_into</span><span class="p">()</span><span class="o">?</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="c1">// somewhere later..</span>
+<span class="c1">// we can build MyBar ad-hoc to send to Foo as long as it implements JsonString</span>
+<span class="c1">// we could create MyOtherBar in the same way and send to Foo in the same way</span>
+<span class="cp">#[derive(Serialize, Deserialize, Debug, DefaultJson)]</span><span class="w"></span>
+<span class="k">struct</span> <span class="nc">MyBar</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">..</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+
+<span class="kd">let</span><span class="w"> </span><span class="n">my_bar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MyBar</span>::<span class="n">new</span><span class="p">(..);</span><span class="w"></span>
+<span class="c1">// auto stores as String via. JsonString internally</span>
+<span class="kd">let</span><span class="w"> </span><span class="n">foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Foo</span>::<span class="n">new</span><span class="p">(</span><span class="n">my_bar</span><span class="p">);</span><span class="w"></span>
+<span class="c1">// note we must provide the MyBar type at restore time because we destroyed</span>
+<span class="c1">// that type info during the serialization process</span>
+<span class="kd">let</span><span class="w"> </span><span class="n">restored_bar</span>: <span class="nc">MyBar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">foo</span><span class="p">.</span><span class="n">bar</span><span class="p">()</span><span class="o">?</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+
+<p>This is how the <code>ContentAddressableStorage</code> trait used to work. It would
+"magically" restore the correct <code>Content</code> from storage based on an <code>Address</code>
+and type alone, provided the compiler had the type info available at compile
+time.</p>
+<p>We had to sacrifice this neat trick due to incompatible constraints from the
+type system elsewhereon the CAS, but it should work well in most scenarios :)</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../apps_advanced_topics/" title="Building Holochain Apps: Advanced Topics" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Building Holochain Apps: Advanced Topics
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../building_for_android/" title="Building For Android" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Building For Android
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.c648116f.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>

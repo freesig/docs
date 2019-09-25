@@ -1,0 +1,2627 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.2">
+    
+    
+      
+        <title>Build A To-Do App! - My Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.30686662.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#first-steps-writing-holochain-happs-with-rust" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="My Docs" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              My Docs
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Build A To-Do App!
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="My Docs" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    My Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      Core Concepts Tutorials
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        Core Concepts Tutorials
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../coreconcepts/hello_holo/" title="Hello Holo Tutorial" class="md-nav__link">
+      Hello Holo Tutorial
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../coreconcepts/hello_test/" title="Hello Test Tutorial" class="md-nav__link">
+      Hello Test Tutorial
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../coreconcepts/hello_gui/" title="Hello GUI" class="md-nav__link">
+      Hello GUI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../coreconcepts/hello_me/" title="Hello Me" class="md-nav__link">
+      Hello Me
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../coreconcepts/hello_world/" title="Hello World" class="md-nav__link">
+      Hello World
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../coreconcepts/simple_micro_blog/" title="Simple Micro Blog tutorial" class="md-nav__link">
+      Simple Micro Blog tutorial
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Guide
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Guide
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1">
+    
+    <label class="md-nav__link" for="nav-2-1">
+      Welcome
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-1">
+        Welcome
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../welcome/" title="Welcome" class="md-nav__link">
+      Welcome
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../overview/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../how_to_contribute/" title="How to contribute" class="md-nav__link">
+      How to contribute
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../planning_a_dapp/" title="Planning a dApp" class="md-nav__link">
+      Planning a dApp
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3">
+    
+    <label class="md-nav__link" for="nav-2-3">
+      Building Holochain Apps - Intro
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-3">
+        Building Holochain Apps - Intro
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../building_apps/" title="Building Apps" class="md-nav__link">
+      Building Apps
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../intro_to_dna_config/" title="Intro to DNA - Configuration" class="md-nav__link">
+      Intro to DNA - Configuration
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../intro_to_dna_code/" title="Intro to DNA - Code" class="md-nav__link">
+      Intro to DNA - Code
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../intro_to_command_line_tools/" title="Intro to Command Line Tools" class="md-nav__link">
+      Intro to Command Line Tools
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../new_project/" title="Create A New Project" class="md-nav__link">
+      Create A New Project
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../project_source_folders/" title="Project Source Folders" class="md-nav__link">
+      Project Source Folders
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../configuring_an_app/" title="Configuring an App" class="md-nav__link">
+      Configuring an App
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../zome/rust/" title="Writing in Rust" class="md-nav__link">
+      Writing in Rust
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../zome/assemblyscript/" title="Writing in Assemblyscript" class="md-nav__link">
+      Writing in Assemblyscript
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../zome/intro_to_webassembly/" title="Intro to WebAssembly" class="md-nav__link">
+      Intro to WebAssembly
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../alpha_migrate/" title="Updating from Proto to Rust" class="md-nav__link">
+      Updating from Proto to Rust
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../built_with_holochain/" title="Built With Holochain" class="md-nav__link">
+      Built With Holochain
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../building_for_different_platforms/" title="Building for Different Platforms" class="md-nav__link">
+      Building for Different Platforms
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4" type="checkbox" id="nav-2-4" checked>
+    
+    <label class="md-nav__link" for="nav-2-4">
+      Building Holochain Apps - Zome Code
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-4">
+        Building Holochain Apps - Zome Code
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../zome/welcome/" title="Building Holochain Apps: Zome Code" class="md-nav__link">
+      Building Holochain Apps: Zome Code
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Build A To-Do App!
+      </label>
+    
+    <a href="./" title="Build A To-Do App!" class="md-nav__link md-nav__link--active">
+      Build A To-Do App!
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    Requirements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#first-steps" class="md-nav__link">
+    First steps
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#writing-the-lists-zome" class="md-nav__link">
+    Writing the lists zome
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-some-entries" class="md-nav__link">
+    Adding some Entries
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-functions" class="md-nav__link">
+    Adding Functions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#writing-tests" class="md-nav__link">
+    Writing tests
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    Conclusion
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../zome/adding_a_zome/" title="Adding a Zome" class="md-nav__link">
+      Adding a Zome
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../zome/intro_to_hdk/" title="Intro to HDK" class="md-nav__link">
+      Intro to HDK
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../zome/define_zome/" title="Intro to Zome Definition" class="md-nav__link">
+      Intro to Zome Definition
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../zome/entry_type_definitions/" title="App Entry Type Definitions" class="md-nav__link">
+      App Entry Type Definitions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../zome/init/" title="Init" class="md-nav__link">
+      Init
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../zome/validate_agent/" title="Validate Agent" class="md-nav__link">
+      Validate Agent
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../zome/zome_functions/" title="Zome Functions" class="md-nav__link">
+      Zome Functions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../zome/capabilities/" title="Capabilities" class="md-nav__link">
+      Capabilities
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../zome/read_and_write/" title="Read & Write Data Operations" class="md-nav__link">
+      Read & Write Data Operations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../zome/entry_validation/" title="(E) Entry Validation" class="md-nav__link">
+      (E) Entry Validation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../zome/linking/" title="(E) Linking" class="md-nav__link">
+      (E) Linking
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../zome/node_to_node_messages/" title="(E) Node to Node Messaging" class="md-nav__link">
+      (E) Node to Node Messaging
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../zome/calling_other_zomes/" title="(E) Calling Other Zomes" class="md-nav__link">
+      (E) Calling Other Zomes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../zome/crypto/" title="Crypto Functions" class="md-nav__link">
+      Crypto Functions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../zome/bundling/" title="(E) Bundling" class="md-nav__link">
+      (E) Bundling
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../zome/emitting_signals/" title="Emitting Signals" class="md-nav__link">
+      Emitting Signals
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../zome/dna_variables/" title="API DNA Variables" class="md-nav__link">
+      API DNA Variables
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../zome/api_functions/" title="List of API Functions" class="md-nav__link">
+      List of API Functions
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-5" type="checkbox" id="nav-2-5">
+    
+    <label class="md-nav__link" for="nav-2-5">
+      Building Holochain Apps - Packaging
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-5">
+        Building Holochain Apps - Packaging
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../packaging/" title="Building Holochain Apps: Packaging" class="md-nav__link">
+      Building Holochain Apps: Packaging
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../build_files/" title=".hcbuild Files" class="md-nav__link">
+      .hcbuild Files
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../hcignore_files/" title=".hcignore Files" class="md-nav__link">
+      .hcignore Files
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-6" type="checkbox" id="nav-2-6">
+    
+    <label class="md-nav__link" for="nav-2-6">
+      Building Holochain Apps - Testing
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-6">
+        Building Holochain Apps - Testing
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../intro_to_testing/" title="Building Holochain Apps: Testing" class="md-nav__link">
+      Building Holochain Apps: Testing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../running_tests/" title="Running Tests" class="md-nav__link">
+      Running Tests
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../intro_to_holochain_nodejs/" title="Intro to holochain-nodejs" class="md-nav__link">
+      Intro to holochain-nodejs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-6-4" type="checkbox" id="nav-2-6-4">
+    
+    <label class="md-nav__link" for="nav-2-6-4">
+      Configuration
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-6-4">
+        Configuration
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../testing_configuration/" title="Configuration" class="md-nav__link">
+      Configuration
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../configuration_alternatives/" title="Configuration Alternatives" class="md-nav__link">
+      Configuration Alternatives
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-6-5" type="checkbox" id="nav-2-6-5">
+    
+    <label class="md-nav__link" for="nav-2-6-5">
+      Scenario Testing
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-6-5">
+        Scenario Testing
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../scenario_testing/" title="Scenario Testing" class="md-nav__link">
+      Scenario Testing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../scenario_testing_setup/" title="Setup" class="md-nav__link">
+      Setup
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../scenario_testing_running_tape/" title="Running With Tape" class="md-nav__link">
+      Running With Tape
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../other_test_harnesses/" title="Other Test Harnesses" class="md-nav__link">
+      Other Test Harnesses
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-6-6" type="checkbox" id="nav-2-6-6">
+    
+    <label class="md-nav__link" for="nav-2-6-6">
+      DNA Instances
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-6-6">
+        DNA Instances
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../nodejs_dna_instances/" title="DNA Instances" class="md-nav__link">
+      DNA Instances
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../nodejs_calling_zome_functions/" title="Calling Zome Functions" class="md-nav__link">
+      Calling Zome Functions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../handling_async/" title="Handle Network Asynchronicity" class="md-nav__link">
+      Handle Network Asynchronicity
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../testing_checking_results/" title="(E) Checking Results" class="md-nav__link">
+      (E) Checking Results
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../managing_the_conductor/" title="Manually Manage the Conductor" class="md-nav__link">
+      Manually Manage the Conductor
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../access_instance_info/" title="Access Instance Info" class="md-nav__link">
+      Access Instance Info
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-7" type="checkbox" id="nav-2-7">
+    
+    <label class="md-nav__link" for="nav-2-7">
+      Running Holochain Apps
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-7">
+        Running Holochain Apps
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../conductors/" title="Conductors" class="md-nav__link">
+      Conductors
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-7-2" type="checkbox" id="nav-2-7-2">
+    
+    <label class="md-nav__link" for="nav-2-7-2">
+      Development Conductor
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-7-2">
+        Development Conductor
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../development_conductor/" title="Development Conductor" class="md-nav__link">
+      Development Conductor
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../hc_configuring_networking/" title="Configuring Networking" class="md-nav__link">
+      Configuring Networking
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-7-3" type="checkbox" id="nav-2-7-3">
+    
+    <label class="md-nav__link" for="nav-2-7-3">
+      Production Conductor
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-7-3">
+        Production Conductor
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../production_conductor/" title="Production Conductor" class="md-nav__link">
+      Production Conductor
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../intro_to_toml_config/" title="Intro to TOML Config Files" class="md-nav__link">
+      Intro to TOML Config Files
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../conductor_agents/" title="Agents" class="md-nav__link">
+      Agents
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../conductor_dnas/" title="DNAs" class="md-nav__link">
+      DNAs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../conductor_instances/" title="Instances" class="md-nav__link">
+      Instances
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../conductor_interfaces/" title="Interfaces" class="md-nav__link">
+      Interfaces
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../conductor_bridges/" title="Bridges" class="md-nav__link">
+      Bridges
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../conductor_ui_bundles/" title="UI Bundles" class="md-nav__link">
+      UI Bundles
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../conductor_ui_interfaces/" title="UI Interfaces" class="md-nav__link">
+      UI Interfaces
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../conductor_logging/" title="Logging" class="md-nav__link">
+      Logging
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../conductor_networking/" title="Networking" class="md-nav__link">
+      Networking
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../conductor_persistence_dir/" title="Persistence Directory" class="md-nav__link">
+      Persistence Directory
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../json_rpc_interfaces/" title="Intro to JSON-RPC Interfaces" class="md-nav__link">
+      Intro to JSON-RPC Interfaces
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-7-5" type="checkbox" id="nav-2-7-5">
+    
+    <label class="md-nav__link" for="nav-2-7-5">
+      Conductor JSON-RPC API
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-7-5">
+        Conductor JSON-RPC API
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../conductor_json_rpc_api/" title="Conductor JSON-RPC API" class="md-nav__link">
+      Conductor JSON-RPC API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../json_rpc_http/" title="HTTP" class="md-nav__link">
+      HTTP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../json_rpc_websockets/" title="WebSockets" class="md-nav__link">
+      WebSockets
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../conductor_admin/" title="Conductor Admin" class="md-nav__link">
+      Conductor Admin
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../apps_user_interfaces/" title="Building Holochain Apps - User Interfaces" class="md-nav__link">
+      Building Holochain Apps - User Interfaces
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../bridging/" title="Building Holochain Apps - Bridging" class="md-nav__link">
+      Building Holochain Apps - Bridging
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-10" type="checkbox" id="nav-2-10">
+    
+    <label class="md-nav__link" for="nav-2-10">
+      (E) Going Live with Holochain Apps
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-10">
+        (E) Going Live with Holochain Apps
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../live_hc_apps/" title="Going Live with Holochain Apps" class="md-nav__link">
+      Going Live with Holochain Apps
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../creating_versioned_releases/" title="(E) Creating Versioned Releases" class="md-nav__link">
+      (E) Creating Versioned Releases
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-11" type="checkbox" id="nav-2-11">
+    
+    <label class="md-nav__link" for="nav-2-11">
+      (E) Building Holochain Apps - Advanced Topics
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-11">
+        (E) Building Holochain Apps - Advanced Topics
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../apps_advanced_topics/" title="Building Holochain Apps: Advanced Topics" class="md-nav__link">
+      Building Holochain Apps: Advanced Topics
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../json_string/" title="Understanding JsonString" class="md-nav__link">
+      Understanding JsonString
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../building_for_android/" title="Building For Android" class="md-nav__link">
+      Building For Android
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-12" type="checkbox" id="nav-2-12">
+    
+    <label class="md-nav__link" for="nav-2-12">
+      (E) Extending Holochain
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-12">
+        (E) Extending Holochain
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../extending_holochain/" title="Extending Holochain" class="md-nav__link">
+      Extending Holochain
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-12-2" type="checkbox" id="nav-2-12-2">
+    
+    <label class="md-nav__link" for="nav-2-12-2">
+      (E) Embedding Holochain
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-12-2">
+        (E) Embedding Holochain
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../embedding_holochain/" title="Embedding Holochain" class="md-nav__link">
+      Embedding Holochain
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../core_api/" title="(E) Core API" class="md-nav__link">
+      (E) Core API
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../dpki/" title="Key Management (DPKI)" class="md-nav__link">
+      Key Management (DPKI)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../naming_conventions/" title="Naming conventions" class="md-nav__link">
+      Naming conventions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../writing_development_kit/" title="Writing a Development Kit (HDK'" class="md-nav__link">
+      Writing a Development Kit (HDK'
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../zome/implementation/" title="Implementing Zome API functions" class="md-nav__link">
+      Implementing Zome API functions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-12-7" type="checkbox" id="nav-2-12-7">
+    
+    <label class="md-nav__link" for="nav-2-12-7">
+      Redux Architecture
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-12-7">
+        Redux Architecture
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../state_actions/" title="State & Actions" class="md-nav__link">
+      State & Actions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../state/actions/" title="State actions" class="md-nav__link">
+      State actions
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../state/actors/" title="State actors" class="md-nav__link">
+      State actors
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../faq/" title="FAQ" class="md-nav__link">
+      FAQ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-14" type="checkbox" id="nav-2-14">
+    
+    <label class="md-nav__link" for="nav-2-14">
+      (E) Glossary
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-14">
+        (E) Glossary
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../glossary/" title="Glossary" class="md-nav__link">
+      Glossary
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../agent/" title="(E) Agent" class="md-nav__link">
+      (E) Agent
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../keys/" title="(E) Keys" class="md-nav__link">
+      (E) Keys
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../dna/" title="(E) DNA" class="md-nav__link">
+      (E) DNA
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../zome/" title="(E) Zome" class="md-nav__link">
+      (E) Zome
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../source_chain/" title="(E) Source Chain" class="md-nav__link">
+      (E) Source Chain
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../distributed_hash_table/" title="Distributed Hash Table" class="md-nav__link">
+      Distributed Hash Table
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    Requirements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#first-steps" class="md-nav__link">
+    First steps
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#writing-the-lists-zome" class="md-nav__link">
+    Writing the lists zome
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-some-entries" class="md-nav__link">
+    Adding some Entries
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-functions" class="md-nav__link">
+    Adding Functions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#writing-tests" class="md-nav__link">
+    Writing tests
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    Conclusion
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="first-steps-writing-holochain-happs-with-rust">First steps writing Holochain hApps with Rust<a class="headerlink" href="#first-steps-writing-holochain-happs-with-rust" title="Permanent link">&para;</a></h1>
+<hr />
+<p>This tutorial builds for the 0.0.18-alpha1 release but as the API and HDK are changing it will likely fail under newer releases.</p>
+<hr />
+<p>Holochain hApps are made of compiled WebAssembly that encodes the rules of the hApp, the data it can store and how users will interact with it. This means that <a href="https://github.com/appcypher/awesome-wasm-langs">any language that can compile to WebAssembly</a> can one day be used for Holochain.</p>
+<p>Writing WebAssembly that complies with the Holochain runtime can be tricky. To make development as streamlined as possible the core team has been developing a Holochain-dev-kit (HDK) for the first supported language, Rust! In the near future the community is encouraged to develop an HDK for their language of choice.</p>
+<p>In this article we will walk through the steps of creating a simple hApp using Rust.</p>
+<h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h2>
+<p>First step is to download the appropriate <a href="https://github.com/holochain/holochain-rust/releases">dev preview release</a> for your OS. If you decide to build the latest version from source, be warned that the API is undergoing rapid change, so some of the steps in this article may not work. The release contains the binary for the holochain developer command line tool, <code>hc</code>, which is used to generate a skeleton app, run tests and build the app package. Follow the installations on <a href="https://developer.holochain.org/start.html">this page</a> to install the required dependencies.</p>
+<p>Ensure that <code>hc</code> is available on your path. If you instead decide to <a href="https://developer.holochain.org/start.html">build from source</a> cargo will ensure the binaries are on your path automatically.</p>
+<p>If you want to jump ahead to see what the completed project will look like, the <a href="https://github.com/willemolding/holochain-rust-todo">full source code is available on GitHub</a>.</p>
+<h2 id="first-steps">First steps<a class="headerlink" href="#first-steps" title="Permanent link">&para;</a></h2>
+<p>We will be making a classic to-do list hApp. A user can create new lists and add items to a list. They should also be able to retrieve a list by its address and all of the items on each list.</p>
+<p>Let's begin by generating an empty hApp skeleton by running:</p>
+<div class="codehilite"><pre><span></span>hc init holochain-rust-todo
+</pre></div>
+
+<p>This will generate the following directory structure:</p>
+<div class="codehilite"><pre><span></span>holochain-rust-todo/
+├── app.json
+├── test
+│ └── …
+└── zomes
+</pre></div>
+
+<p>Notice the <code>zomes</code> directory. All Holochain hApps are comprised of one or more zomes. They can be thought of as similar to modules in JavaScript, each one should provide some self-contained functionality. Every zome has its own build system so it is possible to combine zomes written in different languages to produce a single hApp.</p>
+<p>We will create a single zome called <code>lists</code> that uses a Rust build system:</p>
+<div class="codehilite"><pre><span></span>cd holochain-rust-todo
+hc generate zomes/lists rust
+</pre></div>
+
+<p>The project structure should now be as follows:</p>
+<div class="codehilite"><pre><span></span>├── app.json
+├── test
+│ └── …
+└── zomes
+ └── lists
+ ├── code
+ │ ├── .hcbuild
+ │ ├── Cargo.toml
+ │ └── src
+ │  └── lib.rs
+ └── zome.json
+</pre></div>
+
+<h2 id="writing-the-lists-zome">Writing the lists zome<a class="headerlink" href="#writing-the-lists-zome" title="Permanent link">&para;</a></h2>
+<p>The Rust HDK makes use of Rust macros to reduce the need for boilerplate code. The most important of which is the <a href="https://developer.holochain.org/api/0.0.26-alpha1/hdk/macro.define_zome.html"><code>define_zome!</code></a> macro. Every zome must use this to define the structure of the zome, what entries it contains, which functions it exposes and what to do on first start-up (init).</p>
+<p>Open up <code>lib.rs</code> and replace its contents with the following:</p>
+<div class="codehilite"><pre><span></span><span class="cp">#[macro_use]</span><span class="w"></span>
+<span class="k">extern</span><span class="w"> </span><span class="k">crate</span><span class="w"> </span><span class="n">hdk</span><span class="p">;</span><span class="w"></span>
+
+<span class="n">define_zome</span><span class="o">!</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">entries</span>: <span class="p">[</span><span class="w"></span>
+<span class="w">    </span><span class="p">]</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">init</span>: <span class="o">||</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nb">Ok</span><span class="p">(())</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">validate_agent</span>: <span class="o">|</span><span class="n">validation_data</span><span class="w"> </span>: <span class="nc">EntryValidationData</span>::<span class="o">&lt;</span><span class="n">AgentId</span><span class="o">&gt;|</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nb">Ok</span><span class="p">(())</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">functions</span>: <span class="p">[</span><span class="w"></span>
+<span class="w">    </span><span class="p">]</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">traits</span>: <span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+
+<p>This is the simplest possible zome with no entries and no exposed functions.</p>
+<h2 id="adding-some-entries">Adding some Entries<a class="headerlink" href="#adding-some-entries" title="Permanent link">&para;</a></h2>
+<p>Unlike in holochain-proto, where you needed to define a JSON schema to validate entries, holochain entries in Rust map to a native struct type. We can define our list and listItem structs as follows:</p>
+<div class="codehilite"><pre><span></span><span class="cp">#[derive(Serialize, Deserialize, Debug, Clone, DefaultJson)]</span><span class="w"></span>
+<span class="k">struct</span> <span class="nc">List</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">name</span>: <span class="nb">String</span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="cp">#[derive(Serialize, Deserialize, Debug, Clone, DefaultJson)]</span><span class="w"></span>
+<span class="k">struct</span> <span class="nc">ListItem</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">text</span>: <span class="nb">String</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">completed</span>: <span class="kt">bool</span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="cp">#[derive(Serialize, Deserialize, Debug, DefaultJson)]</span><span class="w"></span>
+<span class="k">struct</span> <span class="nc">GetListResponse</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">name</span>: <span class="nb">String</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">items</span>: <span class="nb">Vec</span><span class="o">&lt;</span><span class="n">ListItem</span><span class="o">&gt;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+
+<p>You might notice that the <code>List</code> struct does not contain a field that holds a collection of <code>ListItem</code>s. This will be implemented using links, which we will discuss later.</p>
+<p>Also be sure to add the following to the list of imports:</p>
+<div class="codehilite"><pre><span></span><span class="cp">#[macro_use]</span><span class="w"></span>
+<span class="k">extern</span><span class="w"> </span><span class="k">crate</span><span class="w"> </span><span class="n">hdk</span><span class="p">;</span><span class="w"></span>
+<span class="cp">#[macro_use]</span><span class="w"></span>
+<span class="k">extern</span><span class="w"> </span><span class="k">crate</span><span class="w"> </span><span class="n">serde_derive</span><span class="p">;</span><span class="w"></span>
+<span class="cp">#[macro_use]</span><span class="w"></span>
+<span class="k">extern</span><span class="w"> </span><span class="k">crate</span><span class="w"> </span><span class="n">holochain_persistence_derive</span><span class="p">;</span><span class="w"></span>
+<span class="k">use</span><span class="w"> </span><span class="n">hdk</span>::<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">error</span>::<span class="n">ZomeApiResult</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">holochain_core_types</span>::<span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">hash</span>::<span class="n">HashString</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="n">error</span>::<span class="n">HolochainError</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="n">dna</span>::<span class="n">entry_types</span>::<span class="n">Sharing</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="n">json</span>::<span class="n">JsonString</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="n">cas</span>::<span class="n">content</span>::<span class="n">Address</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="n">entry</span>::<span class="n">Entry</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+
+<p>The <code>Serialize</code> and <code>Deserialize</code> derived traits allow the structs to be converted to and from JSON, which is how entries are managed internally in Holochain. The DefaultJson derived trait comes from the holochain HDK itself and allows for seamless converting between data stored in the DHT and rust structs.</p>
+<p>These structs on their own are not yet valid Holochain entries. To create these we must include them in the <code>define_zome!</code> macro by using the <code>entry!</code> macro:</p>
+<div class="codehilite"><pre><span></span><span class="c1">// -- SNIP-- //</span>
+
+<span class="n">define_zome</span><span class="o">!</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">entries</span>: <span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="n">entry</span><span class="o">!</span><span class="p">(</span><span class="w"></span>
+<span class="w">            </span><span class="n">name</span>: <span class="s">&quot;list&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="n">description</span>: <span class="s">&quot;&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="n">sharing</span>: <span class="nc">Sharing</span>::<span class="n">Public</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="n">validation_package</span>: <span class="o">||</span><span class="w"> </span><span class="n">hdk</span>::<span class="n">ValidationPackageDefinition</span>::<span class="n">Entry</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="n">validation</span>: <span class="o">|</span><span class="n">validation_data</span>: <span class="nc">hdk</span>::<span class="n">EntryValidationData</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&gt;|</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="nb">Ok</span><span class="p">(())</span><span class="w"></span>
+<span class="w">            </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="n">links</span>: <span class="p">[</span><span class="w"></span>
+<span class="w">                </span><span class="n">to</span><span class="o">!</span><span class="p">(</span><span class="w"></span>
+<span class="w">                    </span><span class="s">&quot;listItem&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                    </span><span class="n">link_type</span>: <span class="s">&quot;items&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                    </span><span class="n">validation_package</span>: <span class="o">||</span><span class="w"> </span><span class="n">hdk</span>::<span class="n">ValidationPackageDefinition</span>::<span class="n">Entry</span><span class="p">,</span><span class="w"></span>
+<span class="w">                    </span><span class="n">validation</span>: <span class="o">|</span><span class="n">_validation_data</span>: <span class="nc">hdk</span>::<span class="n">LinkValidationData</span><span class="o">|</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                        </span><span class="nb">Ok</span><span class="p">(())</span><span class="w"></span>
+<span class="w">                    </span><span class="p">}</span><span class="w"></span>
+<span class="w">                </span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="p">]</span><span class="w"></span>
+<span class="w">        </span><span class="p">),</span><span class="w"></span>
+<span class="w">        </span><span class="n">entry</span><span class="o">!</span><span class="p">(</span><span class="w"></span>
+<span class="w">            </span><span class="n">name</span>: <span class="s">&quot;listItem&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="n">description</span>: <span class="s">&quot;&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="n">sharing</span>: <span class="nc">Sharing</span>::<span class="n">Public</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="n">validation_package</span>: <span class="o">||</span><span class="w"> </span><span class="n">hdk</span>::<span class="n">ValidationPackageDefinition</span>::<span class="n">Entry</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="n">validation</span>: <span class="o">|</span><span class="n">validation_data</span>: <span class="nc">hdk</span>::<span class="n">EntryValidationData</span><span class="o">&lt;</span><span class="n">ListItem</span><span class="o">&gt;|</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="nb">Ok</span><span class="p">(())</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">]</span><span class="w"></span>
+
+<span class="c1">// -- SNIP-- //</span>
+</pre></div>
+
+<p>Take note of the <code>native_type</code> field of the macro which gives which Rust struct represents the entry type. The <code>validation_package</code> field is a function that defines what data should be passed to the validation function through the <code>ctx</code> argument. In this case we use a predefined function to only include the entry itself, but it is also possible to pass chain headers, chain entries or the full local chain. The validation field is a function that performs custom validation for the entry. In both our cases we are just returning <code>Ok(())</code>.</p>
+<p>Take note also of the <code>links</code> field. As we will see later links are the main way to encode relational data in holochain. The <code>links</code> section of the entry macro defines what other types of entries are allowed to link to and from this type. This also includes a validation function for fine grain control over linking.</p>
+<h2 id="adding-functions">Adding Functions<a class="headerlink" href="#adding-functions" title="Permanent link">&para;</a></h2>
+<p>Finally we need a way to interact with the hApp. We will define the following functions: <code>create_list</code>, <code>add_item</code> and <code>get_list</code>. get_list will retrieve a list and all the items linked to each list.</p>
+<p>For each of these functions we must define a handler, which is a Rust function that will be executed when the conductor calls the function. (For more on conductors, read Nico's recent post.) It is best practice for functions to always return a <code>ZomeApiResult&lt;T&gt;</code>, where <code>T</code> is the type the function should return if it runs without error. This is an extension of the Rust Result type and allows zome functions to abort early on errors using the <code>?</code> operator. At the moment the handler function names cannot be the same as the function itself so we will prefix them with <code>handle_</code>. This will be fixed in an upcoming release. The handler for <code>create_list</code> could be written as:</p>
+<div class="codehilite"><pre><span></span><span class="k">fn</span> <span class="nf">handle_create_list</span><span class="p">(</span><span class="n">list</span>: <span class="nc">List</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nc">ZomeApiResult</span><span class="o">&lt;</span><span class="n">Address</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// define the entry</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">list_entry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Entry</span>::<span class="n">App</span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="s">&quot;list&quot;</span><span class="p">.</span><span class="n">into</span><span class="p">(),</span><span class="w"></span>
+<span class="w">        </span><span class="n">list</span><span class="p">.</span><span class="n">into</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// commit the entry and return the address</span>
+<span class="w">    </span><span class="n">hdk</span>::<span class="n">commit_entry</span><span class="p">(</span><span class="o">&amp;</span><span class="n">list_entry</span><span class="p">)</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+
+<p>The <code>hdk::commit_entry</code> function is how a zome can interact with holochain core to add entries to the DHT or local chain. This will trigger the validation function for the entry and if successful will store the entry and return its hash/address.</p>
+<p>The <code>add_item</code> function requires the use of holochain links to associate two entries. In holochain-proto this required the use of a commit with a special Links entry but it can now be done using the HDK function <code>link_entries(address1, address2, link_type, tag)</code>. The <code>link_type</code> must exactly match one of the types of links defined in an <code>entry!</code> macro for this base (e.g. <code>link_type: "items"</code> in this case). The <code>tag</code> can be any string we wish to associate with this individual link. We will just use an empty string for this example. The add item handler accepts a <code>ListItem</code> and an address of a list, commits the <code>ListItem</code>, then links it to the list address:</p>
+<div class="codehilite"><pre><span></span><span class="k">fn</span> <span class="nf">handle_add_item</span><span class="p">(</span><span class="n">list_item</span>: <span class="nc">ListItem</span><span class="p">,</span><span class="w"> </span><span class="n">list_addr</span>: <span class="nc">HashString</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nc">ZomeApiResult</span><span class="o">&lt;</span><span class="n">Address</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// define the entry</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">list_item_entry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Entry</span>::<span class="n">App</span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="s">&quot;listItem&quot;</span><span class="p">.</span><span class="n">into</span><span class="p">(),</span><span class="w"></span>
+<span class="w">        </span><span class="n">list_item</span><span class="p">.</span><span class="n">into</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">item_addr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hdk</span>::<span class="n">commit_entry</span><span class="p">(</span><span class="o">&amp;</span><span class="n">list_item_entry</span><span class="p">)</span><span class="o">?</span><span class="p">;</span><span class="w"> </span><span class="c1">// commit the list item</span>
+<span class="w">    </span><span class="n">hdk</span>::<span class="n">link_entries</span><span class="p">(</span><span class="o">&amp;</span><span class="n">list_addr</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">item_addr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;items&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">)</span><span class="o">?</span><span class="p">;</span><span class="w"> </span><span class="c1">// if successful, link to list address</span>
+<span class="w">    </span><span class="nb">Ok</span><span class="p">(</span><span class="n">item_addr</span><span class="p">)</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+
+<p>At the moment there is no validation done on the link entries. This will be added soon with an additional validation callback.</p>
+<p>Finally, <code>get_list</code> requires us to use the HDK function <code>get_links(base_address, link_type, tag)</code>. As you may have guessed, this will return the addresses of all the entries that are linked to the <code>base_address</code> with a given link_type and a given tag. Both <code>link_type</code> and <code>tag</code> are LinkMatch types, which is an enum for matching anything, matching exactly, or matching with a regular expression. Passing <code>LinkMatch::Exactly("string")</code> means retrieve links that match the type/tag string exactly and passing <code>LinkMatch::Any</code> to either of them means to retrieve all links regardless of the type/tag. As this only returns the addresses, we must then map over each of then and load the required entry.</p>
+<div class="codehilite"><pre><span></span><span class="k">fn</span> <span class="nf">handle_get_list</span><span class="p">(</span><span class="n">list_addr</span>: <span class="nc">HashString</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nc">ZomeApiResult</span><span class="o">&lt;</span><span class="n">GetListResponse</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// load the list entry. Early return error if it cannot load or is wrong type</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hdk</span>::<span class="n">utils</span>::<span class="n">get_as_type</span>::<span class="o">&lt;</span><span class="n">List</span><span class="o">&gt;</span><span class="p">(</span><span class="n">list_addr</span><span class="p">.</span><span class="n">clone</span><span class="p">())</span><span class="o">?</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// try and load the list items, filter out errors and collect in a vector</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">list_items</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hdk</span>::<span class="n">get_links</span><span class="p">(</span><span class="o">&amp;</span><span class="n">list_addr</span><span class="p">,</span><span class="w"> </span><span class="n">LinkMatch</span>::<span class="n">Exactly</span><span class="p">(</span><span class="s">&quot;items&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">LinkMatch</span>::<span class="n">Any</span><span class="p">)</span><span class="o">?</span><span class="p">.</span><span class="n">addresses</span><span class="p">()</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="n">iter</span><span class="p">()</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="n">map</span><span class="p">(</span><span class="o">|</span><span class="n">item_address</span><span class="o">|</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">hdk</span>::<span class="n">utils</span>::<span class="n">get_as_type</span>::<span class="o">&lt;</span><span class="n">ListItem</span><span class="o">&gt;</span><span class="p">(</span><span class="n">item_address</span><span class="p">.</span><span class="n">to_owned</span><span class="p">())</span><span class="w"></span>
+<span class="w">        </span><span class="p">})</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="n">filter_map</span><span class="p">(</span><span class="nb">Result</span>::<span class="n">ok</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="n">collect</span>::<span class="o">&lt;</span><span class="nb">Vec</span><span class="o">&lt;</span><span class="n">ListItem</span><span class="o">&gt;&gt;</span><span class="p">();</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// if this was successful then return the list items</span>
+<span class="w">    </span><span class="nb">Ok</span><span class="p">(</span><span class="n">GetListResponse</span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">name</span>: <span class="nc">list</span><span class="p">.</span><span class="n">name</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="n">items</span>: <span class="nc">list_items</span><span class="w"></span>
+<span class="w">    </span><span class="p">})</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+
+<p>Phew! That is all the handlers set up. Finally the function definitions must be added to the <code>define_zome!</code> macro. Before doing that, it is worth briefly discussing a new concept in Holochain, <em>traits</em>. Traits allow functions to be grouped to control access and in the future will allow hApps to connect to other hApps that implement a particular trait. At this time the only trait we need to consider is the hc_public trait. This is a special named trait that exposes all of the contained functions to the outside world.</p>
+<p>The function field of our zome definition should be updated to:</p>
+<div class="codehilite"><pre><span></span>define_zome! {
+
+    // -- SNIP-- //
+    functions: [
+        create_list: {
+            inputs: |list: List|,
+            outputs: |result: ZomeApiResult&lt;Address&gt;|,
+            handler: handle_create_list
+        }
+        add_item: {
+            inputs: |list_item: ListItem, list_addr: HashString|,
+            outputs: |result: ZomeApiResult&lt;Address&gt;|,
+            handler: handle_add_item
+        }
+        get_list: {
+            inputs: |list_addr: HashString|,
+            outputs: |result: ZomeApiResult&lt;GetListResponse&gt;|,
+            handler: handle_get_list
+        }
+        ]
+        traits: {
+        hc_public [create_list, add_item, get_list]
+        }
+}
+</pre></div>
+
+<p>and there we have it! If you are coding along the full lib.rs should now look like this:</p>
+<div class="codehilite"><pre><span></span><span class="cp">#[macro_use]</span><span class="w"></span>
+<span class="k">extern</span><span class="w"> </span><span class="k">crate</span><span class="w"> </span><span class="n">hdk</span><span class="p">;</span><span class="w"></span>
+<span class="cp">#[macro_use]</span><span class="w"></span>
+<span class="k">extern</span><span class="w"> </span><span class="k">crate</span><span class="w"> </span><span class="n">serde_derive</span><span class="p">;</span><span class="w"></span>
+<span class="cp">#[macro_use]</span><span class="w"></span>
+<span class="k">extern</span><span class="w"> </span><span class="k">crate</span><span class="w"> </span><span class="n">holochain_persistence_derive</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">use</span><span class="w"> </span><span class="n">hdk</span>::<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">error</span>::<span class="n">ZomeApiResult</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">holochain_core_types</span>::<span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">hash</span>::<span class="n">HashString</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="n">error</span>::<span class="n">HolochainError</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="n">dna</span>::<span class="n">entry_types</span>::<span class="n">Sharing</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="n">json</span>::<span class="n">JsonString</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="n">cas</span>::<span class="n">content</span>::<span class="n">Address</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="n">entry</span>::<span class="n">Entry</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+
+<span class="n">define_zome</span><span class="o">!</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">entries</span>: <span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="n">entry</span><span class="o">!</span><span class="p">(</span><span class="w"></span>
+<span class="w">            </span><span class="n">name</span>: <span class="s">&quot;list&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="n">description</span>: <span class="s">&quot;&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="n">sharing</span>: <span class="nc">Sharing</span>::<span class="n">Public</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="n">validation_package</span>: <span class="o">||</span><span class="w"> </span><span class="n">hdk</span>::<span class="n">ValidationPackageDefinition</span>::<span class="n">Entry</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="n">validation</span>: <span class="o">|</span><span class="n">validation_data</span>: <span class="nc">hdk</span>::<span class="n">EntryValidationData</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&gt;|</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="nb">Ok</span><span class="p">(())</span><span class="w"></span>
+<span class="w">            </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="n">links</span>: <span class="p">[</span><span class="w"></span>
+<span class="w">                </span><span class="n">to</span><span class="o">!</span><span class="p">(</span><span class="w"></span>
+<span class="w">                    </span><span class="s">&quot;listItem&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                    </span><span class="n">link_type</span>: <span class="s">&quot;items&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                    </span><span class="n">validation_package</span>: <span class="o">||</span><span class="w"> </span><span class="n">hdk</span>::<span class="n">ValidationPackageDefinition</span>::<span class="n">Entry</span><span class="p">,</span><span class="w"></span>
+<span class="w">                    </span><span class="n">validation</span>: <span class="o">|</span><span class="n">_validation_data</span>: <span class="nc">hdk</span>::<span class="n">LinkValidationData</span><span class="o">|</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                        </span><span class="nb">Ok</span><span class="p">(())</span><span class="w"></span>
+<span class="w">                    </span><span class="p">}</span><span class="w"></span>
+<span class="w">                </span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="p">]</span><span class="w"></span>
+<span class="w">        </span><span class="p">),</span><span class="w"></span>
+<span class="w">        </span><span class="n">entry</span><span class="o">!</span><span class="p">(</span><span class="w"></span>
+<span class="w">            </span><span class="n">name</span>: <span class="s">&quot;listItem&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="n">description</span>: <span class="s">&quot;&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="n">sharing</span>: <span class="nc">Sharing</span>::<span class="n">Public</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="n">validation_package</span>: <span class="o">||</span><span class="w"> </span><span class="n">hdk</span>::<span class="n">ValidationPackageDefinition</span>::<span class="n">Entry</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="n">validation</span>: <span class="o">|</span><span class="n">validation_data</span>: <span class="nc">hdk</span>::<span class="n">EntryValidationData</span><span class="o">&lt;</span><span class="n">ListItem</span><span class="o">&gt;|</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="nb">Ok</span><span class="p">(())</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">]</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">init</span>: <span class="o">||</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nb">Ok</span><span class="p">(())</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">validate_agent</span>: <span class="o">|</span><span class="n">validation_data</span><span class="w"> </span>: <span class="nc">EntryValidationData</span>::<span class="o">&lt;</span><span class="n">AgentId</span><span class="o">&gt;|</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nb">Ok</span><span class="p">(())</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">functions</span>: <span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="n">create_list</span>: <span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">inputs</span>: <span class="o">|</span><span class="n">list</span>: <span class="nc">List</span><span class="o">|</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="n">outputs</span>: <span class="o">|</span><span class="n">result</span>: <span class="nc">ZomeApiResult</span><span class="o">&lt;</span><span class="n">Address</span><span class="o">&gt;|</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="n">handler</span>: <span class="nc">handle_create_list</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="n">add_item</span>: <span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">inputs</span>: <span class="o">|</span><span class="n">list_item</span>: <span class="nc">ListItem</span><span class="p">,</span><span class="w"> </span><span class="n">list_addr</span>: <span class="nc">HashString</span><span class="o">|</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="n">outputs</span>: <span class="o">|</span><span class="n">result</span>: <span class="nc">ZomeApiResult</span><span class="o">&lt;</span><span class="n">Address</span><span class="o">&gt;|</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="n">handler</span>: <span class="nc">handle_add_item</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="n">get_list</span>: <span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">inputs</span>: <span class="o">|</span><span class="n">list_addr</span>: <span class="nc">HashString</span><span class="o">|</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="n">outputs</span>: <span class="o">|</span><span class="n">result</span>: <span class="nc">ZomeApiResult</span><span class="o">&lt;</span><span class="n">GetListResponse</span><span class="o">&gt;|</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="n">handler</span>: <span class="nc">handle_get_list</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">]</span><span class="w"></span>
+<span class="w">    </span><span class="n">traits</span>: <span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">hc_public</span><span class="w"> </span><span class="p">[</span><span class="n">create_list</span><span class="p">,</span><span class="w"> </span><span class="n">add_item</span><span class="p">,</span><span class="w"> </span><span class="n">get_list</span><span class="p">]</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+
+<span class="cp">#[derive(Serialize, Deserialize, Debug, Clone, DefaultJson)]</span><span class="w"></span>
+<span class="k">struct</span> <span class="nc">List</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">name</span>: <span class="nb">String</span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="cp">#[derive(Serialize, Deserialize, Debug, Clone, DefaultJson)]</span><span class="w"></span>
+<span class="k">struct</span> <span class="nc">ListItem</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">text</span>: <span class="nb">String</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">completed</span>: <span class="kt">bool</span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="cp">#[derive(Serialize, Deserialize, Debug, DefaultJson)]</span><span class="w"></span>
+<span class="k">struct</span> <span class="nc">GetListResponse</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">name</span>: <span class="nb">String</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">items</span>: <span class="nb">Vec</span><span class="o">&lt;</span><span class="n">ListItem</span><span class="o">&gt;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="k">fn</span> <span class="nf">handle_create_list</span><span class="p">(</span><span class="n">list</span>: <span class="nc">List</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nc">ZomeApiResult</span><span class="o">&lt;</span><span class="n">Address</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// define the entry</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">list_entry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Entry</span>::<span class="n">App</span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="s">&quot;list&quot;</span><span class="p">.</span><span class="n">into</span><span class="p">(),</span><span class="w"></span>
+<span class="w">        </span><span class="n">list</span><span class="p">.</span><span class="n">into</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// commit the entry and return the address</span>
+<span class="w">    </span><span class="n">hdk</span>::<span class="n">commit_entry</span><span class="p">(</span><span class="o">&amp;</span><span class="n">list_entry</span><span class="p">)</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+
+<span class="k">fn</span> <span class="nf">handle_add_item</span><span class="p">(</span><span class="n">list_item</span>: <span class="nc">ListItem</span><span class="p">,</span><span class="w"> </span><span class="n">list_addr</span>: <span class="nc">HashString</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nc">ZomeApiResult</span><span class="o">&lt;</span><span class="n">Address</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// define the entry</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">list_item_entry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Entry</span>::<span class="n">App</span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="s">&quot;listItem&quot;</span><span class="p">.</span><span class="n">into</span><span class="p">(),</span><span class="w"></span>
+<span class="w">        </span><span class="n">list_item</span><span class="p">.</span><span class="n">into</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">item_addr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hdk</span>::<span class="n">commit_entry</span><span class="p">(</span><span class="o">&amp;</span><span class="n">list_item_entry</span><span class="p">)</span><span class="o">?</span><span class="p">;</span><span class="w"> </span><span class="c1">// commit the list item</span>
+<span class="w">    </span><span class="n">hdk</span>::<span class="n">link_entries</span><span class="p">(</span><span class="o">&amp;</span><span class="n">list_addr</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">item_addr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;items&quot;</span><span class="p">)</span><span class="o">?</span><span class="p">;</span><span class="w"> </span><span class="c1">// if successful, link to list address</span>
+<span class="w">    </span><span class="nb">Ok</span><span class="p">(</span><span class="n">item_addr</span><span class="p">)</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+
+<span class="k">fn</span> <span class="nf">handle_get_list</span><span class="p">(</span><span class="n">list_addr</span>: <span class="nc">HashString</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nc">ZomeApiResult</span><span class="o">&lt;</span><span class="n">GetListResponse</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// load the list entry. Early return error if it cannot load or is wrong type</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hdk</span>::<span class="n">utils</span>::<span class="n">get_as_type</span>::<span class="o">&lt;</span><span class="n">List</span><span class="o">&gt;</span><span class="p">(</span><span class="n">list_addr</span><span class="p">.</span><span class="n">clone</span><span class="p">())</span><span class="o">?</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// try and load the list items, filter out errors and collect in a vector</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">list_items</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hdk</span>::<span class="n">get_links</span><span class="p">(</span><span class="o">&amp;</span><span class="n">list_addr</span><span class="p">,</span><span class="w"> </span><span class="n">LinkMatch</span>::<span class="n">Exactly</span><span class="p">(</span><span class="s">&quot;items&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">LinkMatch</span>::<span class="n">Any</span><span class="p">)</span><span class="o">?</span><span class="p">.</span><span class="n">addresses</span><span class="p">()</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="n">iter</span><span class="p">()</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="n">map</span><span class="p">(</span><span class="o">|</span><span class="n">item_address</span><span class="o">|</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">hdk</span>::<span class="n">utils</span>::<span class="n">get_as_type</span>::<span class="o">&lt;</span><span class="n">ListItem</span><span class="o">&gt;</span><span class="p">(</span><span class="n">item_address</span><span class="p">.</span><span class="n">to_owned</span><span class="p">())</span><span class="w"></span>
+<span class="w">        </span><span class="p">})</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="n">filter_map</span><span class="p">(</span><span class="nb">Result</span>::<span class="n">ok</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="n">collect</span>::<span class="o">&lt;</span><span class="nb">Vec</span><span class="o">&lt;</span><span class="n">ListItem</span><span class="o">&gt;&gt;</span><span class="p">();</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// if this was successful then return the list items</span>
+<span class="w">    </span><span class="nb">Ok</span><span class="p">(</span><span class="n">GetListResponse</span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">name</span>: <span class="nc">list</span><span class="p">.</span><span class="n">name</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="n">items</span>: <span class="nc">list_items</span><span class="w"></span>
+<span class="w">    </span><span class="p">})</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+
+<p>The Zome we created should now build if we run:</p>
+<div class="codehilite"><pre><span></span>hc package
+</pre></div>
+
+<p>from the root directory. This will compile the Rust to WebAssembly and produce a <code>holochain-rust-todo.dna.json</code> file in the <code>dist</code> folder which contains the compiled WASM code and the required metadata. This is the file that we can load and run using <code>hc</code>.</p>
+<h2 id="writing-tests">Writing tests<a class="headerlink" href="#writing-tests" title="Permanent link">&para;</a></h2>
+<p>The testing framework is built on JavaScript around Tape.js and allows for writing single agent and muti-agent tests using javascript async/await syntax.
+Opening up the <code>test/index.js</code> file you will see a skeleton test file already created:</p>
+<div class="codehilite"><pre><span></span><span class="c1">// This test file uses the tape testing framework.</span>
+<span class="c1">// To learn more, go here: https://github.com/substack/tape</span>
+<span class="kr">const</span> <span class="p">{</span> <span class="nx">Config</span><span class="p">,</span> <span class="nx">Scenario</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;@holochain/holochain-nodejs&quot;</span><span class="p">)</span>
+<span class="nx">Scenario</span><span class="p">.</span><span class="nx">setTape</span><span class="p">(</span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;tape&quot;</span><span class="p">))</span>
+
+<span class="kr">const</span> <span class="nx">dnaPath</span> <span class="o">=</span> <span class="s2">&quot;./dist/holochain-rust-todo.dna.json&quot;</span>
+<span class="kr">const</span> <span class="nx">agentAlice</span> <span class="o">=</span> <span class="nx">Config</span><span class="p">.</span><span class="nx">agent</span><span class="p">(</span><span class="s2">&quot;alice&quot;</span><span class="p">)</span>
+<span class="kr">const</span> <span class="nx">dna</span> <span class="o">=</span> <span class="nx">Config</span><span class="p">.</span><span class="nx">dna</span><span class="p">(</span><span class="nx">dnaPath</span><span class="p">)</span>
+<span class="kr">const</span> <span class="nx">instanceAlice</span> <span class="o">=</span> <span class="nx">Config</span><span class="p">.</span><span class="nx">instance</span><span class="p">(</span><span class="nx">agentAlice</span><span class="p">,</span> <span class="nx">dna</span><span class="p">)</span>
+<span class="kr">const</span> <span class="nx">scenario</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Scenario</span><span class="p">([</span><span class="nx">instanceAlice</span><span class="p">])</span>
+
+<span class="nx">scenario</span><span class="p">.</span><span class="nx">runTape</span><span class="p">(</span><span class="s2">&quot;description of example test&quot;</span><span class="p">,</span> <span class="nx">async</span> <span class="p">(</span><span class="nx">t</span><span class="p">,</span> <span class="p">{</span> <span class="nx">alice</span> <span class="p">})</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// Make a call to a Zome function</span>
+  <span class="c1">// indicating the function, and passing it an input</span>
+  <span class="kr">const</span> <span class="nx">addr</span> <span class="o">=</span> <span class="nx">alice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="s2">&quot;my_zome&quot;</span><span class="p">,</span> <span class="s2">&quot;create_my_entry&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;entry&quot;</span> <span class="o">:</span> <span class="p">{</span><span class="s2">&quot;content&quot;</span><span class="o">:</span><span class="s2">&quot;sample content&quot;</span><span class="p">}})</span>
+  <span class="kr">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">alice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="s2">&quot;my_zome&quot;</span><span class="p">,</span> <span class="s2">&quot;get_my_entry&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;address&quot;</span><span class="o">:</span> <span class="nx">addr</span><span class="p">.</span><span class="nx">Ok</span><span class="p">})</span>
+
+  <span class="c1">// check for equality of the actual and expected results</span>
+  <span class="nx">t</span><span class="p">.</span><span class="nx">deepEqual</span><span class="p">(</span><span class="nx">result</span><span class="p">,</span> <span class="p">{</span> <span class="nx">Ok</span><span class="o">:</span> <span class="p">{</span> <span class="nx">App</span><span class="o">:</span> <span class="p">[</span> <span class="s1">&#39;my_entry&#39;</span><span class="p">,</span> <span class="s1">&#39;{&quot;content&quot;:&quot;sample content&quot;}&#39;</span> <span class="p">]</span> <span class="p">}</span> <span class="p">})</span>
+<span class="p">})</span>
+</pre></div>
+
+<p>This illustrates the <code>app.call</code> function that is exposed by the conductor for each app and that can be used to call our functions. Take note that the input-data should be a JSON object that matches the function signature. <code>call</code> will also return a JSON object.</p>
+<p>Lets add some tests for our todo list:</p>
+<div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="p">{</span> <span class="nx">Config</span><span class="p">,</span> <span class="nx">Scenario</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@holochain/holochain-nodejs&#39;</span><span class="p">)</span>
+<span class="nx">Scenario</span><span class="p">.</span><span class="nx">setTape</span><span class="p">(</span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;tape&#39;</span><span class="p">))</span>
+<span class="kr">const</span> <span class="nx">dnaPath</span> <span class="o">=</span> <span class="s2">&quot;./dist/holochain-rust-todo.dna.json&quot;</span>
+<span class="kr">const</span> <span class="nx">dna</span> <span class="o">=</span> <span class="nx">Config</span><span class="p">.</span><span class="nx">dna</span><span class="p">(</span><span class="nx">dnaPath</span><span class="p">,</span> <span class="s1">&#39;happs&#39;</span><span class="p">)</span>
+<span class="kr">const</span> <span class="nx">agentAlice</span> <span class="o">=</span> <span class="nx">Config</span><span class="p">.</span><span class="nx">agent</span><span class="p">(</span><span class="s1">&#39;alice&#39;</span><span class="p">)</span>
+<span class="kr">const</span> <span class="nx">instanceAlice</span> <span class="o">=</span> <span class="nx">Config</span><span class="p">.</span><span class="nx">instance</span><span class="p">(</span><span class="nx">agentAlice</span><span class="p">,</span> <span class="nx">dna</span><span class="p">)</span>
+<span class="kr">const</span> <span class="nx">scenario</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Scenario</span><span class="p">([</span><span class="nx">instanceAlice</span><span class="p">])</span>
+
+<span class="nx">scenario</span><span class="p">.</span><span class="nx">runTape</span><span class="p">(</span><span class="s1">&#39;Can create a list&#39;</span><span class="p">,</span> <span class="nx">async</span> <span class="p">(</span><span class="nx">t</span><span class="p">,</span> <span class="p">{</span> <span class="nx">alice</span> <span class="p">})</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">createResult</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">alice</span><span class="p">.</span><span class="nx">callSync</span><span class="p">(</span><span class="s1">&#39;lists&#39;</span><span class="p">,</span> <span class="s1">&#39;create_list&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">list</span><span class="o">:</span> <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;test list&#39;</span> <span class="p">}</span> <span class="p">})</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">createResult</span><span class="p">)</span>
+  <span class="nx">t</span><span class="p">.</span><span class="nx">notEqual</span><span class="p">(</span><span class="nx">createResult</span><span class="p">.</span><span class="nx">Ok</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">)</span>
+<span class="p">})</span>
+
+<span class="nx">scenario</span><span class="p">.</span><span class="nx">runTape</span><span class="p">(</span><span class="s1">&#39;Can add some items&#39;</span><span class="p">,</span> <span class="nx">async</span> <span class="p">(</span><span class="nx">t</span><span class="p">,</span> <span class="p">{</span> <span class="nx">alice</span> <span class="p">})</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">createResult</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">alice</span><span class="p">.</span><span class="nx">callSync</span><span class="p">(</span><span class="s1">&#39;lists&#39;</span><span class="p">,</span> <span class="s1">&#39;create_list&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">list</span><span class="o">:</span> <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;test list&#39;</span> <span class="p">}</span> <span class="p">})</span>
+  <span class="kr">const</span> <span class="nx">listAddr</span> <span class="o">=</span> <span class="nx">createResult</span><span class="p">.</span><span class="nx">Ok</span>
+
+  <span class="kr">const</span> <span class="nx">result1</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">alice</span><span class="p">.</span><span class="nx">callSync</span><span class="p">(</span><span class="s1">&#39;lists&#39;</span><span class="p">,</span> <span class="s1">&#39;add_item&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">list_item</span><span class="o">:</span> <span class="p">{</span> <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;Learn Rust&#39;</span><span class="p">,</span> <span class="nx">completed</span><span class="o">:</span> <span class="kc">true</span> <span class="p">},</span> <span class="nx">list_addr</span><span class="o">:</span> <span class="nx">listAddr</span> <span class="p">})</span>
+  <span class="kr">const</span> <span class="nx">result2</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">alice</span><span class="p">.</span><span class="nx">callSync</span><span class="p">(</span><span class="s1">&#39;lists&#39;</span><span class="p">,</span> <span class="s1">&#39;add_item&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">list_item</span><span class="o">:</span> <span class="p">{</span> <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;Master Holochain&#39;</span><span class="p">,</span> <span class="nx">completed</span><span class="o">:</span> <span class="kc">false</span> <span class="p">},</span> <span class="nx">list_addr</span><span class="o">:</span> <span class="nx">listAddr</span> <span class="p">})</span>
+
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result1</span><span class="p">)</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result2</span><span class="p">)</span>
+
+  <span class="nx">t</span><span class="p">.</span><span class="nx">notEqual</span><span class="p">(</span><span class="nx">result1</span><span class="p">.</span><span class="nx">Ok</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">)</span>
+  <span class="nx">t</span><span class="p">.</span><span class="nx">notEqual</span><span class="p">(</span><span class="nx">result2</span><span class="p">.</span><span class="nx">Ok</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">)</span>
+<span class="p">})</span>
+
+<span class="nx">scenario</span><span class="p">.</span><span class="nx">runTape</span><span class="p">(</span><span class="s1">&#39;Can get a list with items&#39;</span><span class="p">,</span> <span class="nx">async</span> <span class="p">(</span><span class="nx">t</span><span class="p">,</span> <span class="p">{</span> <span class="nx">alice</span> <span class="p">})</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">createResult</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">alice</span><span class="p">.</span><span class="nx">callSync</span><span class="p">(</span><span class="s1">&#39;lists&#39;</span><span class="p">,</span> <span class="s1">&#39;create_list&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">list</span><span class="o">:</span> <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;test list&#39;</span> <span class="p">}</span> <span class="p">})</span>
+  <span class="kr">const</span> <span class="nx">listAddr</span> <span class="o">=</span> <span class="nx">createResult</span><span class="p">.</span><span class="nx">Ok</span>
+
+  <span class="nx">await</span> <span class="nx">alice</span><span class="p">.</span><span class="nx">callSync</span><span class="p">(</span><span class="s1">&#39;lists&#39;</span><span class="p">,</span> <span class="s1">&#39;add_item&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">list_item</span><span class="o">:</span> <span class="p">{</span> <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;Learn Rust&#39;</span><span class="p">,</span> <span class="nx">completed</span><span class="o">:</span> <span class="kc">true</span> <span class="p">},</span> <span class="nx">list_addr</span><span class="o">:</span> <span class="nx">listAddr</span> <span class="p">})</span>
+  <span class="nx">await</span> <span class="nx">alice</span><span class="p">.</span><span class="nx">callSync</span><span class="p">(</span><span class="s1">&#39;lists&#39;</span><span class="p">,</span> <span class="s1">&#39;add_item&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">list_item</span><span class="o">:</span> <span class="p">{</span> <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;Master Holochain&#39;</span><span class="p">,</span> <span class="nx">completed</span><span class="o">:</span> <span class="kc">false</span> <span class="p">},</span> <span class="nx">list_addr</span><span class="o">:</span> <span class="nx">listAddr</span> <span class="p">})</span>
+
+  <span class="kr">const</span> <span class="nx">getResult</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">alice</span><span class="p">.</span><span class="nx">callSync</span><span class="p">(</span><span class="s1">&#39;lists&#39;</span><span class="p">,</span> <span class="s1">&#39;get_list&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">list_addr</span><span class="o">:</span> <span class="nx">listAddr</span> <span class="p">})</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">getResult</span><span class="p">)</span>
+
+  <span class="nx">t</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">getResult</span><span class="p">.</span><span class="nx">Ok</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;there should be 2 items in the list&#39;</span><span class="p">)</span>
+<span class="p">})</span>
+</pre></div>
+
+<p>Running <code>hc test</code> will build the test file and run it using <code>node</code> which is able to load and execute holochain hApps via the holochain node conductor. If everything has worked correctly you should see some test output with everything passing.</p>
+<p>Pro tip: <a href="https://github.com/scottcorgan/tap-spec">Pipe the output to tap-spec</a> (which must be installed via npm first) to get beautifully formatted test output.</p>
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<p>And there we have it! A simple Zome created with Holochain using the Rust HDK.</p>
+<p>The <a href="https://github.com/willemolding/holochain-rust-todo">complete working version of this project is available on github</a>. This builds under the 0.0.9-alpha release but as the API and HDK are changing it will likely fail under newer releases.</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../zome/welcome/" title="Building Holochain Apps: Zome Code" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Building Holochain Apps: Zome Code
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../zome/adding_a_zome/" title="Adding a Zome" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Adding a Zome
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.c648116f.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>
