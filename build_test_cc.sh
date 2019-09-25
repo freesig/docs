@@ -25,8 +25,7 @@ echo "testing: ${CONCEPT}"
 
 hc test 
 if [ "${?}" -gt 0 ]; then
-  echo ${CONCEPT}
-  exit 1
+  echo "${CONCEPT} failed test"
 fi
 
 cd ..
