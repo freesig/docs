@@ -6,6 +6,8 @@ jobs:
 
     steps:
       - checkout
+      - restore_cache:
+          key: -V1-cc_tuts
       - run:
           name: Get single_source 
           command: nix-shell https://holochain.love --run 'git clone https://github.com/freesig/single_source.git && cd single_source && cargo build --release && cd ../ && mkdir utility && cp single_source/target/release/single_source utility/single_source'
@@ -18,6 +20,10 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - "08:d9:fc:72:f9:a4:ab:26:5f:32:29:2e:15:f1:85:ee"
+      - save_cache:
+          key: -V1-cc_tuts
+          paths:
+            - "cc_tuts"
       - run:
           name: Set github 
           command: git config --global user.email "circleci@circleci" && git config --global user.name "Circleci" && git add docs && ./update_docs.sh 

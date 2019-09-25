@@ -1,4 +1,4 @@
-\#S:EXTERNAL=hello_me.rs
+\#S:EXTERNAL=rust=hello_me.rs
 # Hello Me
 
 Welcome back to another tutorial in the Core Concepts series. Today you will learn how to add an entry type to your zome and start writing entries to your source chain. Remember an entry is a piece of data in your source chain that has been validated.
@@ -20,6 +20,9 @@ Open up your `tutorial/test/index.js`.
 
 This is how we left the testing scenario in the [Hello Test]() tutorial:
 
+\#S:MODE=test
+\#S:EXTERNAL=javascript=hello_me.js=test
+\#S:SKIP
 ```javascript
 diorama.registerScenario("Test hello holo", async (s, t, { alice }) => {
   // Make a call to the `hello_holo` Zome function
@@ -34,42 +37,7 @@ diorama.registerScenario("Test hello holo", async (s, t, { alice }) => {
   // <---- Put your new tests here
 })
 ```
-
-Add the new tests below `t.deepEqual(result, { Ok: 'Hello Holo' })`.
-
-Add a call to the `create_person` function with a person whose name is Alice:
-
-```javascript
-const create_result = await alice.call("hello", "create_person", {"person": { "name" : "Alice" }});
-```
-
-Check that the result of the call is Ok:
-
-```javascript
-t.ok(create_result.Ok);
-```
-
-Add a call to the `retrieve_person` function with the address from the last call:
-
-```javascript
-const retrieve_result = await alice.call("hello", "retrieve_person", {"address": create_result.Ok});
-```
-
-Check that this call is Ok as well:
-
-```javascript
-t.ok(retrieve_result.Ok);
-```
-This is the actual result we want at the end of the test. Check that the entry at the address is indeed `Alice`:
-
-```javascript
-t.deepEqual(retrieve_result, { Ok: { App: [ 'person', '{"name":"Alice"}' ] }})
-```
-
-### Running the test
-
-Your test should now look like this:
-
+\#S:INCLUDE,HIDE
 ```javascript
 diorama.registerScenario("Test hello holo", async (s, t, { alice }) => {
   // Make a call to the `hello_holo` Zome function
@@ -81,15 +49,49 @@ diorama.registerScenario("Test hello holo", async (s, t, { alice }) => {
   // Check that the result matches what you expected.
   t.deepEqual(result, { Ok: 'Hello Holo' })
   
+  // <---- Put your new tests here
+```
+
+Add the new tests below `t.deepEqual(result, { Ok: 'Hello Holo' })`.
+
+Add a call to the `create_person` function with a person whose name is Alice:
+
+```javascript
   const create_result = await alice.call("hello", "create_person", {"person": { "name" : "Alice" }});
+```
+
+Check that the result of the call is Ok:
+
+```javascript
   t.ok(create_result.Ok);
-  
+```
+
+Add a call to the `retrieve_person` function with the address from the last call:
+
+```javascript
   const retrieve_result = await alice.call("hello", "retrieve_person", {"address": create_result.Ok});
+```
+
+Check that this call is Ok as well:
+
+```javascript
   t.ok(retrieve_result.Ok);
-  
+```
+This is the actual result we want at the end of the test. Check that the entry at the address is indeed `Alice`:
+
+```javascript
   t.deepEqual(retrieve_result, { Ok: { App: [ 'person', '{"name":"Alice"}' ] }})
+```
+\#S:HIDE
+```javascript
+
 })
 ```
+### Running the test
+
+Your test should now look like this:
+
+\#S:CHECK=javascript=test
 
 Obviously these tests will fail right now. Can you guess what the first failure will be? Let's have a look.
 
@@ -234,83 +236,7 @@ Add the following `use` statements:
 
 ### Compile
 
-_TODO: The following code block should be collapsable_
-Check your code matches this:
-
-\#S:SKIP
-```rust
-#![feature(proc_macro_hygiene)]
-#[macro_use]
-extern crate hdk;
-extern crate hdk_proc_macros;
-extern crate serde;
-#[macro_use]
-extern crate serde_derive;
-extern crate serde_json;
-#[macro_use]
-extern crate holochain_json_derive;
-
-use hdk::{
-    entry_definition::ValidatingEntryType,
-    error::ZomeApiResult,
-};
-
-use hdk::holochain_core_types::{
-    entry::Entry,
-    dna::entry_types::Sharing,
-};
-
-use hdk::holochain_json_api::{
-    json::JsonString,
-    error::JsonError,
-};
-
-use hdk::holochain_persistence_api::{
-    cas::content::Address
-};
-
-use hdk_proc_macros::zome;
-
-#[derive(Serialize, Deserialize, Debug, DefaultJson,Clone)]
-pub struct Person{
-    name: String,
-}
-
-#[zome]
-mod hello_zome {
-
-    #[init]
-    fn init() {
-        Ok(())
-    }
-
-    #[validate_agent]
-    pub fn validate_agent(validation_data: EntryValidationData<AgentId>) {
-        Ok(())
-    }
-
-    #[entry_def]
-    fn person_entry_def() -> ValidatingEntryType {
-        entry!(
-            name: "person",
-            description: "Person to say hello to",
-            sharing: Sharing::Private,
-            validation_package: || {
-                hdk::ValidationPackageDefinition::Entry
-            },
-            validation: | _validation_data: hdk::EntryValidationData<Person>| {
-                Ok(())
-            }
-        )
-    }
-
-    #[zome_fn("hc_public")]
-    fn hello_holo() -> ZomeApiResult<String> {
-        Ok("Hello Holo".into())
-    }
-
-}
-```
+\#S:CHECK=rust
 
 Package the app (in the nix-shell) and check that there's no compile errors:
 
@@ -353,7 +279,8 @@ Return the `Ok` result with the new person entry's address:
 
 ### Compile
 
-_TODO: Add collapsable "your code should look like this section"_
+\#S:CHECK=rust
+
 Check for compile errors again:
 
 ```bash
@@ -384,7 +311,8 @@ Get the entry from your local storage, asking for it by address:
 
 ### Test
 
-_TODO: Add collapsable "your code should look like this section"_
+\#S:CHECK=rust
+
 Instead of directly compiling, you can run the test you wrote at the start (the test always compiles before it runs):
 
 ```bash
@@ -415,6 +343,7 @@ Create a new `hello.js` file, open it in your favorite editor, and open the `ind
 
 Move the everything inside the `<script>` tag into the `hello.js`:
 
+\#S:SKIP,MODE=gui
 ```javascript
 <script type="text/javascript">
 <!-- Everything from HERE to -->
@@ -610,7 +539,7 @@ function update_person(result) {
   person.textContent = " " + output.name;
 }
 ```
-\#S:HIDE
+\#S:HIDE,INCLUDE
 ```rust
 }
 ```

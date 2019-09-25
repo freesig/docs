@@ -113,7 +113,6 @@ Once that's done you can easily link to the compiled js file by adding this `scr
 Now that you have linked the hc-web-client.js library you can make a simple zome call with some vanilla JavaScript.
 
 Add this function inside your `<body>` tag:
-
 ```javascript
 <script type="text/javascript">
 ```
