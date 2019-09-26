@@ -1,9 +1,65 @@
-site_name: My Docs
+site_name: Developer Docs
+
+# Navigation
+
+nav:
+  - Get Started:
+    - Introduction:
+      - Why Holochain?: index.md
+      - What is Holochain?: XXXX.md
+      - Why Develop a hApp?: XXXX.md
+    - Is Holochain right for you?: XXXX.md
+    - Install Holochain: install.md
+  - Core Concepts:
+    - Concept 1: concepts/index.md
+    - Concept 2: concepts/XXXX.md
+    - Concept 3: concepts/XXXX.md
+  - Tutorials:
+    - Core Concepts:
+      - Concept 1 Tutorial: tutorials/index.md
+      - Concept 2 Tutorial: tutorials/XXXX.md
+      - Concept 3 Tutorial: tutorials/XXXX.md
+    - Starter App:
+      - Episode 1: tutorials/XXXX.md
+      - Episode 2: tutorials/XXXX.md
+  - Guidebook:
+    - Guidebook: https://developer.holochain.org/guide/latest/
+  - API:
+    - API: https://developer.holochain.org/api/latest/hdk/
+
+
+# Theme
+
 theme:
   name: 'material'
+  custom_dir: 'theme'
+  feature:
+    tabs: true
+  font:
+    text: 'Work Sans'
+    code: 'Roboto Mono'
+  palette:
+    primary: 'white'
+    accent: 'indigo'
+  favicon: 'https://forum.holochain.org/uploads/default/original/1X/79f6577e3c8102e1f0caf8d2f43d4fcf472a3e34.png'
+
+extra_css:
+  - 'custom/style.css'
+
+# Extensions
+
 markdown_extensions:
   - admonition
   - codehilite:
       guess_lang: false
   - toc:
       permalink: true
+  - pymdownx.tilde
+  - pymdownx.emoji
+  - pymdownx.details
+  - pymdownx.superfences
+
+# Social
+
+repo_name: 'holochain-docs'
+repo_url: 'https://github.com/holochain/docs-pages'
